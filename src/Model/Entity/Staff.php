@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  * @property string $family_name
  * @property string $phone
  * @property string $email
+ * @property string $password
  * @property string $role
  * @property \Cake\I18n\DateTime $created
  * @property \Cake\I18n\DateTime $modified
@@ -35,9 +36,19 @@ class Staff extends Entity
         'family_name' => true,
         'phone' => true,
         'email' => true,
+        'password' => true,
         'role' => true,
         'created' => true,
         'modified' => true,
         'deliveries' => true,
+    ];
+
+    /**
+     * Fields that are excluded from JSON versions of the entity.
+     *
+     * @var list<string>
+     */
+    protected array $_hidden = [
+        'password',
     ];
 }

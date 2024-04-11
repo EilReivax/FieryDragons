@@ -84,6 +84,12 @@ class StaffsTable extends Table
             ->notEmptyString('email');
 
         $validator
+            ->scalar('password')
+            ->maxLength('password', 128)
+            ->requirePresence('password', 'create')
+            ->notEmptyString('password');
+
+        $validator
             ->scalar('role')
             ->maxLength('role', 128)
             ->requirePresence('role', 'create')

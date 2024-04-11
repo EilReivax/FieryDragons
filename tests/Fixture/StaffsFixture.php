@@ -19,14 +19,15 @@ class StaffsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '5f274cbc-040f-4693-98c1-5d3e201360eb',
+                'id' => '2fb4d53d-5f24-4bf1-858d-7214519c8d31',
                 'given_name' => 'Lorem ipsum dolor sit amet',
                 'family_name' => 'Lorem ipsum dolor sit amet',
                 'phone' => 'Lorem ipsum do',
                 'email' => 'Lorem ipsum dolor sit amet',
+                'password' => 'Lorem ipsum dolor sit amet',
                 'role' => 'Lorem ipsum dolor sit amet',
-                'created' => 1712806130,
-                'modified' => 1712806130,
+                'created' => 1712814603,
+                'modified' => 1712814603,
             ],
         ];
         parent::init();

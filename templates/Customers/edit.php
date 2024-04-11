@@ -26,6 +26,7 @@
                     echo $this->Form->control('family_name');
                     echo $this->Form->control('phone');
                     echo $this->Form->control('email');
+                    echo $this->Form->control('password');
                     echo $this->Form->control('address');
                     echo $this->Form->control('suburb');
                     echo $this->Form->control('state');

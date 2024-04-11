@@ -84,6 +84,12 @@ class CustomersTable extends Table
             ->notEmptyString('email');
 
         $validator
+            ->scalar('password')
+            ->maxLength('password', 128)
+            ->requirePresence('password', 'create')
+            ->notEmptyString('password');
+
+        $validator
             ->scalar('address')
             ->allowEmptyString('address');
 
