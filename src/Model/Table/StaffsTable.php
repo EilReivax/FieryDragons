@@ -46,6 +46,7 @@ class StaffsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('CanAuthenticate');
 
         $this->hasMany('Deliveries', [
             'foreignKey' => 'staff_id',

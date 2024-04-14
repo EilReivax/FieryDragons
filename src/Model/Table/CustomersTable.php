@@ -46,6 +46,7 @@ class CustomersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('CanAuthenticate');
 
         $this->hasMany('Orders', [
             'foreignKey' => 'customer_id',
