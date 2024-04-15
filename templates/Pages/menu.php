@@ -91,26 +91,45 @@ endif;
 <main>
     <section class="menu-section">
         <h1 class="menu-title">Weekly Menu</h1>
-        <!-- First row of images -->
-            <div class="menu-row">
-        <?php for ($i = 0; $i < 4; $i++): ?>
-            <div class="menu-item">
-                <a href="/home">
-                    <?= $this->Html->image("menuitem1.jpg", ['alt' => "Menu Item"]); ?> 
-                    </a><!-- Closing anchor tag here -->
-                    <p class="menu-description">Item Description</p>            
-            </div>
-        <?php endfor; ?>
+<!-- First row of images -->
+<div class="menu-row">
+    <?php
+    $menuItems = [
+        ['image' => 'menuitem1.jpg', 'description' => 'Description for Item 1'],
+        ['image' => 'menuitem2.jpg', 'description' => 'Description for Item 2'],
+        ['image' => 'menuitem3.jpg', 'description' => 'Description for Item 3'],
+        ['image' => 'menuitem4.jpg', 'description' => 'Description for Item 4']
+    ];
+    ?>
+    <?php foreach ($menuItems as $item): ?>
+        <div class="menu-item">
+            <a href="/home">
+                <?= $this->Html->image($item['image'], ['alt' => "Menu Item", 'class' => 'menu-image']); ?>
+            </a><!-- Closing anchor tag here -->
+            <p class="menu-description"><?= h($item['description']) ?></p>
         </div>
-        <!-- Second row of images -->
-        <div class="menu-row">
-            <?php for ($i = 0; $i < 4; $i++): ?>
-                <div class="menu-item">
-                    <?= $this->Html->image("placeholder.png", ['alt' => "Menu Item"]); ?>
-                    <p class="menu-description">Item Description</p>
-                </div>
-            <?php endfor; ?>
+    <?php endforeach; ?>
+</div>
+
+<!-- Second row of images -->
+<div class="menu-row">
+    <?php
+    $menuItems = [
+        ['image' => 'menuitem5.jpg', 'description' => 'Description for Item 5'],
+        ['image' => 'menuitem6.jpg', 'description' => 'Description for Item 6'],
+        ['image' => 'menuitem7.jpg', 'description' => 'Description for Item 7'],
+        ['image' => 'menuitem8.jpg', 'description' => 'Description for Item 8']
+    ];
+    ?>
+    <?php foreach ($menuItems as $item): ?>
+        <div class="menu-item">
+            <a href="/home">
+                <?= $this->Html->image($item['image'], ['alt' => "Menu Item", 'class' => 'menu-image']); ?>
+            </a><!-- Closing anchor tag here -->
+            <p class="menu-description"><?= h($item['description']) ?></p>
         </div>
+    <?php endforeach; ?>
+</div>
     </section>
     <section class="contact-us-now">
             <h2>Contact Us Now</h2>
