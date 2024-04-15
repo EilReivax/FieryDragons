@@ -88,7 +88,7 @@ endif;
 
     </header>
     <main>
-        <section class="header-section" style="background-image: url('webroot/img/Header-home.jpeg');">
+        <section class="header-section" style="background-image: url('/img/homepage.jpg');">
             <div class="text-content">
                 <h1>HEADING</h1>
                 <h2>Subheading</h2>
