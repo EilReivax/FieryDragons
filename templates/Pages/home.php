@@ -69,24 +69,26 @@ endif;
     <body>
     <header class="navbar">
         <div class="brand-container">
-            <?= $this->Html->image('tasty-bites-logo.png', ['alt' => 'Tasty Bites Kitchen', 'class' => 'brand-logo']) ?>
+            <?= $this->Html->image('logo.png', ['alt' => 'Tasty Bites Kitchen', 'class' => 'brand-logo']) ?>
         </div>
         <nav class="nav-menu">
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Menu</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Reservations</a></li>
-                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
         <div class="icons">
-            <a href="#">Icon 1</a>
-            <a href="#">Icon 2</a>
+            <a href="webroot/img/ShoppingBasketIcon.jpg">
+                <?= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) ?>
+            </a>
+            <a href="webroot/img/profileIcon.png">
+                <?= $this->Html->image('profileIcon.png', ['alt' => 'Icon 2', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon2']]) ?>
+            </a>
         </div>
+
     </header>
     <main>
-        <section class="header-section">
+        <section class="header-section" style="background-image: url('webroot/img/Header-home.jpeg');">
             <div class="text-content">
                 <h1>HEADING</h1>
                 <h2>Subheading</h2>
