@@ -71,12 +71,12 @@ endif;
         <div class="brand-container">
             <?= $this->Html->image('logo.png', ['alt' => 'Tasty Bites Kitchen', 'class' => 'brand-logo']) ?>
         </div>
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Menu</a></li>
-            </ul>
-        </nav>
+            <nav class="nav-menu">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/menu">Menu</a></li> <!-- Updated hyperlink for the Menu item -->
+        </ul>
+            </nav>
         <div class="icons">
             <a href="webroot/img/ShoppingBasketIcon.jpg">
                 <?= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) ?>
@@ -92,7 +92,7 @@ endif;
             <div class="text-content">
                 <h1>HEADING</h1>
                 <h2>Subheading</h2>
-                <button onclick="location.href='/order'">Order Now</button>
+                <button onclick="location.href='/menu'">Order Now</button>
             </div>
         </section>
         <!-- About Us Section -->
