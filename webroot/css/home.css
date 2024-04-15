@@ -1,199 +1,184 @@
 /* Home page styles */
 @font-face {
-    font-family: 'cakefont';
-    src: url('../font/cakedingbats-webfont.eot');
-    src: url('../font/cakedingbats-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../font/cakedingbats-webfont.woff2') format('woff2'),
-    url('../font/cakedingbats-webfont.woff') format('woff'),
-    url('../font/cakedingbats-webfont.ttf') format('truetype'),
-    url('../font/cakedingbats-webfont.svg#cake_dingbatsregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'cakefont';
+  src: url('../font/cakedingbats-webfont.eot');
+  src: url('../font/cakedingbats-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../font/cakedingbats-webfont.woff2') format('woff2'),
+       url('../font/cakedingbats-webfont.woff') format('woff'),
+       url('../font/cakedingbats-webfont.ttf') format('truetype'),
+       url('../font/cakedingbats-webfont.svg#cake_dingbatsregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
+
+/* General Styles */
+body,
+.navbar,
+.footer,
+.about-header,
+.about-container,
+.contact-us-now {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #ECECEC;
-  color: #ea0d0d;
-  padding: 0;
-  margin: 0;
-  perspective: 1px;
-  transform-style: preserve-3d;
-  height: 100%;
-  overflow-x: hidden;
-  font-family: 'Roboto';
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
 }
-.left-underline {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-  overflow: hidden;
+
+/* Navbar Styles */
+.navbar {
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.left-underline:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  right: 100%;
-  bottom: 0;
-  background: #ECECEC;
-  height: 4px;
-  -webkit-transition-property: right;
-  transition-property: right;
-  -webkit-transition-duration: 0.15s;
-  transition-duration: 0.15s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+
+.navbar .brand-container img {
+  width: 120px; /* Logo size */
 }
-.left-underline:hover:before, .left-underline:focus:before, .left-underline:active:before {
-  right: 0;
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
 }
-div.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #ee6e73;
-  -webkit-box-shadow: 0px 2px 6px 0px rgba(50, 50, 50, 0.75);
-  -moz-box-shadow:    0px 2px 6px 0px rgba(50, 50, 50, 0.75);
-  box-shadow:         0px 2px 6px 0px rgba(50, 50, 50, 0.75);
-  z-index: 9999999;
+
+.nav-menu ul li {
+  margin: 0 10px;
 }
-div.navbar > ul.navbar-container {
-  list-style-type: none;
-  margin: 0;
-  padding-left: 1em;
-  padding-right: 1em;
-  overflow: hidden;
-}
-div.navbar > ul > li.nav-item {
-  float: right;
-  background-color: rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease;
-}
-div.navbar > ul > li.active {
-  background-color: rgba(0, 0, 0, 0.18);
-}
-div.navbar > ul > li:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-a.nav-button {
-  font-family: 'Roboto';
+
+.nav-menu ul li a {
+  color: #fff;
   text-decoration: none;
-  line-height: 60px;
-  padding-left: 20px;
-  padding-right: 20px;
-  color: rgba(228, 241, 254, 1);
-  transition: all 0.5s ease;
+  padding: 5px 10px;
+  transition: background 0.3s ease;
 }
-a.nav-button:hover {
-  text-decoration: none;
+
+.nav-menu ul li a:hover,
+.nav-menu ul li a:focus {
+  background: #555;
 }
-li.active > a.nav-button {
-  cursor: default;
+
+.icons a {
+  color: #fff;
+  margin-left: 10px;
 }
-.brand-logo {
-  float: left;
-  cursor: default;
+
+/* Header Section Styles */
+.header-section {
+  background: url('path/to/your/header-image.jpg') no-repeat center center/cover;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000000;
 }
-.parallax {
-  height: 70vh;
-  overflow: hidden;
+
+.header-section .text-content h1 {
+  margin-bottom: 0.5em;
+  font-size: 2.5em;
+}
+
+.header-section .text-content h2 {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+}
+
+.header-section .text-content button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.header-section .text-content button:hover {
+  background: #c0392b;
+}
+
+/* Footer Styles */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer p {
   margin: 0;
-  padding: 0;
 }
-.parallax.p1 {
-  background: url(http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-70374.jpg) no-repeat fixed 50% 0;
-  background-size: cover;
-  color: #fff;
+
+/* About Us Styles */
+.about-header {
+  background-color: #000000;
+  padding: 20px;
+  color: white;
 }
-.parallax.p2 {
-  background: url(http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-126549.jpg) no-repeat fixed 50% 0;
-  background-size: cover;
-  color: #fff;
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
 }
-.parallax.p3 {
-  background: url(http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-95766.jpg) no-repeat fixed 70% 0;
-  background-size: cover;
-  color: #fff;
+
+.about-item {
+  margin-bottom: 20px;
 }
-.parallax-text {
-  width: 24em;
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  border: .5em solid #fff;
-  margin-left: -10%;
-  padding: 2em 0;
+
+.about-item h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .about-item {
+    width: 30%;
+    padding: 0 15px;
+  }
+}
+
+/* Contact Us Now Styles */
+.contact-us-now {
+  background-color: #e2e2e2; /* Light gray background for contrast */
+  padding: 20px;
   text-align: center;
-  z-index: 999;
 }
-.parallax > div.blur-image {
-  position: relative;
-  width: 100%;
-  height: 100%;
-} 
-hgroup{
-  display: inline-block;
-  text-align: center;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  color: #fff;
-  border: 5px solid #fff;
-  padding: .5em 3em;
-  background-color: rgba(0,0,0,.2);
-  z-index: 2;
+
+.contact-us-now h2 {
+  color: #d9534f; /* Matching the About Us header */
+  margin-bottom: 15px;
 }
-.row {
-  width: 80%;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  min-height: 150px;
+
+.contact-us-now p {
+  color: #333; /* Darker text for readability */
+  margin-bottom: 10px;
 }
-.row:after {
-  content: "";
-  display: table;
+
+/* Ensuring the footer is still visible */
+footer {
   clear: both;
 }
-.row > .col-3 {
-  width: 30%;
-  height: 100%;
-  box-sizing: border-box;
-  float: left;
-  padding-left: 5px;
-  padding-right: 5px;
+
+/* Adjust button styles if necessary */
+.header-section .text-content button {
+  margin-top: 20px; /* Adds space between the subheading and the button */
 }
-footer {
-  width: 100%;
-  padding-top: 20px;
-  display: block;
-  background-color: #ee6e73;
-}
-.footer-copyright {
-  font-weight: 300;
-  overflow: hidden;
-  height: 50px;
-  line-height: 50px;
-  color: rgba(255, 255, 255, 0.8);
-  background-color: rgba(51, 51, 51, 0.08);
-}
-.container {
-  width: 85%;
-  padding: 0 1.5rem;
-  margin: 0 auto;
-  max-width: 1280px;
-}
-footer p {
-  border-left: 3px solid #ffcdd2;
-  padding-left: 15px;
-  text-indent: 20px;
-  color: #ececec;
+
+/* Add styles for icons if needed
+.icons a {
+  /* Icon styles */
 }
