@@ -9,27 +9,27 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Customers Model
+ * Users Model
  *
  * @property \App\Model\Table\OrdersTable&\Cake\ORM\Association\HasMany $Orders
  *
- * @method \App\Model\Entity\Customer newEmptyEntity()
- * @method \App\Model\Entity\Customer newEntity(array $data, array $options = [])
- * @method array<\App\Model\Entity\Customer> newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Customer get(mixed $primaryKey, array|string $finder = 'all', \Psr\SimpleCache\CacheInterface|string|null $cache = null, \Closure|string|null $cacheKey = null, mixed ...$args)
- * @method \App\Model\Entity\Customer findOrCreate($search, ?callable $callback = null, array $options = [])
- * @method \App\Model\Entity\Customer patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method array<\App\Model\Entity\Customer> patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\Customer|false save(\Cake\Datasource\EntityInterface $entity, array $options = [])
- * @method \App\Model\Entity\Customer saveOrFail(\Cake\Datasource\EntityInterface $entity, array $options = [])
- * @method iterable<\App\Model\Entity\Customer>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\Customer>|false saveMany(iterable $entities, array $options = [])
- * @method iterable<\App\Model\Entity\Customer>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\Customer> saveManyOrFail(iterable $entities, array $options = [])
- * @method iterable<\App\Model\Entity\Customer>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\Customer>|false deleteMany(iterable $entities, array $options = [])
- * @method iterable<\App\Model\Entity\Customer>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\Customer> deleteManyOrFail(iterable $entities, array $options = [])
+ * @method \App\Model\Entity\User newEmptyEntity()
+ * @method \App\Model\Entity\User newEntity(array $data, array $options = [])
+ * @method array<\App\Model\Entity\User> newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\User get(mixed $primaryKey, array|string $finder = 'all', \Psr\SimpleCache\CacheInterface|string|null $cache = null, \Closure|string|null $cacheKey = null, mixed ...$args)
+ * @method \App\Model\Entity\User findOrCreate($search, ?callable $callback = null, array $options = [])
+ * @method \App\Model\Entity\User patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method array<\App\Model\Entity\User> patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\User|false save(\Cake\Datasource\EntityInterface $entity, array $options = [])
+ * @method \App\Model\Entity\User saveOrFail(\Cake\Datasource\EntityInterface $entity, array $options = [])
+ * @method iterable<\App\Model\Entity\User>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\User>|false saveMany(iterable $entities, array $options = [])
+ * @method iterable<\App\Model\Entity\User>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\User> saveManyOrFail(iterable $entities, array $options = [])
+ * @method iterable<\App\Model\Entity\User>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\User>|false deleteMany(iterable $entities, array $options = [])
+ * @method iterable<\App\Model\Entity\User>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\User> deleteManyOrFail(iterable $entities, array $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class CustomersTable extends Table
+class UsersTable extends Table
 {
     /**
      * Initialize method
@@ -41,14 +41,14 @@ class CustomersTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('customers');
+        $this->setTable('users');
         $this->setDisplayField('given_name');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
 
         $this->hasMany('Orders', [
-            'foreignKey' => 'customer_id',
+            'foreignKey' => 'user_id',
         ]);
     }
 
@@ -62,13 +62,13 @@ class CustomersTable extends Table
     {
         $validator
             ->scalar('given_name')
-            ->maxLength('given_name', 128)
+            ->maxLength('given_name', 255)
             ->requirePresence('given_name', 'create')
             ->notEmptyString('given_name');
 
         $validator
             ->scalar('family_name')
-            ->maxLength('family_name', 128)
+            ->maxLength('family_name', 255)
             ->requirePresence('family_name', 'create')
             ->notEmptyString('family_name');
 
@@ -85,9 +85,18 @@ class CustomersTable extends Table
 
         $validator
             ->scalar('password')
-            ->maxLength('password', 128)
+            ->maxLength('password', 255)
             ->requirePresence('password', 'create')
             ->notEmptyString('password');
+
+        $validator
+            ->scalar('nonce')
+            ->maxLength('nonce', 255)
+            ->allowEmptyString('nonce');
+
+        $validator
+            ->dateTime('nonce_expiry')
+            ->allowEmptyDateTime('nonce_expiry');
 
         $validator
             ->scalar('address')
@@ -95,7 +104,7 @@ class CustomersTable extends Table
 
         $validator
             ->scalar('suburb')
-            ->maxLength('suburb', 128)
+            ->maxLength('suburb', 255)
             ->allowEmptyString('suburb');
 
         $validator
@@ -104,8 +113,7 @@ class CustomersTable extends Table
             ->allowEmptyString('state');
 
         $validator
-            ->scalar('postcode')
-            ->maxLength('postcode', 4)
+            ->integer('postcode')
             ->allowEmptyString('postcode');
 
         $validator
@@ -121,6 +129,11 @@ class CustomersTable extends Table
         $validator
             ->date('card_expiry')
             ->allowEmptyDate('card_expiry');
+
+        $validator
+            ->boolean('admin')
+            ->requirePresence('admin', 'create')
+            ->notEmptyString('admin');
 
         return $validator;
     }

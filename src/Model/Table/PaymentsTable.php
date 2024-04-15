@@ -67,13 +67,13 @@ class PaymentsTable extends Table
     {
         $validator
             ->scalar('status')
-            ->maxLength('status', 128)
+            ->maxLength('status', 255)
             ->requirePresence('status', 'create')
             ->notEmptyString('status');
 
         $validator
             ->scalar('method')
-            ->maxLength('method', 128)
+            ->maxLength('method', 255)
             ->requirePresence('method', 'create')
             ->notEmptyString('method');
 

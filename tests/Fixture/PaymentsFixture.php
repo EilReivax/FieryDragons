@@ -19,16 +19,16 @@ class PaymentsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => 'afa4d5df-257f-4271-8ad6-a86b49e1702d',
+                'id' => 'd2cd9092-83e7-4f41-9a94-157cd20264ba',
                 'status' => 'Lorem ipsum dolor sit amet',
                 'method' => 'Lorem ipsum dolor sit amet',
                 'discount' => 1.5,
                 'card_number' => 'Lorem ipsum dolor',
                 'card_cvv' => 'Lo',
-                'card_expiry' => '2024-04-11',
-                'created' => 1712808588,
-                'modified' => 1712808588,
-                'order_id' => '4519d70f-80e5-4cca-8b85-7bfa5daf313d',
+                'card_expiry' => '2024-04-15',
+                'created' => 1713157862,
+                'modified' => 1713157862,
+                'order_id' => '617c6f66-db38-4dd2-8d96-4603b342594e',
             ],
         ];
         parent::init();

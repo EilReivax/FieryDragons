@@ -63,7 +63,7 @@ class RefundsTable extends Table
     {
         $validator
             ->scalar('method')
-            ->maxLength('method', 128)
+            ->maxLength('method', 255)
             ->requirePresence('method', 'create')
             ->notEmptyString('method');
 

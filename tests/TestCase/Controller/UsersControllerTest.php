@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\DeliveriesController;
+use App\Controller\UsersController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\DeliveriesController Test Case
+ * App\Controller\UsersController Test Case
  *
- * @uses \App\Controller\DeliveriesController
+ * @uses \App\Controller\UsersController
  */
-class DeliveriesControllerTest extends TestCase
+class UsersControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,16 +22,15 @@ class DeliveriesControllerTest extends TestCase
      * @var list<string>
      */
     protected array $fixtures = [
-        'app.Deliveries',
+        'app.Users',
         'app.Orders',
-        'app.Staffs',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\DeliveriesController::index()
+     * @uses \App\Controller\UsersController::index()
      */
     public function testIndex(): void
     {
@@ -42,7 +41,7 @@ class DeliveriesControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\DeliveriesController::view()
+     * @uses \App\Controller\UsersController::view()
      */
     public function testView(): void
     {
@@ -53,7 +52,7 @@ class DeliveriesControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\DeliveriesController::add()
+     * @uses \App\Controller\UsersController::add()
      */
     public function testAdd(): void
     {
@@ -64,7 +63,7 @@ class DeliveriesControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\DeliveriesController::edit()
+     * @uses \App\Controller\UsersController::edit()
      */
     public function testEdit(): void
     {
@@ -75,7 +74,7 @@ class DeliveriesControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\DeliveriesController::delete()
+     * @uses \App\Controller\UsersController::delete()
      */
     public function testDelete(): void
     {

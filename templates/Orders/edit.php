@@ -2,7 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Order $order
- * @var string[]|\Cake\Collection\CollectionInterface $customers
+ * @var string[]|\Cake\Collection\CollectionInterface $users
  * @var string[]|\Cake\Collection\CollectionInterface $items
  */
 ?>
@@ -24,11 +24,16 @@
             <fieldset>
                 <legend><?= __('Edit Order') ?></legend>
                 <?php
-                    echo $this->Form->control('status');
                     echo $this->Form->control('delivery_method');
+                    echo $this->Form->control('status');
+                    echo $this->Form->control('address');
+                    echo $this->Form->control('suburb');
+                    echo $this->Form->control('state');
+                    echo $this->Form->control('postcode');
+                    echo $this->Form->control('delivery_fee');
                     echo $this->Form->control('subtotal');
                     echo $this->Form->control('note');
-                    echo $this->Form->control('customer_id', ['options' => $customers]);
+                    echo $this->Form->control('user_id', ['options' => $users]);
                     echo $this->Form->control('items._ids', ['options' => $items]);
                 ?>
             </fieldset>

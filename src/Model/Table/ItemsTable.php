@@ -60,7 +60,7 @@ class ItemsTable extends Table
     {
         $validator
             ->scalar('name')
-            ->maxLength('name', 128)
+            ->maxLength('name', 255)
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
 
@@ -75,7 +75,7 @@ class ItemsTable extends Table
 
         $validator
             ->scalar('type')
-            ->maxLength('type', 128)
+            ->maxLength('type', 255)
             ->requirePresence('type', 'create')
             ->notEmptyString('type');
 
@@ -86,7 +86,7 @@ class ItemsTable extends Table
 
         $validator
             ->scalar('photo')
-            ->maxLength('photo', 256)
+            ->maxLength('photo', 255)
             ->allowEmptyString('photo');
 
         return $validator;

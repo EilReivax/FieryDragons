@@ -23,16 +23,32 @@
                     <td><?= h($order->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Status') ?></th>
-                    <td><?= h($order->status) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Delivery Method') ?></th>
                     <td><?= h($order->delivery_method) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Customer') ?></th>
-                    <td><?= $order->hasValue('customer') ? $this->Html->link($order->customer->given_name, ['controller' => 'Customers', 'action' => 'view', $order->customer->id]) : '' ?></td>
+                    <th><?= __('Status') ?></th>
+                    <td><?= h($order->status) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Suburb') ?></th>
+                    <td><?= h($order->suburb) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('State') ?></th>
+                    <td><?= h($order->state) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('User') ?></th>
+                    <td><?= $order->hasValue('user') ? $this->Html->link($order->user->given_name, ['controller' => 'Users', 'action' => 'view', $order->user->id]) : '' ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Postcode') ?></th>
+                    <td><?= $this->Number->format($order->postcode) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Delivery Fee') ?></th>
+                    <td><?= $this->Number->format($order->delivery_fee) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Subtotal') ?></th>
@@ -47,6 +63,12 @@
                     <td><?= h($order->modified) ?></td>
                 </tr>
             </table>
+            <div class="text">
+                <strong><?= __('Address') ?></strong>
+                <blockquote>
+                    <?= $this->Text->autoParagraph(h($order->address)); ?>
+                </blockquote>
+            </div>
             <div class="text">
                 <strong><?= __('Note') ?></strong>
                 <blockquote>
@@ -81,47 +103,6 @@
                                 <?= $this->Html->link(__('View'), ['controller' => 'Items', 'action' => 'view', $item->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Items', 'action' => 'edit', $item->id]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['controller' => 'Items', 'action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) ?>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="related">
-                <h4><?= __('Related Deliveries') ?></h4>
-                <?php if (!empty($order->deliveries)) : ?>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Address') ?></th>
-                            <th><?= __('Suburb') ?></th>
-                            <th><?= __('State') ?></th>
-                            <th><?= __('Postcode') ?></th>
-                            <th><?= __('Fee') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
-                            <th><?= __('Order Id') ?></th>
-                            <th><?= __('Staff Id') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        <?php foreach ($order->deliveries as $delivery) : ?>
-                        <tr>
-                            <td><?= h($delivery->id) ?></td>
-                            <td><?= h($delivery->address) ?></td>
-                            <td><?= h($delivery->suburb) ?></td>
-                            <td><?= h($delivery->state) ?></td>
-                            <td><?= h($delivery->postcode) ?></td>
-                            <td><?= h($delivery->fee) ?></td>
-                            <td><?= h($delivery->created) ?></td>
-                            <td><?= h($delivery->modified) ?></td>
-                            <td><?= h($delivery->order_id) ?></td>
-                            <td><?= h($delivery->staff_id) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Deliveries', 'action' => 'view', $delivery->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Deliveries', 'action' => 'edit', $delivery->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Deliveries', 'action' => 'delete', $delivery->id], ['confirm' => __('Are you sure you want to delete # {0}?', $delivery->id)]) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
