@@ -103,7 +103,7 @@ endif;
     ?>
     <?php foreach ($menuItems as $item): ?>
         <div class="menu-item">
-            <a href="/home">
+            <a href="/detail">
                 <?= $this->Html->image($item['image'], ['alt' => "Menu Item", 'class' => 'menu-image']); ?>
             </a><!-- Closing anchor tag here -->
             <p class="menu-description"><?= h($item['description']) ?></p>
@@ -123,7 +123,7 @@ endif;
     ?>
     <?php foreach ($menuItems as $item): ?>
         <div class="menu-item">
-            <a href="/home">
+            <a href="/detail">
                 <?= $this->Html->image($item['image'], ['alt' => "Menu Item", 'class' => 'menu-image']); ?>
             </a><!-- Closing anchor tag here -->
             <p class="menu-description"><?= h($item['description']) ?></p>
