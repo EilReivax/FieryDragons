@@ -92,13 +92,15 @@ endif;
     <section class="menu-section">
         <h1 class="menu-title">Weekly Menu</h1>
         <!-- First row of images -->
-        <div class="menu-row">
-            <?php for ($i = 0; $i < 4; $i++): ?>
-                <div class="menu-item">
-                    <?= $this->Html->image("placeholder.png", ['alt' => "Menu Item"]); ?> <!-- Assuming placeholder.png is your placeholder image -->
-                    <p class="menu-description">Item Description</p>
-                </div>
-            <?php endfor; ?>
+            <div class="menu-row">
+        <?php for ($i = 0; $i < 4; $i++): ?>
+            <div class="menu-item">
+                <a href="/home">
+                    <?= $this->Html->image("menuitem1.jpg", ['alt' => "Menu Item"]); ?> 
+                    </a><!-- Closing anchor tag here -->
+                    <p class="menu-description">Item Description</p>            
+            </div>
+        <?php endfor; ?>
         </div>
         <!-- Second row of images -->
         <div class="menu-row">
