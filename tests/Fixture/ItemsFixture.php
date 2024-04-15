@@ -19,7 +19,7 @@ class ItemsFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '986c6cb1-7632-495f-9045-af25faa12537',
+                'id' => '58c28e64-2039-42fe-860d-12e269bc5eb9',
                 'name' => 'Lorem ipsum dolor sit amet',
                 'description' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'price' => 1.5,

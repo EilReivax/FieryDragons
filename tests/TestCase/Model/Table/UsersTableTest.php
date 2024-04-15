@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\CustomersTable;
+use App\Model\Table\UsersTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\CustomersTable Test Case
+ * App\Model\Table\UsersTable Test Case
  */
-class CustomersTableTest extends TestCase
+class UsersTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\CustomersTable
+     * @var \App\Model\Table\UsersTable
      */
-    protected $Customers;
+    protected $Users;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class CustomersTableTest extends TestCase
      * @var list<string>
      */
     protected array $fixtures = [
-        'app.Customers',
+        'app.Users',
         'app.Orders',
     ];
 
@@ -36,8 +36,8 @@ class CustomersTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Customers') ? [] : ['className' => CustomersTable::class];
-        $this->Customers = $this->getTableLocator()->get('Customers', $config);
+        $config = $this->getTableLocator()->exists('Users') ? [] : ['className' => UsersTable::class];
+        $this->Users = $this->getTableLocator()->get('Users', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class CustomersTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Customers);
+        unset($this->Users);
 
         parent::tearDown();
     }
@@ -56,7 +56,7 @@ class CustomersTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\CustomersTable::validationDefault()
+     * @uses \App\Model\Table\UsersTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -67,7 +67,7 @@ class CustomersTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\CustomersTable::buildRules()
+     * @uses \App\Model\Table\UsersTable::buildRules()
      */
     public function testBuildRules(): void
     {

@@ -19,8 +19,8 @@ class OrdersItemsFixture extends TestFixture
     {
         $this->records = [
             [
-                'order_id' => '1b7c88d7-5729-451a-8488-570930a4e755',
-                'item_id' => '58f9db40-fd45-48d4-a9e1-ecd09a31abaf',
+                'order_id' => '6de3e0dd-bd1f-48b4-ab42-ab7ae5bb113a',
+                'item_id' => 'd4357569-db01-4f8c-b937-c3c6cad752f4',
                 'quantity' => 1,
             ],
         ];

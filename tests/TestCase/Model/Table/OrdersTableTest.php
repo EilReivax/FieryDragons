@@ -25,8 +25,7 @@ class OrdersTableTest extends TestCase
      */
     protected array $fixtures = [
         'app.Orders',
-        'app.Customers',
-        'app.Deliveries',
+        'app.Users',
         'app.Payments',
         'app.Items',
     ];

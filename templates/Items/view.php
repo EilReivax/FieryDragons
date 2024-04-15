@@ -56,25 +56,35 @@
                     <table>
                         <tr>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('Status') ?></th>
                             <th><?= __('Delivery Method') ?></th>
+                            <th><?= __('Status') ?></th>
+                            <th><?= __('Address') ?></th>
+                            <th><?= __('Suburb') ?></th>
+                            <th><?= __('State') ?></th>
+                            <th><?= __('Postcode') ?></th>
+                            <th><?= __('Delivery Fee') ?></th>
                             <th><?= __('Subtotal') ?></th>
                             <th><?= __('Note') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
-                            <th><?= __('Customer Id') ?></th>
+                            <th><?= __('User Id') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($item->orders as $order) : ?>
                         <tr>
                             <td><?= h($order->id) ?></td>
-                            <td><?= h($order->status) ?></td>
                             <td><?= h($order->delivery_method) ?></td>
+                            <td><?= h($order->status) ?></td>
+                            <td><?= h($order->address) ?></td>
+                            <td><?= h($order->suburb) ?></td>
+                            <td><?= h($order->state) ?></td>
+                            <td><?= h($order->postcode) ?></td>
+                            <td><?= h($order->delivery_fee) ?></td>
                             <td><?= h($order->subtotal) ?></td>
                             <td><?= h($order->note) ?></td>
                             <td><?= h($order->created) ?></td>
                             <td><?= h($order->modified) ?></td>
-                            <td><?= h($order->customer_id) ?></td>
+                            <td><?= h($order->user_id) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Orders', 'action' => 'view', $order->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Orders', 'action' => 'edit', $order->id]) ?>

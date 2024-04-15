@@ -11,8 +11,7 @@ use Cake\Validation\Validator;
 /**
  * Orders Model
  *
- * @property \App\Model\Table\CustomersTable&\Cake\ORM\Association\BelongsTo $Customers
- * @property \App\Model\Table\DeliveriesTable&\Cake\ORM\Association\HasMany $Deliveries
+ * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\PaymentsTable&\Cake\ORM\Association\HasMany $Payments
  * @property \App\Model\Table\ItemsTable&\Cake\ORM\Association\BelongsToMany $Items
  *
@@ -50,12 +49,9 @@ class OrdersTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Customers', [
-            'foreignKey' => 'customer_id',
+        $this->belongsTo('Users', [
+            'foreignKey' => 'user_id',
             'joinType' => 'INNER',
-        ]);
-        $this->hasMany('Deliveries', [
-            'foreignKey' => 'order_id',
         ]);
         $this->hasMany('Payments', [
             'foreignKey' => 'order_id',
@@ -76,16 +72,43 @@ class OrdersTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
+            ->scalar('delivery_method')
+            ->maxLength('delivery_method', 255)
+            ->requirePresence('delivery_method', 'create')
+            ->notEmptyString('delivery_method');
+
+        $validator
             ->scalar('status')
-            ->maxLength('status', 128)
+            ->maxLength('status', 255)
             ->requirePresence('status', 'create')
             ->notEmptyString('status');
 
         $validator
-            ->scalar('delivery_method')
-            ->maxLength('delivery_method', 128)
-            ->requirePresence('delivery_method', 'create')
-            ->notEmptyString('delivery_method');
+            ->scalar('address')
+            ->requirePresence('address', 'create')
+            ->notEmptyString('address');
+
+        $validator
+            ->scalar('suburb')
+            ->maxLength('suburb', 255)
+            ->requirePresence('suburb', 'create')
+            ->notEmptyString('suburb');
+
+        $validator
+            ->scalar('state')
+            ->maxLength('state', 3)
+            ->requirePresence('state', 'create')
+            ->notEmptyString('state');
+
+        $validator
+            ->integer('postcode')
+            ->requirePresence('postcode', 'create')
+            ->notEmptyString('postcode');
+
+        $validator
+            ->decimal('delivery_fee')
+            ->requirePresence('delivery_fee', 'create')
+            ->notEmptyString('delivery_fee');
 
         $validator
             ->decimal('subtotal')
@@ -97,8 +120,8 @@ class OrdersTable extends Table
             ->allowEmptyString('note');
 
         $validator
-            ->uuid('customer_id')
-            ->notEmptyString('customer_id');
+            ->uuid('user_id')
+            ->notEmptyString('user_id');
 
         return $validator;
     }
@@ -112,7 +135,7 @@ class OrdersTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['customer_id'], 'Customers'), ['errorField' => 'customer_id']);
+        $rules->add($rules->existsIn(['user_id'], 'Users'), ['errorField' => 'user_id']);
 
         return $rules;
     }

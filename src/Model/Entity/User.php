@@ -6,7 +6,7 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Customer Entity
+ * User Entity
  *
  * @property string $id
  * @property string $given_name
@@ -14,19 +14,22 @@ use Cake\ORM\Entity;
  * @property string $phone
  * @property string $email
  * @property string $password
+ * @property string|null $nonce
+ * @property \Cake\I18n\DateTime|null $nonce_expiry
  * @property string|null $address
  * @property string|null $suburb
  * @property string|null $state
- * @property string|null $postcode
+ * @property int|null $postcode
  * @property string|null $card_number
  * @property string|null $card_cvv
  * @property \Cake\I18n\Date|null $card_expiry
+ * @property bool $admin
  * @property \Cake\I18n\DateTime $created
  * @property \Cake\I18n\DateTime $modified
  *
  * @property \App\Model\Entity\Order[] $orders
  */
-class Customer extends Entity
+class User extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -43,6 +46,8 @@ class Customer extends Entity
         'phone' => true,
         'email' => true,
         'password' => true,
+        'nonce' => true,
+        'nonce_expiry' => true,
         'address' => true,
         'suburb' => true,
         'state' => true,
@@ -50,6 +55,7 @@ class Customer extends Entity
         'card_number' => true,
         'card_cvv' => true,
         'card_expiry' => true,
+        'admin' => true,
         'created' => true,
         'modified' => true,
         'orders' => true,

@@ -19,14 +19,19 @@ class OrdersFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => 'ed968384-6f61-4bdf-a395-88752c05da82',
-                'status' => 'Lorem ipsum dolor sit amet',
+                'id' => 'd5c7e316-6aa6-4680-995f-e2378a9e0396',
                 'delivery_method' => 'Lorem ipsum dolor sit amet',
+                'status' => 'Lorem ipsum dolor sit amet',
+                'address' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
+                'suburb' => 'Lorem ipsum dolor sit amet',
+                'state' => 'L',
+                'postcode' => 1,
+                'delivery_fee' => 1.5,
                 'subtotal' => 1.5,
                 'note' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-                'created' => 1712807718,
-                'modified' => 1712807718,
-                'customer_id' => 'd7e8d8ad-666a-42e9-9166-fa9fa1e7d24c',
+                'created' => 1713157843,
+                'modified' => 1713157843,
+                'user_id' => '394364b4-f736-4a48-af1d-fa8e3857a6ec',
             ],
         ];
         parent::init();
