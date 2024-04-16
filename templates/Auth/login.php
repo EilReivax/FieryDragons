@@ -36,7 +36,6 @@ $this->assign('title', 'Login');
                         'type' => 'email',
                         'required' => true,
                         'autofocus' => true,
-                        'value' => $debug ? "test@example.com" : "",
                     ]);
                     echo $this->Form->control('password', [
                         'type' => 'password',
