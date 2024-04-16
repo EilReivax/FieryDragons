@@ -63,8 +63,10 @@ endif;
         <?= $this->Html->charset() ?>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Tasty Bites Kitchen</title>
+        <link rel="icon" type="image/x-icon" href= "logo.png">
         <?= $this->Html->meta('icon') ?>
         <?= $this->Html->css('home') ?>
+
     </head>
     <body>
     <header class="navbar">
@@ -73,8 +75,8 @@ endif;
         </div>
             <nav class="nav-menu">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/menu">Menu</a></li> <!-- Updated hyperlink for the Menu item -->
+            <li><a href="/" style="font-size: larger">Home</a></li>
+            <li><a href="/menu" style="font-size: larger">Menu</a></li> <!-- Updated hyperlink for the Menu item -->
         </ul>
             </nav>
         <div class="icons">
