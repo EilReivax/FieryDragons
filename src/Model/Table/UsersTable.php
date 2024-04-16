@@ -50,6 +50,8 @@ class UsersTable extends Table
         $this->hasMany('Orders', [
             'foreignKey' => 'user_id',
         ]);
+
+        $this->addBehavior('CanAuthenticate');
     }
 
     /**
