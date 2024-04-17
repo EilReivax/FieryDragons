@@ -19,12 +19,12 @@
                 <?php
                     echo $this->Form->control('given_name');
                     echo $this->Form->control('family_name');
-                    echo $this->Form->control('phone');
+                    echo $this->Form->control('phone', ['type' => 'number']);
                     echo $this->Form->control('email');
                     echo $this->Form->control('password');
                     echo $this->Form->control('address');
                     echo $this->Form->control('suburb');
-                    echo $this->Form->control('state');
+                    echo $this->Form->control('state', ['options' => ['ACT' => 'ACT', 'NSW' => 'NSW', 'NT' => 'NT','QLD' => 'QLD', 'SA' => 'SA', 'TAS' =>'TAS', 'VIC' => 'VIC', 'WA' => 'WA']]);
                     echo $this->Form->control('postcode');
                     echo $this->Form->control('card_number', ['type' => 'number']);
                     echo $this->Form->control('card_cvv', ['type' => 'number']);

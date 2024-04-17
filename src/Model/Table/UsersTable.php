@@ -75,8 +75,8 @@ class UsersTable extends Table
             ->notEmptyString('family_name');
 
         $validator
-            ->scalar('phone')
-            ->maxLength('phone', 16)
+            ->integer('phone')
+            ->maxLength('phone', 16, 'Phone number must be in the format 04XXXXXXXX')
             ->requirePresence('phone', 'create')
             ->notEmptyString('phone');
 
@@ -116,17 +116,17 @@ class UsersTable extends Table
 
         $validator
             ->integer('postcode')
-            ->lengthBetween('postcode', [4, 4])
+            ->lengthBetween('postcode', [4, 4], 'Please enter a valid Australian postcode')
             ->allowEmptyString('postcode');
 
         $validator
             ->integer('card_number')
-            ->maxLength('card_number', 19)
+            ->maxLength('card_number', 19, 'Please enter a valid card number')
             ->allowEmptyString('card_number');
 
         $validator
             ->integer('card_cvv')
-            ->lengthBetween('card_cvv', [3, 4])
+            ->lengthBetween('card_cvv', [3, 4], 'Please enter a valid card CVV')
             ->allowEmptyString('card_cvv');
 
         $validator
