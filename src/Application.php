@@ -103,22 +103,22 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
                 'httponly' => true,
             ]));
 
-            $https = new HttpsEnforcerMiddleware([
-                'redirect' => true, // Set to true to redirect HTTP requests to HTTPS
-                'statusCode' => 302, // Set the status code for redirection
-                'headers' => ['X-Https-Upgrade' => 1], // Additional headers in the redirect response
-                'disableOnDebug' => true, // Disable HTTPS enforcement when debug mode is on
-                'trustProxies' => ['192.168.1.1'], // Only trust HTTP_X_ headers from the listed servers
-                'hsts' => [
-                    // How long the header value should be cached for.
-                    'maxAge' => 60 * 60 * 24 * 365,
-                    // should this policy apply to subdomains?
-                    'includeSubDomains' => true,
-                    // Should the header value be cacheable in google's HSTS preload
-                    // service? While not part of the spec it is widely implemented.
-                    'preload' => true,
-                ],
-            ]);
+        $https = new HttpsEnforcerMiddleware([
+            'redirect' => true, // Set to true to redirect HTTP requests to HTTPS
+            'statusCode' => 302, // Set the status code for redirection
+            'headers' => ['X-Https-Upgrade' => 1], // Additional headers in the redirect response
+            'disableOnDebug' => true, // Disable HTTPS enforcement when debug mode is on
+            'trustProxies' => ['192.168.1.1'], // Only trust HTTP_X_ headers from the listed servers
+            'hsts' => [
+                // How long the header value should be cached for.
+                'maxAge' => 60 * 60 * 24 * 365,
+                // should this policy apply to subdomains?
+                'includeSubDomains' => true,
+                // Should the header value be cacheable in google's HSTS preload
+                // service? While not part of the spec it is widely implemented.
+                'preload' => true,
+            ],
+        ]);
 
 
         // Add HTTPS enforcement middleware to the queue
