@@ -65,6 +65,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         ?>
     </div>
 </header>
+<?= $this->Flash->render() ?>
 <?= $this->fetch('content') ?>
 
 <footer>
