@@ -16,14 +16,10 @@
                     <th><?= $this->Paginator->sort('family_name') ?></th>
                     <th><?= $this->Paginator->sort('phone') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
-                    <th><?= $this->Paginator->sort('nonce') ?></th>
-                    <th><?= $this->Paginator->sort('nonce_expiry') ?></th>
+                    <th><?= $this->Paginator->sort('address') ?></th>
                     <th><?= $this->Paginator->sort('suburb') ?></th>
                     <th><?= $this->Paginator->sort('state') ?></th>
                     <th><?= $this->Paginator->sort('postcode') ?></th>
-                    <th><?= $this->Paginator->sort('card_number') ?></th>
-                    <th><?= $this->Paginator->sort('card_cvv') ?></th>
-                    <th><?= $this->Paginator->sort('card_expiry') ?></th>
                     <th><?= $this->Paginator->sort('admin') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
@@ -38,14 +34,10 @@
                     <td><?= h($user->family_name) ?></td>
                     <td><?= h($user->phone) ?></td>
                     <td><?= h($user->email) ?></td>
-                    <td><?= h($user->nonce) ?></td>
-                    <td><?= h($user->nonce_expiry) ?></td>
+                    <td><?= h($user->address) ?></td>
                     <td><?= h($user->suburb) ?></td>
                     <td><?= h($user->state) ?></td>
                     <td><?= $user->postcode === null ? '' : $this->Number->format($user->postcode) ?></td>
-                    <td><?= h($user->card_number) ?></td>
-                    <td><?= h($user->card_cvv) ?></td>
-                    <td><?= h($user->card_expiry) ?></td>
                     <td><?= h($user->admin) ?></td>
                     <td><?= h($user->created) ?></td>
                     <td><?= h($user->modified) ?></td>

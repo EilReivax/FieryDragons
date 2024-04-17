@@ -39,9 +39,19 @@
                     <td><?= h($user->email) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Nonce') ?></th>
-                    <td><?= h($user->nonce) ?></td>
+                    <th><?= __('Address') ?></th>
+                    <td><?= h($user->address) ?></td>
                 </tr>
+            <!--
+            </table>
+            <div class="text">
+                <strong><?php /*= __('Address') */?></strong>
+                <blockquote>
+                    <?php /*= $this->Text->autoParagraph(h($user->address)); */?>
+                </blockquote>
+            </div>
+            <table>
+            -->
                 <tr>
                     <th><?= __('Suburb') ?></th>
                     <td><?= h($user->suburb) ?></td>
@@ -49,6 +59,19 @@
                 <tr>
                     <th><?= __('State') ?></th>
                     <td><?= h($user->state) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Postcode') ?></th>
+                    <td><?= $user->postcode === null ? '' : $this->Number->format($user->postcode) ?></td>
+                </tr>
+                <!--
+                <tr>
+                    <th><?= __('Nonce') ?></th>
+                    <td><?= h($user->nonce) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Nonce Expiry') ?></th>
+                    <td><?= h($user->nonce_expiry) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Card Number') ?></th>
@@ -59,18 +82,11 @@
                     <td><?= h($user->card_cvv) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Postcode') ?></th>
-                    <td><?= $user->postcode === null ? '' : $this->Number->format($user->postcode) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Nonce Expiry') ?></th>
-                    <td><?= h($user->nonce_expiry) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Card Expiry') ?></th>
                     <td><?= h($user->card_expiry) ?></td>
                 </tr>
                 <tr>
+                -->
                     <th><?= __('Created') ?></th>
                     <td><?= h($user->created) ?></td>
                 </tr>
@@ -83,12 +99,6 @@
                     <td><?= $user->admin ? __('Yes') : __('No'); ?></td>
                 </tr>
             </table>
-            <div class="text">
-                <strong><?= __('Address') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($user->address)); ?>
-                </blockquote>
-            </div>
             <div class="related">
                 <h4><?= __('Related Orders') ?></h4>
                 <?php if (!empty($user->orders)) : ?>
