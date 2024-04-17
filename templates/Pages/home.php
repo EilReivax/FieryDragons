@@ -73,7 +73,7 @@ endif;
             <div class="text-content">
                 <h1>TASTY BITES KITCHEN</h1>
                 <h2>Enjoy a taste of home from our kitchen</h2>
-                <button onclick="location.href='/menu'">Order Now</button>
+                <button onclick="location.href='/items'">Order Now</button>
             </div>
         </section>
         <!-- About Us Section -->
