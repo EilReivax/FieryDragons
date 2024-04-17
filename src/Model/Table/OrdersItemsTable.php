@@ -58,8 +58,15 @@ class OrdersItemsTable extends Table
 
     public function beforeSave(EventInterface $event, EntityInterface $entity, \ArrayObject $options)
     {
-        if ($entity->isNew() && $entity->price === null) {
-            $entity->price = 0.00; // Set the default price value
+        if ($entity->isNew() && empty($entity->price)) {
+            // Fetch the price of the associated item
+            $item = $this->Items->get($entity->item_id);
+            if ($item && !empty($item->price)) {
+                $entity->price = $item->price; // Set the item's price as the order item's price
+            } else {
+                // Optionally handle the case where the item's price is not available
+                $entity->price = 0.00; // Default fallback price
+            }
         }
     }
 
