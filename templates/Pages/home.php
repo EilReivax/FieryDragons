@@ -67,38 +67,7 @@ endif;
 
     </head>
     <body>
-    <header class="navbar">
-        <div class="brand-container">
-            <?= $this->Html->image('logo.png', ['alt' => 'Tasty Bites Kitchen', 'class' => 'brand-logo']) ?>
-        </div>
-            <nav class="nav-menu">
-        <ul>
-            <li><a href="/" style="font-size: larger">Home</a></li>
-            <li><a href="/items" style="font-size: larger">Menu</a></li> <!-- Updated hyperlink for the Menu item -->
-        </ul>
-            </nav>
-        <div class="icons">
-            <a href="/img/ShoppingBasketIcon.jpg">
-                <?= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) ?>
-            </a>
-            <a href="/img/profileIcon.png">
-                <?= $this->Html->image('profileIcon.png', ['alt' => 'Icon 2', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon2']]) ?>
-            </a>
-            <?php
-                if (!$this->Identity->isLoggedIn()) {
-                    echo $this->Html->link(
-                        'Admin Log in',
-                        ['controller' => 'Auth', 'action' => 'login'],
-                        ['class' => 'button button-outline']);
-                }
-
-                if ($this->Identity->isLoggedIn()) {
-                        echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout']);
-                }
-            ?>
-        </div>
-
-    </header>
+ 
     <main>
         <section class="header-section" style="background-image: url('/img/homepage.jpg');">
             <div class="text-content">
@@ -127,18 +96,6 @@ endif;
                 </div>
             </div>
         </section>
-
-        <!-- Contact Us Now Section -->
-        <section class="contact-us-now">
-            <h2>Contact Us Now</h2>
-            <p>Email: contact@tastybites.com</p>
-            <p>Phone: 0400xxxxxxx</p>
-            <p>Address: 123 Flavor Street, Foodville, FK 12345</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; <?= date('Y') ?> Tasty Bites Kitchen. All rights reserved.</p>
-    </footer>
     </body>
     </html>
 
