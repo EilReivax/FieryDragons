@@ -21,13 +21,13 @@
                 <?php
                 echo $this->Form->hidden('status', ['value' => 'Pending']);
                 echo $this->Form->control('delivery_method', ['options' => ['Pick-up' => 'Pick-up', 'Delivery' => 'Delivery']]);
-                echo $this->Form->hidden('address');
-                echo $this->Form->hidden('suburb');
-                echo $this->Form->hidden('state');
-                echo $this->Form->hidden('postcode', ['value' => '0']);
+                echo $this->Form->control('address');
+                echo $this->Form->control('suburb');
+                echo $this->Form->control('state', ['options' => ['ACT' => 'ACT', 'NSW' => 'NSW', 'NT' => 'NT','QLD' => 'QLD', 'SA' => 'SA', 'TAS' =>'TAS', 'VIC' => 'VIC', 'WA' => 'WA']]);
+                echo $this->Form->control('postcode');
                 echo $this->Form->control('note');
-                echo $this->Form->hidden('delivery_fee', ['value' => '0.00']);
                 echo $this->Form->hidden('subtotal', ['value' => '0.00']);
+                echo $this->Form->hidden('delivery_fee', ['value' => '0.00']);
                 echo $this->Form->control('user_id', ['options' => $users]);
                 ?>
                 <legend><?= __('Select Menu Items:') ?></legend>

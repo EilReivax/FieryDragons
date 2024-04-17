@@ -41,29 +41,29 @@
                     <?= $this->Text->autoParagraph(h($order->note)); ?>
                 </blockquote>
             </div>
-            <!--<div class="text">
+            <div class="text">
                 <strong><?= __('Address') ?></strong>
                 <blockquote>
                     <?= $this->Text->autoParagraph(h($order->address)); ?>
                 </blockquote>
-            </div>-->
+            </div>
             <table>
-                <!--<tr>
-                    <th><?php /*= __('Suburb') */?></th>
-                    <td><?php /*= h($order->suburb) */?></td>
+                <tr>
+                    <th><?= __('Suburb') ?></th>
+                    <td><?= h($order->suburb) ?></td>
                 </tr>
                 <tr>
-                    <th><?php /*= __('State') */?></th>
-                    <td><?php /*= h($order->state) */?></td>
+                    <th><?= __('State') ?></th>
+                    <td><?= h($order->state) ?></td>
                 </tr>
                 <tr>
-                    <th><?php /*= __('Postcode') */?></th>
-                    <td><?php /*= $this->Number->format($order->postcode) */?></td>
+                    <th><?= __('Postcode') ?></th>
+                    <td><?= $this->Number->format($order->postcode) ?></td>
                 </tr>
                 <tr>
-                    <th><?php /*= __('Delivery Fee') */?></th>
-                    <td><?php /*= $this->Number->format($order->delivery_fee) */?></td>
-                </tr>-->
+                    <th><?= __('Delivery Fee') ?></th>
+                    <td><?= $this->Number->format($order->delivery_fee) ?></td>
+                </tr>
                 <tr>
                     <th><?= __('Subtotal') ?></th>
                     <td><?= $this->Number->format($order->subtotal) ?></td>

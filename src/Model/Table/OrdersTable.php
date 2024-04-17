@@ -85,25 +85,21 @@ class OrdersTable extends Table
 
         $validator
             ->scalar('address')
-            ->requirePresence('address', 'create')
             ->allowEmptyString('address');
 
         $validator
             ->scalar('suburb')
             ->maxLength('suburb', 255)
-            ->requirePresence('suburb', 'create')
             ->allowEmptyString('suburb');
 
         $validator
             ->scalar('state')
             ->maxLength('state', 3)
-            ->requirePresence('state', 'create')
             ->allowEmptyString('state');
 
         $validator
             ->integer('postcode')
-            ->lengthBetween('postcode', [4, 4])
-            ->requirePresence('postcode', 'create')
+            ->lengthBetween('postcode', [4, 4], 'Please enter a valid Australian postcode')
             ->allowEmptyString('postcode');
 
         $validator
