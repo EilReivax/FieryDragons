@@ -44,7 +44,7 @@ class OrdersTable extends Table
         parent::initialize($config);
 
         $this->setTable('orders');
-        $this->setDisplayField('status');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -75,7 +75,8 @@ class OrdersTable extends Table
             ->scalar('delivery_method')
             ->maxLength('delivery_method', 255)
             ->requirePresence('delivery_method', 'create')
-            ->notEmptyString('delivery_method');
+            // Change to notEmptyString(); in iteration 2
+            ->allowEmptyString('delivery_method');
 
         $validator
             ->scalar('status')
@@ -86,29 +87,30 @@ class OrdersTable extends Table
         $validator
             ->scalar('address')
             ->requirePresence('address', 'create')
-            ->notEmptyString('address');
+            ->allowEmptyString('address');
 
         $validator
             ->scalar('suburb')
             ->maxLength('suburb', 255)
             ->requirePresence('suburb', 'create')
-            ->notEmptyString('suburb');
+            ->allowEmptyString('suburb');
 
         $validator
             ->scalar('state')
             ->maxLength('state', 3)
             ->requirePresence('state', 'create')
-            ->notEmptyString('state');
+            ->allowEmptyString('state');
 
         $validator
             ->integer('postcode')
             ->requirePresence('postcode', 'create')
-            ->notEmptyString('postcode');
+            ->allowEmptyString('postcode');
 
         $validator
             ->decimal('delivery_fee')
             ->requirePresence('delivery_fee', 'create')
-            ->notEmptyString('delivery_fee');
+            // Change to notEmptyString(); in iteration 2
+            ->allowEmptyString('delivery_fee');
 
         $validator
             ->decimal('subtotal')

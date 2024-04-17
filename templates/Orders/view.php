@@ -23,37 +23,37 @@
                     <td><?= h($order->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Delivery Method') ?></th>
-                    <td><?= h($order->delivery_method) ?></td>
+                    <th><?= __('User') ?></th>
+                    <td><?= $order->hasValue('user') ? $this->Html->link($order->user->given_name, ['controller' => 'Users', 'action' => 'view', $order->user->id]) : '' ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Status') ?></th>
                     <td><?= h($order->status) ?></td>
                 </tr>
-                <tr>
-                    <th><?= __('Suburb') ?></th>
-                    <td><?= h($order->suburb) ?></td>
+                <!--<tr>
+                    <th><?php /*= __('Delivery Method') */?></th>
+                    <td><?php /*= h($order->delivery_method) */?></td>
                 </tr>
                 <tr>
-                    <th><?= __('State') ?></th>
-                    <td><?= h($order->state) ?></td>
+                    <th><?php /*= __('Suburb') */?></th>
+                    <td><?php /*= h($order->suburb) */?></td>
                 </tr>
                 <tr>
-                    <th><?= __('User') ?></th>
-                    <td><?= $order->hasValue('user') ? $this->Html->link($order->user->given_name, ['controller' => 'Users', 'action' => 'view', $order->user->id]) : '' ?></td>
+                    <th><?php /*= __('State') */?></th>
+                    <td><?php /*= h($order->state) */?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Postcode') ?></th>
-                    <td><?= $this->Number->format($order->postcode) ?></td>
+                    <th><?php /*= __('Postcode') */?></th>
+                    <td><?php /*= $this->Number->format($order->postcode) */?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Delivery Fee') ?></th>
-                    <td><?= $this->Number->format($order->delivery_fee) ?></td>
+                    <th><?php /*= __('Delivery Fee') */?></th>
+                    <td><?php /*= $this->Number->format($order->delivery_fee) */?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Subtotal') ?></th>
-                    <td><?= $this->Number->format($order->subtotal) ?></td>
-                </tr>
+                    <th><?php /*= __('Subtotal') */?></th>
+                    <td><?php /*= $this->Number->format($order->subtotal) */?></td>
+                </tr>-->
                 <tr>
                     <th><?= __('Created') ?></th>
                     <td><?= h($order->created) ?></td>

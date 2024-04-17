@@ -12,16 +12,16 @@
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('delivery_method') ?></th>
-                    <th><?= $this->Paginator->sort('status') ?></th>
-                    <th><?= $this->Paginator->sort('suburb') ?></th>
-                    <th><?= $this->Paginator->sort('state') ?></th>
-                    <th><?= $this->Paginator->sort('postcode') ?></th>
-                    <th><?= $this->Paginator->sort('delivery_fee') ?></th>
-                    <th><?= $this->Paginator->sort('subtotal') ?></th>
+                    <th><?= $this->Paginator->sort('user_id') ?></th>
+                    <th><?php $this->Paginator->sort('status') ?></th>
+                    <!--<th><?php /*= $this->Paginator->sort('delivery_method') */?></th>
+                    <th><?php /*= $this->Paginator->sort('suburb') */?></th>
+                    <th><?php /*= $this->Paginator->sort('state') */?></th>
+                    <th><?php /*= $this->Paginator->sort('postcode') */?></th>
+                    <th><?php /*= $this->Paginator->sort('delivery_fee') */?></th>
+                    <th><?php /*= $this->Paginator->sort('subtotal') */?></th>-->
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th><?= $this->Paginator->sort('user_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -29,16 +29,16 @@
                 <?php foreach ($orders as $order): ?>
                 <tr>
                     <td><?= h($order->id) ?></td>
-                    <td><?= h($order->delivery_method) ?></td>
+                    <td><?= $order->hasValue('user') ? $this->Html->link($order->user->given_name, ['controller' => 'Users', 'action' => 'view', $order->user->id]) : '' ?></td>
                     <td><?= h($order->status) ?></td>
-                    <td><?= h($order->suburb) ?></td>
-                    <td><?= h($order->state) ?></td>
-                    <td><?= $this->Number->format($order->postcode) ?></td>
-                    <td><?= $this->Number->format($order->delivery_fee) ?></td>
-                    <td><?= $this->Number->format($order->subtotal) ?></td>
+                    <!--<td><?php /*= h($order->delivery_method) */?></td>
+                    <td><?php /*= h($order->suburb) */?></td>
+                    <td><?php /*= h($order->state) */?></td>
+                    <td><?php /*= $this->Number->format($order->postcode) */?></td>
+                    <td><?php /*= $this->Number->format($order->delivery_fee) */?></td>
+                    <td><?php /*= $this->Number->format($order->subtotal) */?></td>-->
                     <td><?= h($order->created) ?></td>
                     <td><?= h($order->modified) ?></td>
-                    <td><?= $order->hasValue('user') ? $this->Html->link($order->user->given_name, ['controller' => 'Users', 'action' => 'view', $order->user->id]) : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $order->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $order->id]) ?>

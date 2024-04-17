@@ -12,6 +12,7 @@
         <?php $counter = 0; ?>
         <?php $totalItems = count($items); ?> <!-- Get total number of items -->
         <?php foreach ($items as $index => $item): ?>
+        <?php /*if ($item->availability): */?>
         <div class="col">
             <div class="item">
                 <div class="item-image">
@@ -19,16 +20,12 @@
                     <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
                 </div>
                 <div class="item-details">
-                    <!-- Display item ID -->
-                    <div>ID: <?= h($item->id) ?></div>
                     <!-- Display item name -->
                     <div>Name: <?= h($item->name) ?></div>
                     <!-- Display item price -->
                     <div>Price: <?= $this->Number->format($item->price) ?></div>
                     <!-- Display item type -->
                     <div>Type: <?= h($item->type) ?></div>
-                    <!-- Display item availability -->
-                    <div>Availability: <?= h($item->availability) ?></div>
                 </div>
                 <div class="item-actions">
                     <!-- Display actions -->
@@ -39,12 +36,13 @@
             </div>
         </div>
         <?php $counter++; ?>
-        <?php if ($counter % 4 === 0 || $index === $totalItems - 1): ?> 
+        <?php if ($counter % 4 === 0 || $index === $totalItems - 1): ?>
     </div>
     <?php if ($index !== $totalItems - 1): ?> <!-- Check if it's not the last item -->
     <div class="row bottom-row"> <!-- Add a class to the bottom row -->
     <?php endif; ?>
     <?php endif; ?>
+    <?php /*endif; */?>
     <?php endforeach; ?>
 </div>
 
