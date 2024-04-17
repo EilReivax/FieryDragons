@@ -35,6 +35,7 @@ use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 use Cake\Routing\Router;
 use Psr\Http\Message\ServerRequestInterface;
+use Cake\Http\Middleware\HttpsEnforcerMiddleware;
 
 /**
  * Application setup class.
@@ -93,14 +94,41 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             // https://book.cakephp.org/4/en/controllers/middleware.html#body-parser-middleware
             ->add(new BodyParserMiddleware())
 
+            // Add Authentication support by plugin
+            ->add(new AuthenticationMiddleware($this))
+
             // Cross Site Request Forgery (CSRF) Protection Middleware
             // https://book.cakephp.org/4/en/security/csrf.html#cross-site-request-forgery-csrf-middleware
             ->add(new CsrfProtectionMiddleware([
                 'httponly' => true,
-            ]))
+            ]));
+            // Always raise an exception and never redirect.
+            $https = new HttpsEnforcerMiddleware([
+                'redirect' => false,
+            ]);
 
-            // Add Authentication support by plugin
-            ->add(new AuthenticationMiddleware($this));
+            // Send a 302 status code when redirecting
+            $https = new HttpsEnforcerMiddleware([
+                'redirect' => true,
+                'statusCode' => 302,
+            ]);
+
+            // Send additional headers in the redirect response.
+            $https = new HttpsEnforcerMiddleware([
+                'headers' => ['X-Https-Upgrade' => 1],
+            ]);
+
+            // Disable HTTPs enforcement when ``debug`` is on.
+            $https = new HttpsEnforcerMiddleware([
+                'disableOnDebug' => true,
+            ]);
+
+            // Only trust HTTP_X_ headers from the listed servers.
+            $https = new HttpsEnforcerMiddleware([
+                'trustProxies' => ['192.168.1.1'],
+            ]);
+
+
 
         return $middlewareQueue;
     }
