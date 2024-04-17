@@ -34,7 +34,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
 <header class="navbar">
     <div class="brand-container">
-        <?= $this->Html->image('logo.png', ['alt' => 'Tasty Bites Kitchen', 'class' => 'brand-logo']) ?>
+    <a href="<?= $this->Url->build('/') ?>">
+    <?= $this->Html->image('logo.png', ['alt' => 'Tasty Bites Kitchen', 'class' => 'brand-logo']) ?>
+</a>
     </div>
     <nav class="nav-menu">
         <ul>
