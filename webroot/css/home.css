@@ -23,10 +23,14 @@ body,
   box-sizing: border-box;
 }
 
+
 body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
+
 
 /* Navbar Styles */
 .navbar {
@@ -99,10 +103,12 @@ body {
   background: #0c0c0c;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 3px 20px;
   cursor: pointer;
   border-radius: 5px;
   font-size: 1em;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .header-section .text-content button:hover {
@@ -122,17 +128,19 @@ footer p {
 }
 
 /* About Us Styles */
+/* About Us Styles */
 .about-header {
   background-color: #000000;
   padding: 20px;
-  color: white;
+  color: rgb(255, 255, 255);
+  text-align: center;
 }
 
 .about-container {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: #fff;
+  background-color: #fefbfb;
 }
 
 .about-item {
@@ -140,8 +148,27 @@ footer p {
 }
 
 .about-item h3 {
-  color: #333;
+  color: #070707;
   margin-bottom: 10px;
+}
+
+.about-item p {
+  color: #000; /* Adjust text color */
+}
+
+.about-item p strong {
+  font-weight: bold;
+}
+
+/* Styles for "Why Choose Us?" section */
+.about-item:nth-child(3) p {
+  margin-bottom: 0;
+}
+
+.about-item:nth-child(3) p strong {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 1px;
 }
 
 @media (min-width: 768px) {
@@ -156,20 +183,22 @@ footer p {
   }
 }
 
+
+
 /* Contact Us Now Styles */
 .contact-us-now {
-  background-color: #e2e2e2; /* Light gray background for contrast */
+  background-color: #060606; /* Light gray background for contrast */
   padding: 20px;
   text-align: center;
 }
 
 .contact-us-now h2 {
-  color: #d9534f; /* Matching the About Us header */
+  color: #ffffff; /* Matching the About Us header */
   margin-bottom: 15px;
 }
 
 .contact-us-now p {
-  color: #333; /* Darker text for readability */
+  color: #fbf9f9; /* Darker text for readability */
   margin-bottom: 10px;
 }
 
@@ -184,7 +213,7 @@ footer {
 }
 
 .icons a img {
-    width: 48px; /* 或者任何更小的尺寸 */
-    height: 47px; /* 这样可以保持宽高比 */
+    width: 48px;
+    height: 47px; 
     flex-shrink: 0;
 }
