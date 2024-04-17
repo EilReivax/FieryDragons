@@ -25,7 +25,6 @@
                 <legend><?= __('Edit Order') ?></legend>
                 <?php
                 /*
-                echo $this->Form->control('delivery_method');
                 echo $this->Form->control('address');
                 echo $this->Form->control('suburb');
                 echo $this->Form->control('state');
@@ -33,7 +32,8 @@
                 echo $this->Form->control('delivery_fee');
                 echo $this->Form->control('subtotal');
                 */
-                echo $this->Form->control('status', ['options' => ['Pending', 'Processing', 'Ready', 'Delivery', 'Completed', 'Cancelled']]);
+                echo $this->Form->control('status', ['options' => ['Pending' => 'Pending', 'Processing' => 'Processing', 'Ready' => 'Ready', 'Delivery' => 'Delivery', 'Completed' => 'Completed', 'Cancelled' => 'Cancelled']]);
+                echo $this->Form->control('delivery_method', ['options' => ['Pick-up' => 'Pick-up', 'Delivery' => 'Delivery']]);
                 echo $this->Form->control('note');
                 echo $this->Form->control('user_id', ['options' => $users]);
                 ?>
