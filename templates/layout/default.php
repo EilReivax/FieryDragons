@@ -29,7 +29,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-    
+
 </head>
 <body>
 <header class="navbar">
@@ -41,15 +41,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <li><a href="/" style="font-size: larger">Home</a></li>
             <li><a href="/items" style="font-size: larger">Menu</a></li>
             <li><a href="/orders" style="font-size: larger">Orders</a></li>
+            <li><a href="/users" style="font-size: larger">Users</a></li>
         </ul>
     </nav>
     <div class="icons">
-        <a href="/img/ShoppingBasketIcon.jpg">
-            <?= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) ?>
+<!--        <a href="/img/ShoppingBasketIcon.jpg">
+            <?php /*= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) */?>
         </a>
         <a href="/img/profileIcon.png">
-            <?= $this->Html->image('profileIcon.png', ['alt' => 'Icon 2', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon2']]) ?>
-        </a>
+            <?php /*= $this->Html->image('profileIcon.png', ['alt' => 'Icon 2', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon2']]) */?>
+        </a>-->
         <?php
         if (!$this->Identity->isLoggedIn()) {
             echo $this->Html->link(
