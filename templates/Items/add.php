@@ -21,7 +21,7 @@
                     echo $this->Form->control('name');
                     echo $this->Form->control('description');
                     echo $this->Form->control('price');
-                    echo $this->Form->control('type');
+                    echo $this->Form->control('type', ['options' => ['Special', 'Main', 'Side', 'Beverage', 'Dessert', 'Other']]);
                     echo $this->Form->control('availability');
                     echo $this->Form->control('photo');
                     echo $this->Form->control('orders._ids', ['options' => $orders]);
