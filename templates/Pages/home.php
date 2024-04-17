@@ -104,7 +104,7 @@ endif;
     <main>
         <section class="header-section" style="background-image: url('/img/homepage.jpg');">
             <div class="text-content">
-                    <h1>TASTY BITES KITCHEN</h1>
+                <h1>TASTY BITES KITCHEN</h1>
                 <h2>Enjoy a taste of home from our kitchen</h2>
                 <button onclick="location.href='/menu'">Order Now</button>
             </div>
@@ -148,6 +148,7 @@ endif;
                 </div>
                 <div class="about-item">
                     <h3>Why Choose Us?</h3>
+                    <h3>Why Choose Us?</h3>
                     <h4>Weekly Rotations</h4>
                     <p>
                         At Tasty Bites Kitchen, we believe in keeping your dining experience fresh and exciting. That's why we offer weekly rotations of your favourite homemade foods, ensuring that there's always something new and enticing to discover on our menu. From seasonal specials to fan favourites, we promise to keep your options fresh and exciting.
@@ -162,6 +163,7 @@ endif;
                     <p>
                         At Tasty Bites Kitchen, excellence is our standard. We approach every dish with a vision and execute it with our touch of dedication to mould every meal to perfection, promising a worthwhile experience with every bite.
                     </p>
+
                 </div>
             </div>
         </section>
