@@ -16,7 +16,7 @@
     </aside>
     <div class="column column-80">
         <div class="orders view content">
-            <h3><?= h($order->status) ?></h3>
+            <h3><?= h($order->status) . " " . h($order->delivery_method) ?></h3>
             <table>
                 <tr>
                     <th><?= __('Id') ?></th>
@@ -30,11 +30,25 @@
                     <th><?= __('Status') ?></th>
                     <td><?= h($order->status) ?></td>
                 </tr>
-                <!--<tr>
-                    <th><?php /*= __('Delivery Method') */?></th>
-                    <td><?php /*= h($order->delivery_method) */?></td>
-                </tr>
                 <tr>
+                    <th><?= __('Delivery Method') ?></th>
+                    <td><?= h($order->delivery_method) ?></td>
+                </tr>
+            </table>
+            <div class="text">
+                <strong><?= __('Note') ?></strong>
+                <blockquote>
+                    <?= $this->Text->autoParagraph(h($order->note)); ?>
+                </blockquote>
+            </div>
+            <!--<div class="text">
+                <strong><?= __('Address') ?></strong>
+                <blockquote>
+                    <?= $this->Text->autoParagraph(h($order->address)); ?>
+                </blockquote>
+            </div>-->
+            <table>
+                <!--<tr>
                     <th><?php /*= __('Suburb') */?></th>
                     <td><?php /*= h($order->suburb) */?></td>
                 </tr>
@@ -49,11 +63,11 @@
                 <tr>
                     <th><?php /*= __('Delivery Fee') */?></th>
                     <td><?php /*= $this->Number->format($order->delivery_fee) */?></td>
-                </tr>
-                <tr>
-                    <th><?php /*= __('Subtotal') */?></th>
-                    <td><?php /*= $this->Number->format($order->subtotal) */?></td>
                 </tr>-->
+                <tr>
+                    <th><?= __('Subtotal') ?></th>
+                    <td><?= $this->Number->format($order->subtotal) ?></td>
+                </tr>
                 <tr>
                     <th><?= __('Created') ?></th>
                     <td><?= h($order->created) ?></td>
@@ -63,42 +77,22 @@
                     <td><?= h($order->modified) ?></td>
                 </tr>
             </table>
-            <div class="text">
-                <strong><?= __('Address') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($order->address)); ?>
-                </blockquote>
-            </div>
-            <div class="text">
-                <strong><?= __('Note') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($order->note)); ?>
-                </blockquote>
-            </div>
             <div class="related">
-                <h4><?= __('Related Items') ?></h4>
+                <h4><?= __('Items') ?></h4>
                 <?php if (!empty($order->items)) : ?>
                 <div class="table-responsive">
                     <table>
                         <tr>
-                            <th><?= __('Id') ?></th>
                             <th><?= __('Name') ?></th>
-                            <th><?= __('Description') ?></th>
                             <th><?= __('Price') ?></th>
                             <th><?= __('Type') ?></th>
-                            <th><?= __('Availability') ?></th>
-                            <th><?= __('Photo') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($order->items as $item) : ?>
                         <tr>
-                            <td><?= h($item->id) ?></td>
                             <td><?= h($item->name) ?></td>
-                            <td><?= h($item->description) ?></td>
                             <td><?= h($item->price) ?></td>
                             <td><?= h($item->type) ?></td>
-                            <td><?= h($item->availability) ?></td>
-                            <td><?= h($item->photo) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Items', 'action' => 'view', $item->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['controller' => 'Items', 'action' => 'edit', $item->id]) ?>

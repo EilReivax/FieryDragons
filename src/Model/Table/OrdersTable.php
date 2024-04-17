@@ -81,8 +81,7 @@ class OrdersTable extends Table
             ->scalar('status')
             ->maxLength('status', 255)
             ->requirePresence('status', 'create')
-            // Change to notEmptyString(); in iteration 2
-            ->allowEmptyString('status');
+            ->notEmptyString('status');
 
         $validator
             ->scalar('address')
@@ -109,14 +108,12 @@ class OrdersTable extends Table
         $validator
             ->decimal('delivery_fee')
             ->requirePresence('delivery_fee', 'create')
-            // Change to notEmptyString(); in iteration 2
-            ->allowEmptyString('delivery_fee');
+            ->notEmptyString('delivery_fee');
 
         $validator
             ->decimal('subtotal')
             ->requirePresence('subtotal', 'create')
-            // Change to notEmptyString(); in iteration 2
-            ->allowEmptyString('subtotal');
+            ->notEmptyString('subtotal');
 
         $validator
             ->scalar('note')
