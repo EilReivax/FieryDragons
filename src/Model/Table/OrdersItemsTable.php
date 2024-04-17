@@ -68,6 +68,11 @@ class OrdersItemsTable extends Table
                 $entity->price = 0.00; // Default fallback price
             }
         }
+
+        // Ensure quantity has a default value
+        if (empty($entity->quantity)) {
+            $entity->quantity = 1; // Default quantity
+        }
     }
 
     /**
