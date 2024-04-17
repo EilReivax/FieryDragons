@@ -20,7 +20,7 @@
                 <legend><?= __('Add Orders Item') ?></legend>
                 <?php
                     echo $this->Form->control('quantity');
-                    echo $this->Form->control('price', ['value' => '0.00']);
+                    echo $this->Form->control('price');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
