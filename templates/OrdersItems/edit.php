@@ -25,6 +25,7 @@
                 <legend><?= __('Edit Orders Item') ?></legend>
                 <?php
                     echo $this->Form->control('quantity');
+                    echo $this->Form->control('price');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

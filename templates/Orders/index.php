@@ -13,7 +13,7 @@
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('user_id') ?></th>
-                    <th><?php $this->Paginator->sort('status') ?></th>
+                    <th><?= $this->Paginator->sort('status') ?></th>
                     <!--<th><?php /*= $this->Paginator->sort('delivery_method') */?></th>
                     <th><?php /*= $this->Paginator->sort('suburb') */?></th>
                     <th><?php /*= $this->Paginator->sort('state') */?></th>
