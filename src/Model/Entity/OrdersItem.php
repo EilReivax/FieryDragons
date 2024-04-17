@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property string $order_id
  * @property string $item_id
+ * @property string $price
  * @property int $quantity
  *
  * @property \App\Model\Entity\Order $order
@@ -27,6 +28,7 @@ class OrdersItem extends Entity
      * @var array<string, bool>
      */
     protected array $_accessible = [
+        'price' => true,
         'quantity' => true,
         'order' => true,
         'item' => true,

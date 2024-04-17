@@ -63,6 +63,11 @@ class OrdersItemsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
+            ->decimal('price')
+            ->requirePresence('price', 'create')
+            ->notEmptyString('price');
+
+        $validator
             ->integer('quantity')
             ->requirePresence('quantity', 'create')
             ->notEmptyString('quantity');
