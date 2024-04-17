@@ -85,7 +85,7 @@ endif;
                 <div class="about-item">
                     <h3>Our Story</h3>
                     <p>
-                        During the arising uncertainty during the pandemic, a spark ignited within us - a passion for culinary excellence and fusion of homemade meals.<br>
+                        During the rising uncertainty during the pandemic, a spark ignited within us - a passion for culinary excellence and fusion of homemade meals.<br>
                         It was from this humble beginning that our journey with Tasty Bites Kitchen began.<br><br>
 
                         What started as a simple passion project bloomed into something far greater.<br>
