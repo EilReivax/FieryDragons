@@ -89,7 +89,7 @@ endif;
             <?php
                 if (!$this->Identity->isLoggedIn()) {
                     echo $this->Html->link(
-                        'Log in',
+                        'Admin Log in',
                         ['controller' => 'Auth', 'action' => 'login'],
                         ['class' => 'button button-outline']);
                 }

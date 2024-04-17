@@ -40,7 +40,6 @@ $this->assign('title', 'Login');
                     echo $this->Form->control('password', [
                         'type' => 'password',
                         'required' => true,
-                        'value' => $debug ? 'password' : '',
                     ]);
                     ?>
                 </fieldset>
