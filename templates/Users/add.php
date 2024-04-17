@@ -22,15 +22,13 @@
                     echo $this->Form->control('phone');
                     echo $this->Form->control('email');
                     echo $this->Form->control('password');
-                    echo $this->Form->control('nonce');
-                    echo $this->Form->control('nonce_expiry', ['empty' => true]);
                     echo $this->Form->control('address');
                     echo $this->Form->control('suburb');
                     echo $this->Form->control('state');
                     echo $this->Form->control('postcode');
-                    echo $this->Form->control('card_number');
-                    echo $this->Form->control('card_cvv');
-                    echo $this->Form->control('card_expiry', ['empty' => true]);
+                    echo $this->Form->control('card_number', ['type' => 'number']);
+                    echo $this->Form->control('card_cvv', ['type' => 'number']);
+                    echo $this->Form->control('card_expiry', ['type' => 'month', 'empty' => true]);
                     echo $this->Form->control('admin');
                 ?>
             </fieldset>

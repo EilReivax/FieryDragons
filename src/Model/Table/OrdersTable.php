@@ -102,6 +102,7 @@ class OrdersTable extends Table
 
         $validator
             ->integer('postcode')
+            ->lengthBetween('postcode', [4, 4])
             ->requirePresence('postcode', 'create')
             ->allowEmptyString('postcode');
 

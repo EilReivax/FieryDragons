@@ -87,7 +87,7 @@ class UsersTable extends Table
 
         $validator
             ->scalar('password')
-            ->maxLength('password', 255)
+            ->lengthBetween('password', [8, 255])
             ->requirePresence('password', 'create')
             ->notEmptyString('password');
 
@@ -116,20 +116,21 @@ class UsersTable extends Table
 
         $validator
             ->integer('postcode')
+            ->lengthBetween('postcode', [4, 4])
             ->allowEmptyString('postcode');
 
         $validator
-            ->scalar('card_number')
+            ->integer('card_number')
             ->maxLength('card_number', 19)
             ->allowEmptyString('card_number');
 
         $validator
-            ->scalar('card_cvv')
-            ->maxLength('card_cvv', 4)
+            ->integer('card_cvv')
+            ->lengthBetween('card_cvv', [3, 4])
             ->allowEmptyString('card_cvv');
 
         $validator
-            ->date('card_expiry')
+            ->date('card_expiry', ['my'])
             ->allowEmptyDate('card_expiry');
 
         $validator
