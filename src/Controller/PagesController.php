@@ -43,6 +43,15 @@ class PagesController extends AppController
      *   be found and not in debug mode.
      * @throws \Cake\View\Exception\MissingTemplateException In debug mode.
      */
+
+    public function initialize(): void
+    {
+        parent::initialize();
+        // By default, CakePHP will (sensibly) default to preventing users from accessing any actions on a controller.
+        // These actions, however, are typically required for users who have not yet logged in.
+        $this->Authentication->allowUnauthenticated(['display']);
+    }
+
     public function display(string ...$path): ?Response
     {
         if (!$path) {

@@ -17,12 +17,14 @@ $this->assign('title', 'Register new user');
 
             <?= $this->Flash->render() ?>
 
-            <?= $this->Form->control('email'); ?>
-
             <div class="row">
-                <?= $this->Form->control('first_name', ['templateVars' => ['container_class' => 'column']]); ?>
-                <?= $this->Form->control('last_name', ['templateVars' => ['container_class' => 'column']]); ?>
+                <?= $this->Form->control('given_name', ['templateVars' => ['container_class' => 'column']]); ?>
+                <?= $this->Form->control('family_name', ['templateVars' => ['container_class' => 'column']]); ?>
             </div>
+
+            <?= $this->Form->control('phone'); ?>
+
+            <?= $this->Form->control('email'); ?>
 
             <div class="row">
                 <?php
@@ -39,8 +41,6 @@ $this->assign('title', 'Register new user');
                 ]);
                 ?>
             </div>
-
-            <?= $this->Form->control('avatar', ['type' => 'file']); ?>
 
         </fieldset>
 

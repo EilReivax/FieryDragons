@@ -80,12 +80,24 @@ endif;
         </ul>
             </nav>
         <div class="icons">
-            <a href="webroot/img/ShoppingBasketIcon.jpg">
+            <a href="/img/ShoppingBasketIcon.jpg">
                 <?= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) ?>
             </a>
-            <a href="webroot/img/profileIcon.png">
+            <a href="/img/profileIcon.png">
                 <?= $this->Html->image('profileIcon.png', ['alt' => 'Icon 2', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon2']]) ?>
             </a>
+            <?php
+                if (!$this->Identity->isLoggedIn()) {
+                    echo $this->Html->link(
+                        'Log in',
+                        ['controller' => 'Auth', 'action' => 'login'],
+                        ['class' => 'button button-outline']);
+                }
+
+                if ($this->Identity->isLoggedIn()) {
+                        echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout']);
+                }
+            ?>
         </div>
 
     </header>
