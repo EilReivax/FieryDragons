@@ -40,6 +40,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <ul>
             <li><a href="/" style="font-size: larger">Home</a></li>
             <li><a href="/items" style="font-size: larger">Menu</a></li>
+            <li><a href="/orders" style="font-size: larger">Orders</a></li>
         </ul>
     </nav>
     <div class="icons">
