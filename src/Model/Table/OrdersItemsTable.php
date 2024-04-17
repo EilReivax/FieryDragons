@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Datasource\EntityInterface;
+use Cake\Event\EventInterface;
 use Cake\ORM\Query\SelectQuery;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -52,6 +54,20 @@ class OrdersItemsTable extends Table
             'foreignKey' => 'item_id',
             'joinType' => 'INNER',
         ]);
+    }
+
+    public function beforeSave(EventInterface $event, EntityInterface $entity, \ArrayObject $options)
+    {
+        if ($entity->isNew() && empty($entity->price)) {
+            // Fetch the price of the associated item
+            $item = $this->Items->get($entity->item_id);
+            if ($item && !empty($item->price)) {
+                $entity->price = $item->price; // Set the item's price as the order item's price
+            } else {
+                // Optionally handle the case where the item's price is not available
+                $entity->price = 0.00; // Default fallback price
+            }
+        }
     }
 
     /**

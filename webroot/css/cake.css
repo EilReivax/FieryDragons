@@ -1,7 +1,7 @@
 /* Milligram overrides */
 :root {
     /* The following are official CakePHP colors */
-    --color-cakephp-red: #d33c43;
+    --color-cakephp-navcolor: #333333;
     --color-cakephp-gray: #404041;
     --color-cakephp-blue: #2f85ae;
     --color-cakephp-lightblue: #34bdd7;
@@ -33,8 +33,8 @@
 }
 
 .button, button, input[type='button'], input[type='reset'], input[type='submit'] {
-    background-color: var(--color-cakephp-red);
-    border-color: var(--color-cakephp-red);
+    background-color: var(--color-cakephp-navcolor);
+    border-color: var(--color-cakephp-navcolor);
 }
 
 body {
