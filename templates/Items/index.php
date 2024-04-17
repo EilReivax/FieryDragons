@@ -5,41 +5,48 @@
  */
 ?>
 <div class="items index content">
-    <?= $this->Html->link(__('New Item'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Items') ?></h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('price') ?></th>
-                    <th><?= $this->Paginator->sort('type') ?></th>
-                    <th><?= $this->Paginator->sort('availability') ?></th>
-                    <th><?= $this->Paginator->sort('photo') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($items as $item): ?>
-                <tr>
-                    <td><?= h($item->id) ?></td>
-                    <td><?= h($item->name) ?></td>
-                    <td><?= $this->Number->format($item->price) ?></td>
-                    <td><?= h($item->type) ?></td>
-                    <td><?= h($item->availability) ?></td>
-                    <td><?= h($item->photo) ?></td>
-                    <td class="actions">
+    <?= $this->Html->link(__('New Menu Item'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <h3><?= __('Weekly Menu') ?></h3>
+    <div class="item-list">
+        <div class="row">
+            <?php $counter = 0; ?>
+            <?php foreach ($items as $item): ?>
+            <div class="col">
+                <div class="item">
+                    <div class="item-image">
+                        <!-- Display item image -->
+                        <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
+                    </div>
+                    <div class="item-details">
+                        <!-- Display item ID -->
+                        <div>ID: <?= h($item->id) ?></div>
+                        <!-- Display item name -->
+                        <div>Name: <?= h($item->name) ?></div>
+                        <!-- Display item price -->
+                        <div>Price: <?= $this->Number->format($item->price) ?></div>
+                        <!-- Display item type -->
+                        <div>Type: <?= h($item->type) ?></div>
+                        <!-- Display item availability -->
+                        <div>Availability: <?= h($item->availability) ?></div>
+                    </div>
+                    <div class="item-actions">
+                        <!-- Display actions -->
                         <?= $this->Html->link(__('View'), ['action' => 'view', $item->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                    </div>
+                </div>
+            </div>
+            <?php $counter++; ?>
+            <?php if ($counter % 4 === 0): ?> 
+        </div>
+        <div class="row">
+            <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
     <div class="paginator">
+        <!-- Pagination links -->
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
@@ -47,6 +54,7 @@
             <?= $this->Paginator->next(__('next') . ' >') ?>
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
+        <!-- Pagination counter -->
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
 </div>

@@ -208,6 +208,25 @@ input[type='color'] {
     padding: 0.3rem .5rem 0.3rem;
 }
 
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 6rem; /* Adjust the spacing between each item */
+}
+
+.item-image {
+    margin-bottom: 2rem; /* Adjust the spacing between the image and item details */
+    width: 200px; /* Set a fixed width for the image */
+    height: 200px; /* Set a fixed height for the image */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+}
+
+.row {
+    margin-bottom: 2rem; /* Adjust the spacing between rows */
+}
+
+
+
 /* Paginator */
 .paginator {
     text-align: right;
