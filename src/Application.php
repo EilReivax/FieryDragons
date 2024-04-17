@@ -102,33 +102,27 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             ->add(new CsrfProtectionMiddleware([
                 'httponly' => true,
             ]));
-            // Always raise an exception and never redirect.
-            $https = new HttpsEnforcerMiddleware([
-                'redirect' => false,
-            ]);
 
-            // Send a 302 status code when redirecting
             $https = new HttpsEnforcerMiddleware([
-                'redirect' => true,
-                'statusCode' => 302,
-            ]);
-
-            // Send additional headers in the redirect response.
-            $https = new HttpsEnforcerMiddleware([
-                'headers' => ['X-Https-Upgrade' => 1],
-            ]);
-
-            // Disable HTTPs enforcement when ``debug`` is on.
-            $https = new HttpsEnforcerMiddleware([
-                'disableOnDebug' => true,
-            ]);
-
-            // Only trust HTTP_X_ headers from the listed servers.
-            $https = new HttpsEnforcerMiddleware([
-                'trustProxies' => ['192.168.1.1'],
+                'redirect' => true, // Set to true to redirect HTTP requests to HTTPS
+                'statusCode' => 302, // Set the status code for redirection
+                'headers' => ['X-Https-Upgrade' => 1], // Additional headers in the redirect response
+                'disableOnDebug' => true, // Disable HTTPS enforcement when debug mode is on
+                'trustProxies' => ['192.168.1.1'], // Only trust HTTP_X_ headers from the listed servers
+                'hsts' => [
+                    // How long the header value should be cached for.
+                    'maxAge' => 60 * 60 * 24 * 365,
+                    // should this policy apply to subdomains?
+                    'includeSubDomains' => true,
+                    // Should the header value be cacheable in google's HSTS preload
+                    // service? While not part of the spec it is widely implemented.
+                    'preload' => true,
+                ],
             ]);
 
 
+        // Add HTTPS enforcement middleware to the queue
+        $middlewareQueue->add($https);
 
         return $middlewareQueue;
     }
