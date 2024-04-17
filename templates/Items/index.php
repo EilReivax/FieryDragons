@@ -24,7 +24,7 @@
                     <!-- Display item name -->
                     <div>Name: <?= h($item->name) ?></div>
                     <!-- Display item price -->
-                    <div>Price: <?= $this->Number->format($item->price) ?></div>
+                    <div>Price: $<?= $this->Number->format($item->price) ?></div>
                     <!-- Display item type -->
                     <div>Type: <?= h($item->type) ?></div>
                 </div>
