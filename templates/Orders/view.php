@@ -58,7 +58,7 @@
                 </tr>
                 <tr>
                     <th><?= __('Postcode') ?></th>
-                    <td><?= $this->Number->format($order->postcode) ?></td>
+                    <td><?= h($order->postcode) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Delivery Fee') ?></th>

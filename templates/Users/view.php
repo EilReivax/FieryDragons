@@ -62,7 +62,7 @@
                 </tr>
                 <tr>
                     <th><?= __('Postcode') ?></th>
-                    <td><?= $user->postcode === null ? '' : $this->Number->format($user->postcode) ?></td>
+                    <td><?= h($user->postcode) ?></td>
                 </tr>
                 <!--
                 <tr>
