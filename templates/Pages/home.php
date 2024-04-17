@@ -72,7 +72,7 @@ endif;
         <section class="header-section" style="background-image: url('/img/homepage.jpg');">
             <div class="text-content">
                 <h1>TASTY BITES KITCHEN</h1>
-                <h2>Enjoy a taste of home from our kitchen</h2>
+                <h2>Enjoy the taste of home from our kitchen</h2>
                 <button onclick="location.href='/items'">Order Now</button>
             </div>
         </section>
@@ -85,7 +85,7 @@ endif;
                 <div class="about-item">
                     <h3>Our Story</h3>
                     <p>
-                        During the rising uncertainty during the pandemic, a spark ignited within us - a passion for culinary excellence and fusion of homemade meals.<br>
+                        During the rising uncertainty amidst the pandemic, a spark ignited within us - a passion for culinary excellence and fusion of homemade meals.<br>
                         It was from this humble beginning that our journey with Tasty Bites Kitchen began.<br><br>
 
                         What started as a simple passion project bloomed into something far greater.<br>
