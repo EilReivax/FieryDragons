@@ -17,39 +17,65 @@
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
-
+    <title>Tasty Bites Kitchen</title>
     <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
-
+    <link rel="icon" type="image/x-icon" href="<?= $this->Url->image('logo.png') ?>">
+    <?= $this->Html->meta('icon') ?>
+    <?= $this->Html->css('home') ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    
 </head>
 <body>
-    <nav class="top-nav">
-        <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
-        </div>
-        <div class="top-nav-links">
-            <a target="_blank" rel="noopener" href="https://book.cakephp.org/5/">Documentation</a>
-            <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
-        </div>
+<header class="navbar">
+    <div class="brand-container">
+        <?= $this->Html->image('logo.png', ['alt' => 'Tasty Bites Kitchen', 'class' => 'brand-logo']) ?>
+    </div>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="/" style="font-size: larger">Home</a></li>
+            <li><a href="/items" style="font-size: larger">Menu</a></li>
+        </ul>
     </nav>
-    <main class="main">
-        <div class="container">
-            <?= $this->Flash->render() ?>
-            <?= $this->fetch('content') ?>
-        </div>
-    </main>
-    <footer>
-    </footer>
+    <div class="icons">
+        <a href="/img/ShoppingBasketIcon.jpg">
+            <?= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) ?>
+        </a>
+        <a href="/img/profileIcon.png">
+            <?= $this->Html->image('profileIcon.png', ['alt' => 'Icon 2', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon2']]) ?>
+        </a>
+        <?php
+        if (!$this->Identity->isLoggedIn()) {
+            echo $this->Html->link(
+                'Log in',
+                ['controller' => 'Auth', 'action' => 'login'],
+                ['class' => 'button button-outline']);
+        }
+
+        if ($this->Identity->isLoggedIn()) {
+            echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout']);
+        }
+        ?>
+    </div>
+</header>
+<?= $this->fetch('content') ?>
+
+<footer>
+    <p>&copy; <?= date('Y') ?> Tasty Bites Kitchen. All rights reserved.</p>
+</footer>
+
+<!-- Contact Us Now Section -->
+<section class="contact-us-now">
+    <h2>Contact Us Now</h2>
+    <p>Email: contact@tastybites.com</p>
+    <p>Phone: 0400xxxxxxx</p>
+    <p>Address: 123 Flavor Street, Foodville, FK 12345</p>
+</section>
+
 </body>
 </html>

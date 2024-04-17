@@ -208,6 +208,18 @@ input[type='color'] {
     padding: 0.3rem .5rem 0.3rem;
 }
 
+h1 {
+    text-align: center;
+    margin: 0 auto; /* Set margin to auto to horizontally center the element */
+    width: fit-content;
+    margin-bottom: 40px; /* Adjust width to fit the content */
+}
+
+.menu-title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
 .item {
     display: flex;
     flex-direction: column;
@@ -221,9 +233,22 @@ input[type='color'] {
     object-fit: cover; /* Maintain aspect ratio and cover container */
 }
 
-.row {
-    margin-bottom: 2rem; /* Adjust the spacing between rows */
+.row,
+.bottom-row {
+    display: flex;
+    justify-content: space-evenly; /* Distribute items evenly along the row */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
 }
+
+.bottom-row {
+    margin-top: 10px;
+    margin-left: auto;
+    justify-content: space-evenly;
+}
+
+
+
+
 
 
 
@@ -317,4 +342,7 @@ input[type='color'] {
     .desc:after {
         content: " \2190";
     }
+
+ 
+    
 }

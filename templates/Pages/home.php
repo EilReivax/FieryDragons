@@ -76,7 +76,7 @@ endif;
             <nav class="nav-menu">
         <ul>
             <li><a href="/" style="font-size: larger">Home</a></li>
-            <li><a href="/menu" style="font-size: larger">Menu</a></li> <!-- Updated hyperlink for the Menu item -->
+            <li><a href="/items" style="font-size: larger">Menu</a></li> <!-- Updated hyperlink for the Menu item -->
         </ul>
             </nav>
         <div class="icons">

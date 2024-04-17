@@ -21,7 +21,7 @@ class ItemsController extends AppController
         $items = $this->paginate($query);
 
         $this->set(compact('items'));
-        $this->viewBuilder()->setLayout('menuitems');
+        //$this->viewBuilder()->setLayout('menuitems');
     }
 
     /**

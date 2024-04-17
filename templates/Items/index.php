@@ -5,46 +5,49 @@
  */
 ?>
 <div class="items index content">
-    <?= $this->Html->link(__('New Menu Item'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Weekly Menu') ?></h3>
+    <?= $this->Html->link(__('Add New Menu Item'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <h1><?= __('Weeky Menu') ?></h1>
     <div class="item-list">
-        <div class="row">
-            <?php $counter = 0; ?>
-            <?php foreach ($items as $item): ?>
-            <div class="col">
-                <div class="item">
-                    <div class="item-image">
-                        <!-- Display item image -->
-                        <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
-                    </div>
-                    <div class="item-details">
-                        <!-- Display item ID -->
-                        <div>ID: <?= h($item->id) ?></div>
-                        <!-- Display item name -->
-                        <div>Name: <?= h($item->name) ?></div>
-                        <!-- Display item price -->
-                        <div>Price: <?= $this->Number->format($item->price) ?></div>
-                        <!-- Display item type -->
-                        <div>Type: <?= h($item->type) ?></div>
-                        <!-- Display item availability -->
-                        <div>Availability: <?= h($item->availability) ?></div>
-                    </div>
-                    <div class="item-actions">
-                        <!-- Display actions -->
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $item->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) ?>
-                    </div>
+    <div class="row">
+        <?php $counter = 0; ?>
+        <?php $totalItems = count($items); ?> <!-- Get total number of items -->
+        <?php foreach ($items as $index => $item): ?>
+        <div class="col">
+            <div class="item">
+                <div class="item-image">
+                    <!-- Display item image -->
+                    <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
+                </div>
+                <div class="item-details">
+                    <!-- Display item ID -->
+                    <div>ID: <?= h($item->id) ?></div>
+                    <!-- Display item name -->
+                    <div>Name: <?= h($item->name) ?></div>
+                    <!-- Display item price -->
+                    <div>Price: <?= $this->Number->format($item->price) ?></div>
+                    <!-- Display item type -->
+                    <div>Type: <?= h($item->type) ?></div>
+                    <!-- Display item availability -->
+                    <div>Availability: <?= h($item->availability) ?></div>
+                </div>
+                <div class="item-actions">
+                    <!-- Display actions -->
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $item->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) ?>
                 </div>
             </div>
-            <?php $counter++; ?>
-            <?php if ($counter % 4 === 0): ?> 
         </div>
-        <div class="row">
-            <?php endif; ?>
-            <?php endforeach; ?>
-        </div>
+        <?php $counter++; ?>
+        <?php if ($counter % 4 === 0 || $index === $totalItems - 1): ?> 
     </div>
+    <?php if ($index !== $totalItems - 1): ?> <!-- Check if it's not the last item -->
+    <div class="row bottom-row"> <!-- Add a class to the bottom row -->
+    <?php endif; ?>
+    <?php endif; ?>
+    <?php endforeach; ?>
+</div>
+
     <div class="paginator">
         <!-- Pagination links -->
         <ul class="pagination">
