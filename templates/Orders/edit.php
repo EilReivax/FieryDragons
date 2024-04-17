@@ -39,7 +39,7 @@
                 ?>
                 <legend><?= __('Select Menu Items:') ?></legend>
                 <?php
-                echo $this->Form->control('items._ids', ['options' => $items, 'multiple' => 'checkbox', 'label' => false]);
+                    echo $this->Form->control('items._ids', ['options' => $items, 'multiple' => 'checkbox', 'label' => false]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

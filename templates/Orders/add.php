@@ -32,8 +32,30 @@
                 ?>
                 <legend><?= __('Select Menu Items:') ?></legend>
                 <?php
-                echo $this->Form->control('items._ids', ['options' => $items, 'multiple' => 'checkbox', 'label' => false]);
+                    echo $this->Form->control('items._ids', ['options' => $items, 'multiple' => 'checkbox', 'label' => false]);
                 ?>
+<!--                <div class="item-selection">
+                    <?php /*foreach ($items as $itemId => $itemName) : */?>
+                        <div class="item-row">
+                            <div class="item-checkbox">
+                                <?php /*= $this->Form->control('items._ids', [
+                                    'type' => 'checkbox',
+                                    'value' => $itemId,
+                                    'label' => $itemName
+                                ]) */?>
+                            </div>
+                            <div class="item-quantity">
+                                <?php /*= $this->Form->control('items.' . $itemId . '.quantity', [
+                                    'type' => 'number',
+                                    'label' => false,
+                                    'class' => 'quantity-input',
+                                    'min' => 1,
+                                    'step' => 1
+                                ]) */?>
+                            </div>
+                        </div>
+                    <?php /*endforeach; */?>
+                </div>-->
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>

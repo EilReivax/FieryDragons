@@ -343,6 +343,26 @@ h1 {
         content: " \2190";
     }
 
- 
-    
+
+
+}
+
+.item-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-quantity .quantity-input {
+    width: 60px;
+}
+
+.item-checkbox label {
+    margin-bottom: 0;
 }
