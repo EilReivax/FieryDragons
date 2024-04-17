@@ -36,7 +36,10 @@
                 echo $this->Form->control('status', ['options' => ['Pending', 'Processing', 'Ready', 'Delivery', 'Completed', 'Cancelled']]);
                 echo $this->Form->control('note');
                 echo $this->Form->control('user_id', ['options' => $users]);
-                echo $this->Form->control('items._ids', ['options' => $items]);
+                ?>
+                <legend><?= __('Select Menu Items:') ?></legend>
+                <?php
+                echo $this->Form->control('items._ids', ['options' => $items, 'multiple' => 'checkbox', 'label' => false]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

@@ -5,7 +5,8 @@
  */
 ?>
 <div class="items index content">
-    <?= $this->Html->link(__('Add New Menu Item'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('New Item'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('New Order'), ['controller' => 'Orders', 'action' => 'add'], ['class' => 'button float-right']) ?>
     <h1><?= __('Weeky Menu') ?></h1>
     <div class="item-list">
     <div class="row">

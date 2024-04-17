@@ -19,17 +19,20 @@
             <fieldset>
                 <legend><?= __('Add Order') ?></legend>
                 <?php
-                    echo $this->Form->control('delivery_method');
-                    echo $this->Form->control('status');
-                    echo $this->Form->control('address');
-                    echo $this->Form->control('suburb');
-                    echo $this->Form->control('state');
-                    echo $this->Form->control('postcode');
-                    echo $this->Form->control('delivery_fee');
-                    echo $this->Form->control('subtotal');
-                    echo $this->Form->control('note');
-                    echo $this->Form->control('user_id', ['options' => $users]);
-                    echo $this->Form->control('items._ids', ['options' => $items]);
+                echo $this->Form->control('delivery_method', ['options' => ['Pick-up', 'Delivery']]);
+                echo $this->Form->control('status');
+                echo $this->Form->control('address');
+                echo $this->Form->control('suburb');
+                echo $this->Form->control('state');
+                echo $this->Form->control('postcode');
+                echo $this->Form->control('delivery_fee');
+                echo $this->Form->control('subtotal');
+                echo $this->Form->control('note');
+                echo $this->Form->control('user_id', ['options' => $users]);
+                ?>
+                <legend><?= __('Select Menu Items:') ?></legend>
+                <?php
+                echo $this->Form->control('items._ids', ['options' => $items, 'multiple' => 'checkbox', 'label' => false]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

@@ -75,14 +75,14 @@ class OrdersTable extends Table
             ->scalar('delivery_method')
             ->maxLength('delivery_method', 255)
             ->requirePresence('delivery_method', 'create')
-            // Change to notEmptyString(); in iteration 2
-            ->allowEmptyString('delivery_method');
+            ->notEmptyString('delivery_method');
 
         $validator
             ->scalar('status')
             ->maxLength('status', 255)
             ->requirePresence('status', 'create')
-            ->notEmptyString('status');
+            // Change to notEmptyString(); in iteration 2
+            ->allowEmptyString('status');
 
         $validator
             ->scalar('address')
@@ -115,7 +115,8 @@ class OrdersTable extends Table
         $validator
             ->decimal('subtotal')
             ->requirePresence('subtotal', 'create')
-            ->notEmptyString('subtotal');
+            // Change to notEmptyString(); in iteration 2
+            ->allowEmptyString('subtotal');
 
         $validator
             ->scalar('note')
