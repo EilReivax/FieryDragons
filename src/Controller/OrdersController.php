@@ -55,17 +55,21 @@ class OrdersController extends AppController
         $order = $this->Orders->newEmptyEntity();
         if ($this->request->is('post')) {
             $order = $this->Orders->patchEntity($order, $this->request->getData());
-            $subtotal = 0;
-            foreach ($order->items as $item) {
-                $subtotal += $item->price;
-            }
-            $order->subtotal = $subtotal;
-            if ($this->Orders->save($order)) {
-                $this->Flash->success(__('The order has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            if (empty($order->items) || count($order->items) == 0) {
+                $this->Flash->error(__('Please select at least one item for the order.'));
+            } else {
+                $subtotal = 0;
+                foreach ($order->items as $item) {
+                    $subtotal += $item->price;
+                }
+                $order->subtotal = $subtotal;
+                if ($this->Orders->save($order)) {
+                    $this->Flash->success(__('The order has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The order could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The order could not be saved. Please, try again.'));
         }
         $users = $this->Orders->Users->find('list', limit: 200)->all();
         $items = $this->Orders->Items->find('list', limit: 200)->all();
@@ -84,17 +88,21 @@ class OrdersController extends AppController
         $order = $this->Orders->get($id, contain: ['Items']);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $order = $this->Orders->patchEntity($order, $this->request->getData());
-            $subtotal = 0;
-            foreach ($order->items as $item) {
-                $subtotal += $item->price;
-            }
-            $order->subtotal = $subtotal;
-            if ($this->Orders->save($order)) {
-                $this->Flash->success(__('The order has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+            if (empty($order->items) || count($order->items) == 0) {
+                $this->Flash->error(__('Please select at least one item for the order.'));
+            } else {
+                $subtotal = 0;
+                foreach ($order->items as $item) {
+                    $subtotal += $item->price;
+                }
+                $order->subtotal = $subtotal;
+                if ($this->Orders->save($order)) {
+                    $this->Flash->success(__('The order has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('The order could not be saved. Please, try again.'));
             }
-            $this->Flash->error(__('The order could not be saved. Please, try again.'));
         }
         $users = $this->Orders->Users->find('list', limit: 200)->all();
         $items = $this->Orders->Items->find('list', limit: 200)->all();
