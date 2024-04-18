@@ -88,11 +88,11 @@
                 <tr>
                 -->
                     <th><?= __('Created') ?></th>
-                    <td><?= h($user->created) ?></td>
+                    <td><?= h($user->created->format('d/m/Y, H:i:s')) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Modified') ?></th>
-                    <td><?= h($user->modified) ?></td>
+                    <td><?= h($user->modified->format('d/m/Y, H:i:s')) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Admin') ?></th>

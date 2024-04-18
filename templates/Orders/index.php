@@ -37,8 +37,8 @@
                     <td><?php /*= $this->Number->format($order->postcode) */?></td>
                     <td><?php /*= $this->Number->format($order->delivery_fee) */?></td>
                     <td><?php /*= $this->Number->format($order->subtotal) */?></td>-->
-                    <td><?= h($order->created) ?></td>
-                    <td><?= h($order->modified) ?></td>
+                    <td><?= h($order->created->format('d/m/Y, H:i:s')) ?></td>
+                    <td><?= h($order->modified->format('d/m/Y, H:i:s')) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $order->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $order->id]) ?>

@@ -70,11 +70,11 @@
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>
-                    <td><?= h($order->created) ?></td>
+                    <td><?= h($order->created->format('d/m/Y, H:i:s')) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Modified') ?></th>
-                    <td><?= h($order->modified) ?></td>
+                    <td><?= h($order->modified->format('d/m/Y, H:i:s')) ?></td>
                 </tr>
             </table>
             <div class="related">

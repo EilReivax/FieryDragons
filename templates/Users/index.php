@@ -39,8 +39,8 @@
                     <td><?= h($user->state) ?></td>
                     <td><?= $user->postcode === null ? '' : $this->Number->format($user->postcode) ?></td>
                     <td><?= h($user->admin) ?></td>
-                    <td><?= h($user->created) ?></td>
-                    <td><?= h($user->modified) ?></td>
+                    <td><?= h($user->created->format('d/m/Y, H:i:s')) ?></td>
+                    <td><?= h($user->modified->format('d/m/Y, H:i:s')) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
