@@ -16,10 +16,12 @@
         <?php /*if ($item->availability): */?>
         <div class="col">
             <div class="item">
-                <div class="item-image">
-                    <!-- Display item image -->
-                    <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
-                </div>
+            <div class="item-image">
+        <!-- Display item image or default image if $item->photo is empty -->
+        <?= empty($item->photo) ? 
+            $this->Html->image('default.png', ['alt' => $item->name]) : 
+            $this->Html->image($item->photo, ['alt' => $item->name]) ?>
+        </div>
                 <div class="item-details">
                     <!-- Display item name -->
                     <div>Name: <?= h($item->name) ?></div>
