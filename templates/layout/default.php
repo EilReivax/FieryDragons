@@ -58,7 +58,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             echo $this->Html->link(
                 'Log in',
                 ['controller' => 'Auth', 'action' => 'login'],
-                ['class' => 'button button-outline']);
+                ['class' => 'button button-outline', 'style' => 'background-color: #B9E5FFFF; color: FFFFFFFF; border: none']
+            );
         }
 
         if ($this->Identity->isLoggedIn()) {
@@ -70,10 +71,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?= $this->Flash->render() ?>
 <?= $this->fetch('content') ?>
 
-<footer>
-    <p>&copy; <?= date('Y') ?> Tasty Bites Kitchen. All rights reserved.</p>
-</footer>
-
 <!-- Contact Us Now Section -->
 <section class="contact-us-now">
     <h2>Contact Us Now</h2>
@@ -84,3 +81,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 </body>
 </html>
+
+<footer>
+    <p>&copy; <?= date('Y') ?> Tasty Bites Kitchen. All rights reserved.</p>
+</footer>

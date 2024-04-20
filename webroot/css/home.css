@@ -35,7 +35,7 @@ body {
 
 /* Navbar Styles */
 .navbar {
-  background: #333;
+  background: #62bfff;
   color: #fff;
   padding: 10px 20px;
   display: flex;
@@ -65,7 +65,7 @@ body {
 
 .nav-menu ul li a:hover,
 .nav-menu ul li a:focus {
-  background: #555;
+  background: #fdb35c;
 }
 
 .brand-logo {
@@ -87,12 +87,16 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #000000;
+  color: #00a0ff;
 }
 
 .header-section .text-content h1 {
   margin-bottom: 0.5em;
   font-size: 2.5em;
+    color: #00a0ff;
+    font-family: "Century Schoolbook";
+    border: 2px solid #00a0ff;
+    padding: 10px;
 }
 
 .header-section .text-content h2 {
@@ -101,7 +105,7 @@ body {
 }
 
 .header-section .text-content button {
-  background: #0c0c0c;
+  background: #62bfff;
   color: #fff;
   border: none;
   padding: 3px 20px;
@@ -113,7 +117,7 @@ body {
 }
 
 .header-section .text-content button:hover {
-  background: #c0392b;
+  background: #fdb35c;
 }
 
 /* Footer Styles */
@@ -131,7 +135,7 @@ footer p {
 /* About Us Styles */
 /* About Us Styles */
 .about-header {
-  background-color: #000000;
+  background-color: #62bfff;
   padding: 20px;
   color: rgb(255, 255, 255);
   text-align: center;
@@ -149,28 +153,20 @@ footer p {
 }
 
 .about-item h3 {
-  color: #070707;
+  color: #00a0ff;
   margin-bottom: 10px;
 }
 
+.about-item h4 {
+    color: #00a0ff;
+    margin-bottom: 10px;
+}
+
 .about-item p {
-  color: #000; /* Adjust text color */
+  color: #00a0ff; /* Adjust text color */
 }
 
-.about-item p strong {
-  font-weight: bold;
-}
 
-/* Styles for "Why Choose Us?" section */
-.about-item:nth-child(3) p {
-  margin-bottom: 0;
-}
-
-.about-item:nth-child(3) p strong {
-  display: block;
-  margin-top: 20px;
-  margin-bottom: 1px;
-}
 
 @media (min-width: 768px) {
   .about-container {
@@ -188,7 +184,7 @@ footer p {
 
 /* Contact Us Now Styles */
 .contact-us-now {
-  background-color: #060606; /* Light gray background for contrast */
+  background-color: #62bfff; /* Light gray background for contrast */
   padding: 20px;
   text-align: center;
 }
@@ -206,6 +202,8 @@ footer p {
 /* Ensuring the footer is still visible */
 footer {
   clear: both;
+    font-size: 12px;
+    background-color: #838383;
 }
 
 /* Adjust button styles if necessary */
@@ -215,6 +213,6 @@ footer {
 
 .icons a img {
     width: 48px;
-    height: 47px; 
+    height: 47px;
     flex-shrink: 0;
 }
