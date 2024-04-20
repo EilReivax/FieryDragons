@@ -17,12 +17,6 @@
     <div class="column column-80">
         <div class="items view content">
             <h3><?= h($item->name) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= h($item->id) ?></td>
-                </tr>
-            </table>
             <div class="text">
                 <strong><?= __('Description') ?></strong>
                 <blockquote>
