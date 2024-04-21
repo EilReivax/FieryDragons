@@ -18,8 +18,8 @@
             <div class="item">
             <div class="item-image">
         <!-- Display item image or default image if $item->photo is empty -->
-        <?= empty($item->photo) ? 
-            $this->Html->image('default.png', ['alt' => $item->name]) : 
+        <?= empty($item->photo) ?
+            $this->Html->image('default.png', ['alt' => $item->name]) :
             $this->Html->image($item->photo, ['alt' => $item->name]) ?>
         </div>
                 <div class="item-details">
@@ -32,9 +32,10 @@
                 </div>
                 <div class="item-actions">
                     <!-- Display actions -->
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $item->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $item->id], ['class' => 'button button-view']) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id], ['class' => 'button button-edit']) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id), 'class' => 'button button-delete']) ?>
+
                 </div>
             </div>
         </div>
