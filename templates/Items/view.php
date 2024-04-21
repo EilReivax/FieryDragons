@@ -26,7 +26,7 @@
             <table>
                 <tr>
                     <th><?= __('Price') ?></th>
-                    <td>$<?= $this->Number->format($item->price) ?></td>
+                    <td>$<?= $this->Number->format($item->price, ['places' => 2]) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Type') ?></th>
