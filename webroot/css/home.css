@@ -35,7 +35,7 @@ body {
 
 /* Navbar Styles */
 .navbar {
-  background: #62bfff;
+  background: #078385;
   color: #fff;
   padding: 10px 20px;
   display: flex;
@@ -87,15 +87,15 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #00a0ff;
+  color: #000301;
 }
 
 .header-section .text-content h1 {
   margin-bottom: 0.5em;
   font-size: 2.5em;
-    color: #00a0ff;
+    color: #000402;
     font-family: "Century Schoolbook";
-    border: 2px solid #00a0ff;
+    border: 2px solid #078538;
     padding: 10px;
 }
 
@@ -105,7 +105,7 @@ body {
 }
 
 .header-section .text-content button {
-  background: #62bfff;
+  background: #078385;
   color: #fff;
   border: none;
   padding: 3px 20px;
@@ -135,7 +135,7 @@ footer p {
 /* About Us Styles */
 /* About Us Styles */
 .about-header {
-  background-color: #62bfff;
+  background-color: #078385;
   padding: 20px;
   color: rgb(255, 255, 255);
   text-align: center;
@@ -158,12 +158,12 @@ footer p {
 }
 
 .about-item h4 {
-    color: #00a0ff;
+    color: #000407;
     margin-bottom: 10px;
 }
 
 .about-item p {
-  color: #00a0ff; /* Adjust text color */
+  color: #000406; /* Adjust text color */
 }
 
 
@@ -184,7 +184,7 @@ footer p {
 
 /* Contact Us Now Styles */
 .contact-us-now {
-  background-color: #62bfff; /* Light gray background for contrast */
+  background-color:  #078385; /* Light gray background for contrast */
   padding: 20px;
   text-align: center;
 }
