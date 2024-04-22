@@ -44,7 +44,11 @@
             <div class="text">
                 <strong><?= __('Address') ?></strong>
                 <blockquote>
-                    <?= $this->Text->autoParagraph(h($order->address)); ?>
+                    <?= $this->Form->input('address', [
+                        'maxlength' => '40',
+                        'value' => h($order->address),
+                        'style' => 'width: 500px;' // Adjust the width as needed
+                    ]); ?>
                 </blockquote>
             </div>
             <table>
