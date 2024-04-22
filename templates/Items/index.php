@@ -13,7 +13,7 @@
         <?php $counter = 0; ?>
         <?php $totalItems = count($items); ?> <!-- Get total number of items -->
         <?php foreach ($items as $index => $item): ?>
-        <?php /*if ($item->availability): */?>
+        <?php if ($item->availability): ?>
         <div class="col">
             <div class="item">
             <div class="item-image">
@@ -46,7 +46,7 @@
     <div class="row bottom-row"> <!-- Add a class to the bottom row -->
     <?php endif; ?>
     <?php endif; ?>
-    <?php /*endif; */?>
+    <?php endif; ?>
     <?php endforeach; ?>
 </div>
 
