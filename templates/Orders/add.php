@@ -37,8 +37,7 @@
                 </div>
                 <script>
                     function toggleAddressVisibility(deliveryMethod) {
-                        var displayStyle = deliveryMethod === 'Delivery' ? 'block' : 'none';
-                        document.getElementById('addressFields').style.display = displayStyle;
+                        document.getElementById('addressFields').style.display = deliveryMethod === 'Delivery' ? 'block' : 'none';
                     }
                 </script>
                 <?php
