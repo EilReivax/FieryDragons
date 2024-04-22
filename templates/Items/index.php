@@ -34,7 +34,7 @@
                     <!-- Display actions -->
                     <?= $this->Html->link(__('View'), ['action' => 'view', $item->id], ['class' => 'button button-view']) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id], ['class' => 'button button-edit']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id), 'class' => 'button button-delete']) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete {0}?', $item->name), 'class' => 'button button-delete']) ?>
 
                 </div>
             </div>
