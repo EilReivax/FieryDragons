@@ -35,7 +35,7 @@ body {
 
 /* Navbar Styles */
 .navbar {
-  background: #078385;
+  background: #3f0d12;
   color: #fff;
   padding: 10px 20px;
   display: flex;
@@ -105,7 +105,7 @@ body {
 }
 
 .header-section .text-content button {
-  background: #078385;
+  background: #A71D31;
   color: #fff;
   border: none;
   padding: 3px 20px;
@@ -135,7 +135,7 @@ footer p {
 /* About Us Styles */
 /* About Us Styles */
 .about-header {
-  background-color: #078385;
+  background-color: #3f0d12;
   padding: 20px;
   color: rgb(255, 255, 255);
   text-align: center;
