@@ -11,7 +11,7 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <!-- <th><?= $this->Paginator->sort('id') ?></th> -->
                     <th><?= $this->Paginator->sort('given_name') ?></th>
                     <th><?= $this->Paginator->sort('family_name') ?></th>
                     <th><?= $this->Paginator->sort('phone') ?></th>
@@ -29,7 +29,7 @@
             <tbody>
                 <?php foreach ($users as $user): ?>
                 <tr>
-                    <td><?= h($user->id) ?></td>
+                    <!-- <td><?= h($user->id) ?></td> -->
                     <td><?= h($user->given_name) ?></td>
                     <td><?= h($user->family_name) ?></td>
                     <td><?= h($user->phone) ?></td>
@@ -44,7 +44,7 @@
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                        <!-- <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> -->
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
