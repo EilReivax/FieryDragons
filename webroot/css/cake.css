@@ -228,10 +228,11 @@ h1 {
 
 .item-image {
     margin-bottom: 2rem; /* Adjust the spacing between the image and item details */
-    width: 200px; /* Set a fixed width for the image */
+    width: 209px; /* Set a fixed width for the image */
     height: 200px; /* Set a fixed height for the image */
     object-fit: cover; /* Maintain aspect ratio and cover container */
 }
+
 
 .row,
 .bottom-row {
