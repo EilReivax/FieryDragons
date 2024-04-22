@@ -252,6 +252,16 @@ h1 {
     overflow-wrap: break-word; /* Ensure that long words break properly */
 }
 
+/* Image center/spacing control in items view  */
+
+.item-photo img {
+    width: 500px; /* Set a fixed width for the image */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+    margin-bottom: 50px; /* Add bottom margin */
+}
+
 
 
 

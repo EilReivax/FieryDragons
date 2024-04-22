@@ -4,42 +4,38 @@
  * @var \App\Model\Entity\Item $item
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Item'), ['action' => 'edit', $item->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Item'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Items'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Item'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+<div class="column column-80">
+    <div class="items view content">
+        
+        <!-- Display item photo -->
+        <div class="item-photo">
+    <?php if (!empty($item->photo)): ?>
+        <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
+        <?php else: ?>
+            <?= $this->Html->image('default.png', ['alt' => 'Default']) ?>
+        <?php endif; ?>
+    </div>
+        <h3><?= h($item->name) ?></h3>
+        <div class="text">
+            <strong><?= __('Description') ?></strong>
+            <blockquote>
+                <?= $this->Text->autoParagraph(h($item->description)); ?>
+            </blockquote>
         </div>
-    </aside>
-    <div class="column column-80">
-        <div class="items view content">
-            <h3><?= h($item->name) ?></h3>
-            <div class="text">
-                <strong><?= __('Description') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($item->description)); ?>
-                </blockquote>
-            </div>
-            <table>
-                <tr>
-                    <th><?= __('Price') ?></th>
-                    <td>$<?= $this->Number->format($item->price, ['places' => 2]) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Type') ?></th>
-                    <td><?= h($item->type) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Availability') ?></th>
-                    <td><?= $item->availability ? __('Yes') : __('No'); ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Photo') ?></th>
-                    <td><?= h($item->photo) ?></td>
-                </tr>
+        <table>
+            <tr>
+                <th><?= __('Price') ?></th>
+                <td>$<?= $this->Number->format($item->price, ['places' => 2]) ?></td>
+            </tr>
+            <tr>
+                <th><?= __('Type') ?></th>
+                <td><?= h($item->type) ?></td>
+            </tr>
+            <tr>
+                <th><?= __('Availability') ?></th>
+                <td><?= $item->availability ? __('Yes') : __('No'); ?></td>
+            </tr>
+
             </table>
             <!--<div class="related">
                 <h4><?php /*= __('Related Orders') */?></h4>

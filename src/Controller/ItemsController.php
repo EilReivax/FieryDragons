@@ -41,6 +41,7 @@ class ItemsController extends AppController
     public function view($id = null)
     {
         $item = $this->Items->get($id, contain: ['Orders']);
+        
         $this->set(compact('item'));
     }
 
