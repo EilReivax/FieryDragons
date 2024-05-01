@@ -58,7 +58,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             echo $this->Html->link(
                 'Log in',
                 ['controller' => 'Auth', 'action' => 'login'],
-                ['class' => 'button button-outline', 'style' => 'background-color: #B9E5FFFF; color: FFFFFFFF; border: none']
+                ['class' => 'button button-outline', 'style' => 'background-color: #672323FF; color: FFFFFFFF; border: none']
             );
         }
 
