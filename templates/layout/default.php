@@ -75,9 +75,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!-- Contact Us Now Section -->
 <section class="contact-us-now">
     <h2>Contact Us Now</h2>
-    <p>Email: contact@tastybites.com</p>
-    <p>Phone: 040123456789</p>
-    <p>Address: 123 Flavor Street, Melbourne VIC 3000</p>
+    <p><?= $this->ContentBlock->text('email'); ?></p>
+    <p><?= $this->ContentBlock->text('phone'); ?></p>
+    <p><?= $this->ContentBlock->text('address'); ?></p>
 </section>
 
 </body>
