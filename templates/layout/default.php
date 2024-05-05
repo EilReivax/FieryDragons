@@ -35,7 +35,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <header class="navbar">
     <div class="brand-container">
     <a href="<?= $this->Url->build('/') ?>">
-    <?= $this->Html->image('logo.png', ['alt' => 'Tasty Bites Kitchen', 'class' => 'brand-logo']) ?>
+        <?= $this->ContentBlock->image('logo'); ?>
 </a>
     </div>
     <nav class="nav-menu">
@@ -47,6 +47,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
     </nav>
     <div class="icons">
+        <?= $this->Html->link('Content Blocks', ['plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>
 <!--        <a href="/img/ShoppingBasketIcon.jpg">
             <?php /*= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) */?>
         </a>
@@ -83,5 +84,5 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </html>
 
 <footer>
-    <p>&copy; <?= date('Y') ?> Tasty Bites Kitchen. All rights reserved.</p>
+    <p>&copy; <?= date('Y') ?> <?= $this->ContentBlock->text('copyright-message'); ?></p>
 </footer>

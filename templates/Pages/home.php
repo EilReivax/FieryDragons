@@ -71,8 +71,8 @@ endif;
     <main>
         <section class="header-section" style="background-image: url('/img/homepage.jpg');">
             <div class="text-content">
-                <h1>TASTY BITES KITCHEN</h1>
-                <h2>Enjoy the taste of home from our kitchen</h2>
+                <h1><?= $this->ContentBlock->text('website-title'); ?></h1>
+                <h2><?= $this->ContentBlock->text('heading'); ?></h2>
                 <button onclick="location.href='/items'">Order Now</button>
             </div>
         </section>
