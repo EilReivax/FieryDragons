@@ -10,7 +10,6 @@ use Cake\Http\Response;
 use Cake\I18n\DateTime;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
-use Recaptcha\ReCaptcha;
 
 /**
  * Auth Controller
