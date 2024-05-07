@@ -7,7 +7,7 @@ use App\Model\Table\UsersTable;
 use Cake\I18n\DateTime;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
-use Google\ReCaptcha\ReCaptcha;
+use ReCaptcha\ReCaptcha;
 
 /**
  * Auth Controller
