@@ -90,8 +90,8 @@ class AuthController extends AppController
                     // transfer required view variables to email template
                     $mailer
                         ->setViewVars([
-                            'first_name' => $user->first_name,
-                            'last_name' => $user->last_name,
+                            'first_name' => $user->given_name,
+                            'last_name' => $user->family_name,
                             'nonce' => $user->nonce,
                             'email' => $user->email,
                         ]);
