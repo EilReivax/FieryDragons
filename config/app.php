@@ -407,8 +407,5 @@ return [
     'Session' => [
         'defaults' => 'php',
     ],
-    'GoogleRecaptcha' => [
-        'sitekey' => '6Ld24dQpAAAAAPqZAX_WN7YO5cSCDy6cv7FXqLrY',
-        'secret' => '6Ld24dQpAAAAAO0rtTQaEeGbxMKh_MWb810YudtH',
-    ],
+
 ];

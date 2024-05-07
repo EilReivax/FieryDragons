@@ -75,7 +75,6 @@ require CAKE . 'functions.php';
 // }
 
 
-
 /*
  * Read configuration file and inject configuration into various
  * CakePHP classes.
