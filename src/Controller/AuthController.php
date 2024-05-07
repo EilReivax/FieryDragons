@@ -41,7 +41,6 @@ class AuthController extends AppController
         // Since we don't have an Auth model, we'll need to load "Users" model when starting the controller manually.
         $this->Users = $this->fetchTable('Users');
 
-        $this->loadComponent('Recaptcha.Recaptcha');
     }
 
     /**
