@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f753f6276f45ff68558722ae4381db6",
+    "content-hash": "c79a876f7697d63f7e4b269b53148cd2",
     "packages": [
         {
             "name": "cakephp/authentication",
@@ -436,67 +436,6 @@
             "time": "2024-03-15T14:00:32+00:00"
         },
         {
-            "name": "crabstudio/recaptcha",
-            "version": "4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ctlabvn/Recaptcha.git",
-                "reference": "df5a53956b9b51610254ddd5affe7e0869ce29d6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ctlabvn/Recaptcha/zipball/df5a53956b9b51610254ddd5affe7e0869ce29d6",
-                "reference": "df5a53956b9b51610254ddd5affe7e0869ce29d6",
-                "shasum": ""
-            },
-            "require": {
-                "cakephp/cakephp": "^5.0",
-                "php": ">=8.1"
-            },
-            "require-dev": {
-                "cakephp/cakephp-codesniffer": "^4.1",
-                "phpunit/phpunit": "^10.1.0"
-            },
-            "suggest": {
-                "crabstudio/authenticate": "Prevent Brute Force Attack",
-                "crabstudio/email-queue": "Allows you to simple send bulk email"
-            },
-            "type": "cakephp-plugin",
-            "autoload": {
-                "psr-4": {
-                    "Recaptcha\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "anhtuank7c",
-                    "email": "anhtuank7c@hotmail.com"
-                }
-            ],
-            "description": "Easily use Google Recaptcha in CakePHP projects",
-            "homepage": "https://github.com/ctlabvn/recaptcha",
-            "keywords": [
-                "anhtuank7c",
-                "bootstrap",
-                "cakephp",
-                "captcha",
-                "crabstudio",
-                "ctlabvn",
-                "google",
-                "recaptcha"
-            ],
-            "support": {
-                "issues": "https://github.com/ctlabvn/recaptcha/issues",
-                "source": "https://github.com/ctlabvn/recaptcha",
-                "wiki": "https://github.com/google/recaptcha"
-            },
-            "time": "2023-10-18T18:25:08+00:00"
-        },
-        {
             "name": "ezyang/htmlpurifier",
             "version": "v4.17.0",
             "source": {
@@ -556,58 +495,6 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/v4.17.0"
             },
             "time": "2023-11-17T15:01:25+00:00"
-        },
-        {
-            "name": "google/recaptcha",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/google/recaptcha.git",
-                "reference": "d59a801e98a4e9174814a6d71bbc268dff1202df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/google/recaptcha/zipball/d59a801e98a4e9174814a6d71bbc268dff1202df",
-                "reference": "d59a801e98a4e9174814a6d71bbc268dff1202df",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.14",
-                "php-coveralls/php-coveralls": "^2.5",
-                "phpunit/phpunit": "^10"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ReCaptcha\\": "src/ReCaptcha"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Client library for reCAPTCHA, a free service that protects websites from spam and abuse.",
-            "homepage": "https://www.google.com/recaptcha/",
-            "keywords": [
-                "Abuse",
-                "captcha",
-                "recaptcha",
-                "spam"
-            ],
-            "support": {
-                "forum": "https://groups.google.com/forum/#!forum/recaptcha",
-                "issues": "https://github.com/google/recaptcha/issues",
-                "source": "https://github.com/google/recaptcha"
-            },
-            "time": "2023-02-18T17:41:46+00:00"
         },
         {
             "name": "laminas/laminas-diactoros",
