@@ -45,7 +45,7 @@ $this->assign('title', 'Login');
                 </fieldset>
 
                 <?= $this->Form->button('Login') ?>
-                <?php /*= $this->Html->link('Forgot password?', ['controller' => 'Auth', 'action' => 'forgetPassword'], ['class' => 'button button-outline']) */?>
+                <?= $this->Html->link('Forgot password?', ['controller' => 'Auth', 'action' => 'forgetPassword'], ['class' => 'button button-outline']) ?>
                 <?= $this->Form->end() ?>
 
                 <hr class="hr-between-buttons">
