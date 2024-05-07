@@ -7,6 +7,7 @@ use App\Model\Table\UsersTable;
 use Cake\I18n\DateTime;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
+use ReCaptcha\ReCaptcha;
 
 /**
  * Auth Controller
@@ -191,6 +192,24 @@ class AuthController extends AppController
     public function login()
     {
         $this->request->allowMethod(['get', 'post']);
+        if ($this->request->is('post')) {
+            // Get the reCAPTCHA response from the POST data
+            $recaptchaResponse = $this->request->getData('g-recaptcha-response');
+
+            // Verify the reCAPTCHA response
+            $recaptcha = new ReCaptcha($this->getConfig('GoogleRecaptcha.secret'));
+            $recaptchaResponse = $recaptcha->verify($recaptchaResponse);
+
+            // Check if reCAPTCHA verification was successful
+            if ($recaptchaResponse->isSuccess()) {
+                // reCAPTCHA verification passed
+                // Process the form submission
+            } else {
+                // reCAPTCHA verification failed
+                // Handle the error
+                $this->Flash->error('reCAPTCHA verification failed. Please try again.');
+                return $this->redirect(['action' => 'submitForm']);
+            }
         $result = $this->Authentication->getResult();
 
         // if user passes authentication, grant access to the system
