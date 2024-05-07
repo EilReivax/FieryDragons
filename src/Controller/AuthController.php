@@ -4,20 +4,23 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Model\Table\UsersTable;
+use Authentication\Controller\Component\AuthenticationComponent;
+use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\Http\Response;
 use Cake\I18n\DateTime;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
-use ReCaptcha\ReCaptcha;
+use google\ReCaptcha;
 
 /**
  * Auth Controller
  *
- * @property \Authentication\Controller\Component\AuthenticationComponent $Authentication
+ * @property AuthenticationComponent $Authentication
  */
 class AuthController extends AppController
 {
     /**
-     * @var \App\Model\Table\UsersTable $Users
+     * @var UsersTable $Users
      */
     private UsersTable $Users;
 
@@ -42,7 +45,7 @@ class AuthController extends AppController
     /**
      * Register method
      *
-     * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
+     * @return Response|null|void Redirects on successful add, renders view otherwise.
      */
     public function register()
     {
@@ -62,7 +65,7 @@ class AuthController extends AppController
     /**
      * Forget Password method
      *
-     * @return \Cake\Http\Response|null|void Redirects on successful email send, renders view otherwise.
+     * @return Response|null|void Redirects on successful email send, renders view otherwise.
      */
     public function forgetPassword()
     {
@@ -128,7 +131,7 @@ class AuthController extends AppController
      * Reset Password method
      *
      * @param string|null $nonce Reset password nonce
-     * @return \Cake\Http\Response|null|void Redirects on successful password reset, renders view otherwise.
+     * @return Response|null|void Redirects on successful password reset, renders view otherwise.
      */
     public function resetPassword(?string $nonce = null)
     {
@@ -165,8 +168,8 @@ class AuthController extends AppController
      * Change Password method
      *
      * @param string|null $id User id.
-     * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * @return Response|null|void Redirects on successful edit, renders view otherwise.
+     * @throws RecordNotFoundException When record not found.
      */
     public function changePassword(?string $id = null)
     {
@@ -187,52 +190,33 @@ class AuthController extends AppController
     /**
      * Login method
      *
-     * @return \Cake\Http\Response|null|void Redirect to location before authentication
+     * @return Response|null|void Redirect to location before authentication
      */
     public function login()
     {
         $this->request->allowMethod(['get', 'post']);
-        if ($this->request->is('post')) {
-            // Get the reCAPTCHA response from the POST data
-            $recaptchaResponse = $this->request->getData('g-recaptcha-response');
+        $result = $this->Authentication->getResult();
 
-            // Verify the reCAPTCHA response
-            $recaptcha = new ReCaptcha($this->getConfig('GoogleRecaptcha.secret'));
-            $recaptchaResponse = $recaptcha->verify($recaptchaResponse);
+        // if user passes authentication, grant access to the system
+        if ($result && $result->isValid()) {
+            // set a fallback location in case user logged in without triggering 'unauthenticatedRedirect'
+            $fallbackLocation = ['controller' => 'Pages', 'action' => 'index'];
 
-            // Check if reCAPTCHA verification was successful
-            if ($recaptchaResponse->isSuccess()) {
-                // reCAPTCHA verification passed
-                // Process the form submission
-            } else {
-                // reCAPTCHA verification failed
-                // Handle the error
-                $this->Flash->error('reCAPTCHA verification failed. Please try again.');
-                return $this->redirect(['action' => 'submitForm']);
-            }
-            $result = $this->Authentication->getResult();
-
-            // if user passes authentication, grant access to the system
-            if ($result && $result->isValid()) {
-                // set a fallback location in case user logged in without triggering 'unauthenticatedRedirect'
-                $fallbackLocation = ['controller' => 'Pages', 'action' => 'index'];
-
-                // and redirect user to the location they're trying to access
-                return $this->redirect($this->Authentication->getLoginRedirect() ?? $fallbackLocation);
-            }
-
-            // display error if user submitted their credentials but authentication failed
-            if ($this->request->is('post') && !$result->isValid()) {
-                $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
-            }
+            // and redirect user to the location they're trying to access
+            return $this->redirect($this->Authentication->getLoginRedirect() ?? $fallbackLocation);
         }
 
+        // display error if user submitted their credentials but authentication failed
+        if ($this->request->is('post') && !$result->isValid()) {
+            $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
+        }
     }
+
 
     /**
      * Logout method
      *
-     * @return \Cake\Http\Response|null|void
+     * @return Response|null|void
      */
     public function logout()
     {

@@ -75,7 +75,7 @@ require CAKE . 'functions.php';
 // }
 
 
-
+Plugin::load('Recaptcha', ['bootstrap' => true]);
 /*
  * Read configuration file and inject configuration into various
  * CakePHP classes.
