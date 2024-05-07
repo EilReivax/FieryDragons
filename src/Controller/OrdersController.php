@@ -26,6 +26,15 @@ class OrdersController extends AppController
     public function index()
     {
         $query = $this->Orders->find()
+            ->where(['Orders.user_id' => $this->Authentication->getIdentity()->id])
+            ->contain(['Users']);
+        $orders = $this->paginate($query);
+
+        $this->set(compact('orders'));
+    }
+
+    public function adminIndex() {
+        $query = $this->Orders->find()
             ->contain(['Users']);
         $orders = $this->paginate($query);
 
