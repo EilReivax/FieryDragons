@@ -34,9 +34,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
 <header class="navbar">
     <div class="brand-container">
-    <a href="<?= $this->Url->build('/') ?>">
-        <?= $this->ContentBlock->image('logo'); ?>
-</a>
+        <a href="<?= $this->Url->build('/') ?>">
+            <?= $this->ContentBlock->image('logo'); ?>
+        </a>
     </div>
     <nav class="nav-menu">
         <ul>
@@ -47,13 +47,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
     </nav>
     <div class="icons">
-        <?= $this->Html->link('Content Blocks', ['plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>
-<!--        <a href="/img/ShoppingBasketIcon.jpg">
-            <?php /*= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) */?>
-        </a>
+        <?= $this->Html->link('Edit Home Page', ['plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>
+        <!--
         <a href="/img/profileIcon.png">
             <?php /*= $this->Html->image('profileIcon.png', ['alt' => 'Icon 2', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon2']]) */?>
-        </a>-->
+        </a>
+        -->
         <?php
         if ($this->Identity->isLoggedIn()) {
             echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout']);
@@ -69,18 +68,5 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </header>
 <?= $this->Flash->render() ?>
 <?= $this->fetch('content') ?>
-
-<!-- Contact Us Now Section -->
-<section class="contact-us-now">
-    <h2>Contact Us Now</h2>
-    <p><?= $this->ContentBlock->text('email'); ?></p>
-    <p><?= $this->ContentBlock->text('phone'); ?></p>
-    <p><?= $this->ContentBlock->text('address'); ?></p>
-</section>
-
 </body>
 </html>
-
-<footer>
-    <p>&copy; <?= date('Y') ?> <?= $this->ContentBlock->text('copyright-message'); ?></p>
-</footer>
