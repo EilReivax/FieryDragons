@@ -10,7 +10,7 @@ use Cake\Http\Response;
 use Cake\I18n\DateTime;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
-use google\ReCaptcha;
+use Recaptcha\ReCaptcha;
 
 /**
  * Auth Controller
@@ -40,6 +40,8 @@ class AuthController extends AppController
         // CakePHP loads the model with the same name as the controller by default.
         // Since we don't have an Auth model, we'll need to load "Users" model when starting the controller manually.
         $this->Users = $this->fetchTable('Users');
+
+        $this->loadComponent('Recaptcha.Recaptcha');
     }
 
     /**
@@ -195,21 +197,26 @@ class AuthController extends AppController
     public function login()
     {
         $this->request->allowMethod(['get', 'post']);
-        $result = $this->Authentication->getResult();
+        if($this->request->is('post')){
+            if($this->Recaptcha->verify()){
+                $result = $this->Authentication->getResult();
 
-        // if user passes authentication, grant access to the system
-        if ($result && $result->isValid()) {
-            // set a fallback location in case user logged in without triggering 'unauthenticatedRedirect'
-            $fallbackLocation = ['controller' => 'Pages', 'action' => 'index'];
+                // if user passes authentication, grant access to the system
+                if ($result && $result->isValid()) {
+                    // set a fallback location in case user logged in without triggering 'unauthenticatedRedirect'
+                    $fallbackLocation = ['controller' => 'Pages', 'action' => 'index'];
 
-            // and redirect user to the location they're trying to access
-            return $this->redirect($this->Authentication->getLoginRedirect() ?? $fallbackLocation);
+                    // and redirect user to the location they're trying to access
+                    return $this->redirect($this->Authentication->getLoginRedirect() ?? $fallbackLocation);
+                }
+
+                // display error if user submitted their credentials but authentication failed
+                if ($this->request->is('post') && !$result->isValid()) {
+                    $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
+                }
+            }
         }
 
-        // display error if user submitted their credentials but authentication failed
-        if ($this->request->is('post') && !$result->isValid()) {
-            $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
-        }
     }
 
 

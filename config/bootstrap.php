@@ -76,6 +76,17 @@ require CAKE . 'functions.php';
 
 
 Plugin::load('Recaptcha', ['bootstrap' => true]);
+$recaptcha = [
+    'Recaptcha' => [
+        'type' => 'image', //available image/audio
+        'theme' => 'light', //available light/dark
+        'lang' => 'en', //if not exist, plugin in will use your default locale
+        'enable' => true, //available true/false
+        'sitekey' => '6Ld24dQpAAAAAPqZAX_WN7YO5cSCDy6cv7FXqLrY', //if you don't have, get one: https://www.google.com/recaptcha/intro/index.html
+        'secret' => '6Ld24dQpAAAAAO0rtTQaEeGbxMKh_MWb810YudtH',
+    ]
+];
+Cake\Core\Configure::write($recaptcha);
 /*
  * Read configuration file and inject configuration into various
  * CakePHP classes.
