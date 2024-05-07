@@ -46,7 +46,6 @@ $this->assign('title', 'Login');
 
                 <?= $this->Form->button('Login') ?>
                 <?= $this->Html->link('Forgot password?', ['controller' => 'Auth', 'action' => 'forgetPassword'], ['class' => 'button button-outline']) ?>
-                <?= $this->Recaptcha->display()?>
                 <?= $this->Form->end() ?>
 
                 <hr class="hr-between-buttons">
