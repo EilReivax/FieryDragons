@@ -7,6 +7,7 @@ use App\Model\Table\UsersTable;
 use Cake\I18n\DateTime;
 use Cake\Mailer\Mailer;
 use Cake\Utility\Security;
+use ReCaptcha\ReCaptcha;
 
 /**
  * Auth Controller
@@ -191,21 +192,41 @@ class AuthController extends AppController
     public function login()
     {
         $this->request->allowMethod(['get', 'post']);
-        $result = $this->Authentication->getResult();
+        if ($this->request->is('post')) {
+            // Get the reCAPTCHA response from the POST data
+            $recaptchaResponse = $this->request->getData('g-recaptcha-response');
 
-        // if user passes authentication, grant access to the system
-        if ($result && $result->isValid()) {
-            // set a fallback location in case user logged in without triggering 'unauthenticatedRedirect'
-            $fallbackLocation = ['controller' => 'Pages', 'action' => 'index'];
+            // Verify the reCAPTCHA response
+            $recaptcha = new ReCaptcha($this->getConfig('GoogleRecaptcha.secret'));
+            $recaptchaResponse = $recaptcha->verify($recaptchaResponse);
 
-            // and redirect user to the location they're trying to access
-            return $this->redirect($this->Authentication->getLoginRedirect() ?? $fallbackLocation);
+            // Check if reCAPTCHA verification was successful
+            if ($recaptchaResponse->isSuccess()) {
+                // reCAPTCHA verification passed
+                // Process the form submission
+            } else {
+                // reCAPTCHA verification failed
+                // Handle the error
+                $this->Flash->error('reCAPTCHA verification failed. Please try again.');
+                return $this->redirect(['action' => 'submitForm']);
+            }
+            $result = $this->Authentication->getResult();
+
+            // if user passes authentication, grant access to the system
+            if ($result && $result->isValid()) {
+                // set a fallback location in case user logged in without triggering 'unauthenticatedRedirect'
+                $fallbackLocation = ['controller' => 'Pages', 'action' => 'index'];
+
+                // and redirect user to the location they're trying to access
+                return $this->redirect($this->Authentication->getLoginRedirect() ?? $fallbackLocation);
+            }
+
+            // display error if user submitted their credentials but authentication failed
+            if ($this->request->is('post') && !$result->isValid()) {
+                $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
+            }
         }
 
-        // display error if user submitted their credentials but authentication failed
-        if ($this->request->is('post') && !$result->isValid()) {
-            $this->Flash->error('Email address and/or Password is incorrect. Please try again. ');
-        }
     }
 
     /**
