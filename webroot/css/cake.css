@@ -272,6 +272,13 @@ h1 {
     /* Add any additional styling here */
 }
 
+.order-status-index {
+    text-align: center;
+    font-size: 50px; /* Adjust size as needed */
+    font-family: 'Arial', sans-serif; /* Replace 'Arial' with an Italian font */
+    /* Add any additional styling here */
+}
+
 
 
 

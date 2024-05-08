@@ -6,7 +6,7 @@
 ?>
 <div class="orders index content">
     <?= $this->Html->link(__('New Order'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Orders') ?></h3>
+    <h3 class="order-status-index"><?= __('All Orders') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
