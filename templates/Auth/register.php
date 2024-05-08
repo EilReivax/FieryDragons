@@ -28,13 +28,15 @@ $this->assign('title', 'Register new user');
                     'templateVars' => ['container_class' => 'column']
                 ]);
                 // Validate password by repeating it
-                /*echo $this->Form->control('password_confirm', [
+                echo $this->Form->control('password_confirm', [
                     'type' => 'password',
                     'value' => '',  // Ensure password is not sending back to the client side
                     'label' => 'Retype Password',
                     'templateVars' => ['container_class' => 'column']
-                ]);*/
+                ]);
             ?>
+
+            <?= $this->Form->hidden('admin', ['value' => 0]) ?>
         </fieldset>
 
         <?= $this->Form->button('Register') ?>
