@@ -41,8 +41,11 @@
                     <td><?= h($order->modified->format('d/m/Y, H:i:s')) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $order->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $order->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>
+
+                        <?php if ($user && $user->admin): ?>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $order->id]) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>
+                        <?php endif; ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
