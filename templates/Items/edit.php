@@ -28,8 +28,7 @@
                     echo $this->Form->control('price');
                     echo $this->Form->control('type', ['options' => ['Special' => 'Special', 'Main' => 'Main', 'Side' => 'Side', 'Beverage' => 'Beverage', 'Dessert' => 'Dessert', 'Other' => 'Other']]);
                     echo $this->Form->control('availability');
-                    echo $this->Form->control('photo');
-                    //echo $this->Form->control('orders._ids', ['options' => $orders]);
+                    echo $this->Form->control('photo', ['type' => 'file']);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
