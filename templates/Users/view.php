@@ -38,20 +38,11 @@
                     <th><?= __('Email') ?></th>
                     <td><?= h($user->email) ?></td>
                 </tr>
+                <!--
                 <tr>
                     <th><?= __('Address') ?></th>
                     <td><?= h($user->address) ?></td>
                 </tr>
-            <!--
-            </table>
-            <div class="text">
-                <strong><?php /*= __('Address') */?></strong>
-                <blockquote>
-                    <?php /*= $this->Text->autoParagraph(h($user->address)); */?>
-                </blockquote>
-            </div>
-            <table>
-            -->
                 <tr>
                     <th><?= __('Suburb') ?></th>
                     <td><?= h($user->suburb) ?></td>
@@ -64,7 +55,6 @@
                     <th><?= __('Postcode') ?></th>
                     <td><?= h($user->postcode) ?></td>
                 </tr>
-                <!--
                 <tr>
                     <th><?= __('Nonce') ?></th>
                     <td><?= h($user->nonce) ?></td>

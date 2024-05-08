@@ -41,29 +41,29 @@
                     <?= $this->Text->autoParagraph(h($order->note)); ?>
                 </blockquote>
             </div>
-            <div class="text">
-                <strong><?= __('Address') ?></strong>
+            <!--<div class="text">
+                <strong><?php /*= __('Address') */?></strong>
                 <blockquote>
-                    <?= $this->Form->input('address', [
+                    <?php /*= $this->Form->input('address', [
                         'maxlength' => '40',
                         'value' => h($order->address),
                         'style' => 'width: 500px;' // Adjust the width as needed
-                    ]); ?>
+                    ]); */?>
                 </blockquote>
-            </div>
+            </div>-->
             <table>
-                <tr>
-                    <th><?= __('Suburb') ?></th>
-                    <td><?= h($order->suburb) ?></td>
+                <!--<tr>
+                    <th><?php /*= __('Suburb') */?></th>
+                    <td><?php /*= h($order->suburb) */?></td>
                 </tr>
                 <tr>
-                    <th><?= __('State') ?></th>
-                    <td><?= h($order->state) ?></td>
+                    <th><?php /*= __('State') */?></th>
+                    <td><?php /*= h($order->state) */?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Postcode') ?></th>
-                    <td><?= h($order->postcode) ?></td>
-                </tr>
+                    <th><?php /*= __('Postcode') */?></th>
+                    <td><?php /*= h($order->postcode) */?></td>
+                </tr>-->
                 <tr>
                     <th><?= __('Delivery Fee') ?></th>
                     <td><?= $this->Number->format($order->delivery_fee) ?></td>
@@ -108,47 +108,7 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="related">
-                <h4><?= __('Related Payments') ?></h4>
-                <?php if (!empty($order->payments)) : ?>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Status') ?></th>
-                            <th><?= __('Method') ?></th>
-                            <th><?= __('Discount') ?></th>
-                            <th><?= __('Card Number') ?></th>
-                            <th><?= __('Card Cvv') ?></th>
-                            <th><?= __('Card Expiry') ?></th>
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
-                            <th><?= __('Order Id') ?></th>
-                            <th class="actions"><?= __('Actions') ?></th>
-                        </tr>
-                        <?php foreach ($order->payments as $payment) : ?>
-                        <tr>
-                            <td><?= h($payment->id) ?></td>
-                            <td><?= h($payment->status) ?></td>
-                            <td><?= h($payment->method) ?></td>
-                            <td><?= h($payment->discount) ?></td>
-                            <td><?= h($payment->card_number) ?></td>
-                            <td><?= h($payment->card_cvv) ?></td>
-                            <td><?= h($payment->card_expiry) ?></td>
-                            <td><?= h($payment->created) ?></td>
-                            <td><?= h($payment->modified) ?></td>
-                            <td><?= h($payment->order_id) ?></td>
-                            <td class="actions">
-                                <?= $this->Html->link(__('View'), ['controller' => 'Payments', 'action' => 'view', $payment->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['controller' => 'Payments', 'action' => 'edit', $payment->id]) ?>
-                                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Payments', 'action' => 'delete', $payment->id], ['confirm' => __('Are you sure you want to delete # {0}?', $payment->id)]) ?>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </table>
-                </div>
-                <?php endif; ?>
-            </div>
+
         </div>
     </div>
 </div>
