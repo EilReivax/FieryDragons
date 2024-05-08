@@ -56,13 +56,6 @@ class UsersTable extends Table
         $this->addBehavior('CanAuthenticate');
     }
 
-    public function beforeSave(EventInterface $event, EntityInterface $entity, \ArrayObject $options) {
-        // Ensure admin has a default value
-        if (empty($entity->admin)) {
-            $entity->admin = 0; // Default quantity
-        }
-    }
-
     /**
      * Default validation rules.
      *
