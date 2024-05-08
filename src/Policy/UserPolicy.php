@@ -20,6 +20,7 @@ class UserPolicy
      */
     public function canAdd(IdentityInterface $user, User $resource)
     {
+        return $user->admin;
     }
 
     /**
@@ -31,6 +32,11 @@ class UserPolicy
      */
     public function canEdit(IdentityInterface $user, User $resource)
     {
+        if ($user->admin) {
+            return true;
+        }
+
+        return $user->id === $resource->id;
     }
 
     /**
@@ -42,6 +48,7 @@ class UserPolicy
      */
     public function canDelete(IdentityInterface $user, User $resource)
     {
+        return $user->admin;
     }
 
     /**
@@ -53,5 +60,14 @@ class UserPolicy
      */
     public function canView(IdentityInterface $user, User $resource)
     {
+        if ($user->admin) {
+            return true;
+        }
+
+        return $user->id === $resource->id;
+    }
+
+    public function canIndex(IdentityInterface $user, User $resource) {
+        return $user->admin;
     }
 }

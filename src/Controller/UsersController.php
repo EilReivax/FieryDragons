@@ -17,10 +17,11 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->Authorization->skipAuthorization();
+        $currentUser = $this->Authentication->getIdentity();
         $query = $this->Users->find();
         $users = $this->paginate($query);
-
-        $this->set(compact('users'));
+        $this->set(compact('users', 'currentUser'));
     }
 
     /**
@@ -33,6 +34,7 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, contain: ['Orders']);
+        $this->Authorization->authorize($user, 'view');
         $this->set(compact('user'));
     }
 
@@ -43,6 +45,7 @@ class UsersController extends AppController
      */
     public function add()
     {
+        $this->Authorization->skipAuthorization();
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
@@ -66,6 +69,7 @@ class UsersController extends AppController
     public function edit($id = null)
     {
         $user = $this->Users->get($id, contain: []);
+        $this->Authorization->authorize($user, 'edit');
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
@@ -89,6 +93,7 @@ class UsersController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $user = $this->Users->get($id);
+        $this->Authorization->authorize($user, 'delete');
         if ($this->Users->delete($user)) {
             $this->Flash->success(__('The user has been deleted.'));
         } else {

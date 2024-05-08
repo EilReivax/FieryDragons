@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Datasource\EntityInterface;
+use Cake\Event\EventInterface;
 use Cake\ORM\Query\SelectQuery;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -52,6 +54,13 @@ class UsersTable extends Table
         ]);
 
         $this->addBehavior('CanAuthenticate');
+    }
+
+    public function beforeSave(EventInterface $event, EntityInterface $entity, \ArrayObject $options) {
+        // Ensure admin has a default value
+        if (empty($entity->admin)) {
+            $entity->admin = 0; // Default quantity
+        }
     }
 
     /**
