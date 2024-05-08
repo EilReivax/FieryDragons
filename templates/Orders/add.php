@@ -9,8 +9,8 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Orders'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+        <h3 class="order-status-heading"><?= __('Make An Order') ?></h3>
+            
         </div>
     </aside>
     <div class="column column-80">
@@ -50,9 +50,13 @@
                 <?php
                     echo $this->Form->control('items._ids', ['options' => $items, 'multiple' => 'checkbox', 'label' => false]);
                 ?>
+                
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
+            
+           
             <?= $this->Form->end() ?>
         </div>
+        
     </div>
 </div>

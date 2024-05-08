@@ -6,6 +6,7 @@
 ?>
 <div class="column column-80">
     <div class="items view content">
+    <h3 class = "order-status-heading"><?= _($item->name) ?></h3>
 
         <!-- Display item photo -->
         <div class="item-photo">
@@ -33,6 +34,13 @@
             </tr>
 
             </table>
+            <!-- Back Button -->
+            <button onclick="goBack()">Back To Menu</button>
+            <script>
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
             <!--<div class="related">
                 <h4><?php /*= __('Related Orders') */?></h4>
                 <?php /*if (!empty($item->orders)) : */?>

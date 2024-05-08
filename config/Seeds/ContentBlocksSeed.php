@@ -145,13 +145,6 @@ class ContentBlocksSeed extends AbstractSeed
                 'type' => 'text',
                 'value' => 'Address: 123 Flavor Street, Melbourne VIC 3000',
             ],
-            [
-                'parent' => 'home',
-                'label' => 'Header Image',
-                'description' => 'Shown in the header of home pages.',
-                'slug' => 'header-image'  ,
-                'type' => 'image',
-            ],
 
         ];
 

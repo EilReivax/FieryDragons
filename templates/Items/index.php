@@ -9,7 +9,7 @@
         <?= $this->Html->link(__('New Item'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <?php endif; ?>
     <?= $this->Html->link(__('New Order'), ['controller' => 'Orders', 'action' => 'add'], ['class' => 'button float-right']) ?>
-    <h1><?= __('Weeky Menu') ?></h1>
+    <h1><?= __('Weekly Menu') ?></h1>
     <div class="item-list">
     <div class="row">
         <?php $counter = 0; ?>
@@ -48,16 +48,5 @@
     <?php endforeach; ?>
 </div>
 
-    <div class="paginator">
-        <!-- Pagination links -->
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <!-- Pagination counter -->
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-    </div>
-</div>
+
+
