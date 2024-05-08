@@ -5,18 +5,17 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
+    <!--<aside class="column">
         <div class="side-nav">
-            <h3 class="order-status-heading"><?= __('Order Status') ?></h3>
-            <?php if ($user && $user->admin): ?>
-                <?= $this->Html->link(__('Edit Order'), ['action' => 'edit', $order->id], ['class' => 'side-nav-item']) ?>
-                <?= $this->Form->postLink(__('Delete Order'), ['action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id), 'class' => 'side-nav-item']) ?>
-            <?php endif;?>
-
-            <?= $this->Html->link(__('List Orders'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Order'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <h3 class="order-status-heading"><?php /*= __('Order Status') */?></h3>
+            <?php /*if ($user && $user->admin): */?>
+                <?php /*= $this->Html->link(__('Edit Order'), ['action' => 'edit', $order->id], ['class' => 'side-nav-item']) */?>
+                <?php /*= $this->Form->postLink(__('Delete Order'), ['action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id), 'class' => 'side-nav-item']) */?>
+            <?php /*endif;*/?>
+            <?php /*= $this->Html->link(__('List Orders'), ['action' => 'index'], ['class' => 'side-nav-item']) */?>
+            <?php /*= $this->Html->link(__('New Order'), ['action' => 'add'], ['class' => 'side-nav-item']) */?>
         </div>
-    </aside>
+    </aside>-->
     <div class="column column-80">
         <div class="orders view content">
             <h3><?= h($order->status) . " " . h($order->delivery_method) ?></h3>
@@ -102,10 +101,10 @@
                             <td><?= h($item->type) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Items', 'action' => 'view', $item->id]) ?>
-                                <?php if ($user && $user->admin): ?>
-                                    <?= $this->Html->link(__('Edit'), ['controller' => 'Items', 'action' => 'edit', $item->id]) ?>
-                                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Items', 'action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) ?>
-                                <?php endif; ?>
+                                <?php /*if ($user && $user->admin): */?><!--
+                                    <?php /*= $this->Html->link(__('Edit'), ['controller' => 'Items', 'action' => 'edit', $item->id]) */?>
+                                    <?php /*= $this->Form->postLink(__('Delete'), ['controller' => 'Items', 'action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) */?>
+                                --><?php /*endif; */?>
                             </td>
                         </tr>
                         <?php endforeach; ?>

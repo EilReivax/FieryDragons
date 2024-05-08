@@ -33,9 +33,10 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
+        $currentUser = $this->Authentication->getIdentity();
         $user = $this->Users->get($id, contain: ['Orders']);
         $this->Authorization->authorize($user, 'view');
-        $this->set(compact('user'));
+        $this->set(compact('user', 'currentUser'));
     }
 
     /**
