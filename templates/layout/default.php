@@ -76,8 +76,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <p><?= $this->ContentBlock->text('address'); ?></p>
 </section>
 
-</body>
-</html>
 
 <footer>
     <p>&copy; <?= date('Y') ?> <?= $this->ContentBlock->text('copyright-message'); ?></p>
