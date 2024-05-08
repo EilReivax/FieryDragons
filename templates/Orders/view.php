@@ -15,7 +15,7 @@
             <?php /*= $this->Html->link(__('List Orders'), ['action' => 'index'], ['class' => 'side-nav-item']) */?>
             <?php /*= $this->Html->link(__('New Order'), ['action' => 'add'], ['class' => 'side-nav-item']) */?>
         </div>
-    </aside>-->
+    </aside>
     <div class="column column-80">
         <div class="orders view content">
             <h3><?= h($order->status) . " " . h($order->delivery_method) ?></h3>

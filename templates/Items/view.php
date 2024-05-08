@@ -12,7 +12,7 @@
         <div class="item-photo">
         <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
         </div>
-        <h3><?= h($item->name) ?></h3>
+        
         <div class="text">
             <strong><?= __('Description') ?></strong>
             <blockquote>
