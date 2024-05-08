@@ -85,10 +85,10 @@ class OrdersController extends AppController
         }
         $currentUser = $this->Authentication->getIdentity();
         $users = $this->Orders->Users->find('list', limit: 200)->all();
-        $items = $this->Orders->Items->find('list', [
-            'limit' => 200,
-            'conditions' => ['Items.availability' => 1]
-        ])->all();
+        $items = $this->Orders->Items->find('list',
+            limit: 200,
+            where: ['Items.availability' => 1]
+        )->all();
         $this->set(compact('order', 'users', 'items', 'currentUser'));
     }
 
