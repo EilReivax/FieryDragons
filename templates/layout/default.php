@@ -48,10 +48,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <div class="icons">
 <!--        <a href="/img/ShoppingBasketIcon.jpg">
             <?php /*= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) */?>
-        </a>
-        <a href="/img/profileIcon.png">
-            <?php /*= $this->Html->image('profileIcon.png', ['alt' => 'Icon 2', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon2']]) */?>
         </a>-->
+        <a href="/img/profileIcon.png">
+            <?= $this->Html->image('profileIcon.png', ['alt' => 'Profile', 'url' => ['controller' => 'Users', 'action' => 'view', $this->Identity->get('id')]]) ?>
+        </a>
         <?php
         if ($this->Identity->isLoggedIn()) {
             echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout']);
