@@ -50,9 +50,10 @@ class OrdersController extends AppController
      */
     public function view($id = null)
     {
+        $user = $this->Authentication->getIdentity();
         $order = $this->Orders->get($id, contain: ['Users', 'Items']);
         $this->Authorization->authorize($order, 'view');
-        $this->set(compact('order'));
+        $this->set(compact('order', 'user'));
     }
 
     /**
@@ -82,9 +83,10 @@ class OrdersController extends AppController
                 $this->Flash->error(__('The order could not be saved. Please, try again.'));
             }
         }
+        $currentUser = $this->Authentication->getIdentity();
         $users = $this->Orders->Users->find('list', limit: 200)->all();
         $items = $this->Orders->Items->find('list', limit: 200)->all();
-        $this->set(compact('order', 'users', 'items'));
+        $this->set(compact('order', 'users', 'items', 'currentUser'));
     }
 
     /**
@@ -132,7 +134,7 @@ class OrdersController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $order = $this->Orders->get($id);
-        $this->Authorization->aurhorize($order, 'delete');
+        $this->Authorization->authorize($order, 'delete');
         if ($this->Orders->delete($order)) {
             $this->Flash->success(__('The order has been deleted.'));
         } else {
