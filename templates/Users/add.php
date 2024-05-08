@@ -7,8 +7,8 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+        <h3 class="order-status-heading"><?= __('Add User') ?></h3>
+            
         </div>
     </aside>
     <div class="column column-80">
