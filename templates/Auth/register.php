@@ -19,7 +19,7 @@ $this->assign('title', 'Register new user');
 
             <?= $this->Form->control('given_name', ['templateVars' => ['container_class' => 'column']]); ?>
             <?= $this->Form->control('family_name', ['templateVars' => ['container_class' => 'column']]); ?>
-            <?= $this->Form->control('phone'); ?>
+            <?= $this->Form->control('phone', ['type' => 'number']); ?>
             <?= $this->Form->control('email'); ?>
 
             <?php
@@ -28,12 +28,12 @@ $this->assign('title', 'Register new user');
                     'templateVars' => ['container_class' => 'column']
                 ]);
                 // Validate password by repeating it
-                echo $this->Form->control('password_confirm', [
+                /*echo $this->Form->control('password_confirm', [
                     'type' => 'password',
                     'value' => '',  // Ensure password is not sending back to the client side
                     'label' => 'Retype Password',
                     'templateVars' => ['container_class' => 'column']
-                ]);
+                ]);*/
             ?>
         </fieldset>
 
