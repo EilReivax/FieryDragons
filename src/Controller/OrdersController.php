@@ -48,7 +48,7 @@ class OrdersController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view(?string $id = null)
     {
         $user = $this->Authentication->getIdentity();
         $order = $this->Orders->get($id, contain: ['Users', 'Items']);
@@ -78,6 +78,7 @@ class OrdersController extends AppController
                 $order->subtotal = $subtotal;
                 if ($this->Orders->save($order)) {
                     $this->Flash->success(__('The order has been saved.'));
+
                     return $this->redirect(['action' => 'view', $order->id]);
                 }
                 $this->Flash->error(__('The order could not be saved. Please, try again.'));
@@ -85,7 +86,8 @@ class OrdersController extends AppController
         }
         $currentUser = $this->Authentication->getIdentity();
         $users = $this->Orders->Users->find('list', limit: 200)->all();
-        $items = $this->Orders->Items->find('list',
+        $items = $this->Orders->Items->find(
+            'list',
             limit: 200,
             where: ['Items.availability' => 1]
         )->all();
@@ -99,7 +101,7 @@ class OrdersController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function edit(?string $id = null)
     {
         $order = $this->Orders->get($id, contain: ['Items']);
         $this->Authorization->authorize($order, 'edit');
@@ -116,6 +118,7 @@ class OrdersController extends AppController
                 $order->subtotal = $subtotal;
                 if ($this->Orders->save($order)) {
                     $this->Flash->success(__('The order has been saved.'));
+
                     return $this->redirect(['action' => 'view', $order->id]);
                 }
                 $this->Flash->error(__('The order could not be saved. Please, try again.'));
@@ -133,7 +136,7 @@ class OrdersController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function delete(?string $id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $order = $this->Orders->get($id);
