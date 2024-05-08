@@ -5,7 +5,9 @@
  */
 ?>
 <div class="items index content">
-    <?= $this->Html->link(__('New Item'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?php if ($user && $user->admin): ?>
+        <?= $this->Html->link(__('New Item'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?php endif; ?>
     <?= $this->Html->link(__('New Order'), ['controller' => 'Orders', 'action' => 'add'], ['class' => 'button float-right']) ?>
     <h1><?= __('Weeky Menu') ?></h1>
     <div class="item-list">
@@ -13,7 +15,6 @@
         <?php $counter = 0; ?>
         <?php $totalItems = count($items); ?> <!-- Get total number of items -->
         <?php foreach ($items as $index => $item): ?>
-        <?php if ($item->availability): ?>
         <div class="col">
             <div class="item">
             <div class="item-image">
@@ -33,9 +34,10 @@
                 <div class="item-actions">
                     <!-- Display actions -->
                     <?= $this->Html->link(__('View'), ['action' => 'view', $item->id], ['class' => 'button button-view']) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id], ['class' => 'button button-edit']) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete {0}?', $item->name), 'class' => 'button button-delete']) ?>
-
+                    <?php if ($user && $user->admin): ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id], ['class' => 'button button-edit']) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete {0}?', $item->name), 'class' => 'button button-delete']) ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -43,8 +45,7 @@
         <?php if ($counter % 4 === 0 || $index === $totalItems - 1): ?>
     </div>
     <?php if ($index !== $totalItems - 1): ?> <!-- Check if it's not the last item -->
-    <div class="row bottom-row"> <!-- Add a class to the bottom row -->
-    <?php endif; ?>
+        <div class="row bottom-row"> <!-- Add a class to the bottom row -->
     <?php endif; ?>
     <?php endif; ?>
     <?php endforeach; ?>

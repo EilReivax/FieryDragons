@@ -42,12 +42,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <ul>
             <li><a href="/" style="font-size: larger">Home</a></li>
             <li><a href="/items" style="font-size: larger">Menu</a></li>
-            <li><a href="/orders" style="font-size: larger">Orders</a></li>
-            <li><a href="/users" style="font-size: larger">Users</a></li>
+            <li><a href="/orders" style="font-size: larger">My Orders</a></li>
         </ul>
     </nav>
     <div class="icons">
-        <?= $this->Html->link('Content Blocks', ['plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>
 <!--        <a href="/img/ShoppingBasketIcon.jpg">
             <?php /*= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) */?>
         </a>

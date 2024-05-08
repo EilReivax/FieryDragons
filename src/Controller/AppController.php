@@ -43,11 +43,21 @@ class AppController extends Controller
 
         $this->loadComponent('Flash');
         $this->loadComponent('Authentication.Authentication');
-        $this->viewBuilder()->setLayout('default');
+        $this->loadComponent('Authorization.Authorization');
         /*
          * Enable the following component for recommended CakePHP form protection settings.
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
+
+        // Check if the user is logged in and if they are an admin
+        $user = $this->Authentication->getIdentity();
+        if ($user && $user->admin == 1) {
+            // If the user is an admin, use the 'admin' layout
+            $this->viewBuilder()->setLayout('admin');
+        } else {
+            // For non-admin users, use the 'default' layout or any other layout you prefer
+            $this->viewBuilder()->setLayout('default');
+        }
     }
 }
