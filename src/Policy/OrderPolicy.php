@@ -31,6 +31,10 @@ class OrderPolicy
      */
     public function canEdit(IdentityInterface $user, Order $order)
     {
+        if ($user->admin) {
+            return true;
+        }
+        return $order->user_id === $user->id;
     }
 
     /**
@@ -42,6 +46,7 @@ class OrderPolicy
      */
     public function canDelete(IdentityInterface $user, Order $order)
     {
+        return $user->admin;
     }
 
     /**
@@ -53,5 +58,9 @@ class OrderPolicy
      */
     public function canView(IdentityInterface $user, Order $order)
     {
+        if ($user->admin) {
+            return true;
+        }
+        return $order->user_id === $user->id;
     }
 }
