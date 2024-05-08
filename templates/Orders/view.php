@@ -109,17 +109,34 @@
                         </tr>
                         <?php endforeach; ?>
                     </table>
-                    <!-- Back Button -->
-                    <button onclick="goBack()">Back To Orders</button>
-                    <script>
-                        function goBack() {
-                            window.history.back();
-                        }
-                    </script>
                 </div>
                 <?php endif; ?>
             </div>
-
+            <div class="related">
+                <h4><?= __('PayID - Please pay the full amount to the following PayID') ?></h4>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th><?= __('Name') ?></th>
+                            <td><?=__('Apurba') ?></td>
+                        </tr>
+                        <tr>
+                            <th><?= __('Phone Number') ?></th>
+                            <td><?= __('0412345678') ?></td>
+                        </tr>
+                        <tr>
+                            <th><a href="https://payid.com.au/how-it-works/" target="_blank" style="color: dodgerblue;"><?= __('What is PayID?') ?></a></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- Back Button -->
+            <button onclick="goBack()">Back To Orders</button>
+            <script>
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
         </div>
     </div>
 </div>
