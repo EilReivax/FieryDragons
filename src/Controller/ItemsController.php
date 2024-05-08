@@ -25,10 +25,16 @@ class ItemsController extends AppController
      */
     public function index()
     {
-        $query = $this->Items->find();
+        $this->Authorization->skipAuthorization();
+        $user = $this->Authentication->getIdentity();
+        if ($user && $user->admin) {
+            $query = $this->Items->find();
+        } else {
+            $query = $this->Items->find()
+                ->where('availability');
+        }
         $items = $this->paginate($query);
-
-        $this->set(compact('items'));
+        $this->set(compact('items', 'user'));
     }
 
     /**
@@ -40,8 +46,9 @@ class ItemsController extends AppController
      */
     public function view($id = null)
     {
+        $this->Authorization->skipAuthorization();
         $item = $this->Items->get($id, contain: ['Orders']);
-        
+
         $this->set(compact('item'));
     }
 
@@ -53,6 +60,7 @@ class ItemsController extends AppController
     public function add()
     {
         $item = $this->Items->newEmptyEntity();
+        $this->Authorization->authorize($item, 'add');
         if ($this->request->is('post')) {
             $item = $this->Items->patchEntity($item, $this->request->getData());
             if ($this->Items->save($item)) {
@@ -76,6 +84,7 @@ class ItemsController extends AppController
     public function edit($id = null)
     {
         $item = $this->Items->get($id, contain: ['Orders']);
+        $this->Authorization->authorize($item, 'edit');
         if ($this->request->is(['patch', 'post', 'put'])) {
             $item = $this->Items->patchEntity($item, $this->request->getData());
             if ($this->Items->save($item)) {

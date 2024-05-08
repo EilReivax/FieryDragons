@@ -50,6 +50,7 @@ class PagesController extends AppController
         // By default, CakePHP will (sensibly) default to preventing users from accessing any actions on a controller.
         // These actions, however, are typically required for users who have not yet logged in.
         $this->Authentication->allowUnauthenticated(['display']);
+        $this->Authorization->skipAuthorization();
     }
 
     public function display(string ...$path): ?Response
