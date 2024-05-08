@@ -69,7 +69,7 @@ endif;
     <body>
 
     <main>
-        <section class="header-section" style="background-image: url('/img/homepage.jpg');">
+        <section class="header-section" style="background-image: url(<?= $this->ContentBlock->image('header-image'); ?>
             <div class="text-content">
                 <h1><?= $this->ContentBlock->text('website-title'); ?></h1>
                 <h2><?= $this->ContentBlock->text('heading'); ?></h2>
@@ -98,6 +98,7 @@ endif;
                 </div>
             </div>
         </section>
+    </main>
     </body>
     </html>
 
