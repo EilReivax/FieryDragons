@@ -6,15 +6,11 @@
 ?>
 <div class="column column-80">
     <div class="items view content">
-        
+
         <!-- Display item photo -->
         <div class="item-photo">
-    <?php if (!empty($item->photo)): ?>
         <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
-        <?php else: ?>
-            <?= $this->Html->image('default.png', ['alt' => 'Default']) ?>
-        <?php endif; ?>
-    </div>
+        </div>
         <h3><?= h($item->name) ?></h3>
         <div class="text">
             <strong><?= __('Description') ?></strong>

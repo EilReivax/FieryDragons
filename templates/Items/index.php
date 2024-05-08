@@ -18,10 +18,7 @@
         <div class="col">
             <div class="item">
             <div class="item-image">
-        <!-- Display item image or default image if $item->photo is empty -->
-        <?= empty($item->photo) ?
-            $this->Html->image('default.png', ['alt' => $item->name]) :
-            $this->Html->image($item->photo, ['alt' => $item->name]) ?>
+        <?= $this->Html->image($item->photo, ['alt' => $item->name, 'height' => 200, 'width' => 300]) ?>
         </div>
                 <div class="item-details">
                     <!-- Display item name -->
