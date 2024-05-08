@@ -17,17 +17,12 @@ $this->assign('title', 'Register new user');
 
             <?= $this->Flash->render() ?>
 
-            <div class="row">
-                <?= $this->Form->control('given_name', ['templateVars' => ['container_class' => 'column']]); ?>
-                <?= $this->Form->control('family_name', ['templateVars' => ['container_class' => 'column']]); ?>
-            </div>
-
+            <?= $this->Form->control('given_name', ['templateVars' => ['container_class' => 'column']]); ?>
+            <?= $this->Form->control('family_name', ['templateVars' => ['container_class' => 'column']]); ?>
             <?= $this->Form->control('phone'); ?>
-
             <?= $this->Form->control('email'); ?>
 
-            <div class="row">
-                <?php
+            <?php
                 echo $this->Form->control('password', [
                     'value' => '',  // Ensure password is not sending back to the client side
                     'templateVars' => ['container_class' => 'column']
@@ -39,9 +34,7 @@ $this->assign('title', 'Register new user');
                     'label' => 'Retype Password',
                     'templateVars' => ['container_class' => 'column']
                 ]);
-                ?>
-            </div>
-
+            ?>
         </fieldset>
 
         <?= $this->Form->button('Register') ?>
