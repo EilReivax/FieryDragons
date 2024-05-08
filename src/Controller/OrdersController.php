@@ -26,20 +26,19 @@ class OrdersController extends AppController
     public function index()
     {
         $this->Authorization->skipAuthorization();
-        $query = $this->Orders->find()
-            ->where(['Orders.user_id' => $this->Authentication->getIdentity()->id])
-            ->contain(['Users']);
+        $user = $this->Authentication->getIdentity();
+
+        if ($user && $user->admin) {
+            $query = $this->Orders->find()
+                ->contain(['Users']);
+        } else {
+            $query = $this->Orders->find()
+                ->where(['Orders.user_id' => $user->id])
+                ->contain(['Users']);
+        }
         $orders = $this->paginate($query);
 
-        $this->set(compact('orders'));
-    }
-
-    public function adminIndex() {
-        $query = $this->Orders->find()
-            ->contain(['Users']);
-        $orders = $this->paginate($query);
-
-        $this->set(compact('orders'));
+        $this->set(compact('orders', 'user'));
     }
 
     /**
@@ -52,6 +51,7 @@ class OrdersController extends AppController
     public function view($id = null)
     {
         $order = $this->Orders->get($id, contain: ['Users', 'Items']);
+        $this->Authorization->authorize($order, 'view');
         $this->set(compact('order'));
     }
 
@@ -62,6 +62,7 @@ class OrdersController extends AppController
      */
     public function add()
     {
+        $this->Authorization->skipAuthorization();
         $order = $this->Orders->newEmptyEntity();
         if ($this->request->is('post')) {
             $order = $this->Orders->patchEntity($order, $this->request->getData());
@@ -96,6 +97,7 @@ class OrdersController extends AppController
     public function edit($id = null)
     {
         $order = $this->Orders->get($id, contain: ['Items']);
+        $this->Authorization->authorize($order, 'edit');
         if ($this->request->is(['patch', 'post', 'put'])) {
             $order = $this->Orders->patchEntity($order, $this->request->getData());
 
@@ -130,6 +132,7 @@ class OrdersController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $order = $this->Orders->get($id);
+        $this->Authorization->aurhorize($order, 'delete');
         if ($this->Orders->delete($order)) {
             $this->Flash->success(__('The order has been deleted.'));
         } else {
