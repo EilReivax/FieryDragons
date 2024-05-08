@@ -56,6 +56,5 @@ class ItemPolicy
      */
     public function canView(IdentityInterface $user, Item $item)
     {
-        return true;
     }
 }
