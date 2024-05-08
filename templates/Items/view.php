@@ -6,6 +6,7 @@
 ?>
 <div class="column column-80">
     <div class="items view content">
+    <h3 class = "order-status-heading"><?= _($item->name) ?></h3>
         
         <!-- Display item photo -->
         <div class="item-photo">
@@ -15,7 +16,7 @@
             <?= $this->Html->image('default.png', ['alt' => 'Default']) ?>
         <?php endif; ?>
     </div>
-        <h3><?= h($item->name) ?></h3>
+        
         <div class="text">
             <strong><?= __('Description') ?></strong>
             <blockquote>
