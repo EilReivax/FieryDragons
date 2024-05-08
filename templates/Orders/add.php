@@ -44,7 +44,7 @@
                 echo $this->Form->control('note');
                 echo $this->Form->hidden('subtotal', ['value' => '0.00']);
                 echo $this->Form->hidden('delivery_fee', ['value' => '0.00']);
-                echo $this->Form->control('user_id', ['options' => $users]);
+                echo $this->Form->hidden('user_id', ['value' => $currentUser->id]);
                 ?>
                 <legend><?= __('Select Menu Items: *') ?></legend>
                 <?php
