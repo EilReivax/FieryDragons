@@ -15,7 +15,7 @@ class OrdersController extends AppController
         parent::initialize();
         // By default, CakePHP will (sensibly) default to preventing users from accessing any actions on a controller.
         // These actions, however, are typically required for users who have not yet logged in.
-        $this->Authentication->allowUnauthenticated(['view', 'add']);
+        $this->Authentication->allowUnauthenticated(['view']);
     }
 
     /**
@@ -78,14 +78,17 @@ class OrdersController extends AppController
                 $order->subtotal = $subtotal;
                 if ($this->Orders->save($order)) {
                     $this->Flash->success(__('The order has been saved.'));
-                    return $this->redirect(['action' => 'index']);
+                    return $this->redirect(['action' => 'view', $order->id]);
                 }
                 $this->Flash->error(__('The order could not be saved. Please, try again.'));
             }
         }
         $currentUser = $this->Authentication->getIdentity();
         $users = $this->Orders->Users->find('list', limit: 200)->all();
-        $items = $this->Orders->Items->find('list', limit: 200)->all();
+        $items = $this->Orders->Items->find('list', [
+            'limit' => 200,
+            'conditions' => ['Items.availability' => 1]
+        ])->all();
         $this->set(compact('order', 'users', 'items', 'currentUser'));
     }
 
@@ -113,7 +116,7 @@ class OrdersController extends AppController
                 $order->subtotal = $subtotal;
                 if ($this->Orders->save($order)) {
                     $this->Flash->success(__('The order has been saved.'));
-                    return $this->redirect(['action' => 'index']);
+                    return $this->redirect(['action' => 'view', $order->id]);
                 }
                 $this->Flash->error(__('The order could not be saved. Please, try again.'));
             }
