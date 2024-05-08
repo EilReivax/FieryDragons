@@ -44,15 +44,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <li><a href="/items" style="font-size: larger">Menu</a></li>
             <li><a href="/orders" style="font-size: larger">Orders</a></li>
             <li><a href="/users" style="font-size: larger">Users</a></li>
+            <li><a href="/users/view/<?=$this->Identity->get('id') ?>" style="font-size: larger">My Profile</a></li>
         </ul>
     </nav>
     <div class="icons">
         <?= $this->Html->link('Edit Home Page', ['plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>
-        <!--
-        <a href="/img/profileIcon.png">
-            <?php /*= $this->Html->image('profileIcon.png', ['alt' => 'Icon 2', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon2']]) */?>
-        </a>
-        -->
         <?php
         if ($this->Identity->isLoggedIn()) {
             echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout']);

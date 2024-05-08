@@ -43,15 +43,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <li><a href="/" style="font-size: larger">Home</a></li>
             <li><a href="/items" style="font-size: larger">Menu</a></li>
             <li><a href="/orders" style="font-size: larger">My Orders</a></li>
+            <?php if ($this->Identity->isLoggedIn()): ?>
+            <li><a href="/users/view/<?=$this->Identity->get('id') ?>" style="font-size: larger">My Profile</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
     <div class="icons">
 <!--        <a href="/img/ShoppingBasketIcon.jpg">
             <?php /*= $this->Html->image('ShoppingBasketIcon.jpg', ['alt' => 'Icon 1', 'url' => ['controller' => 'ControllerName', 'action' => 'actionForIcon1']]) */?>
         </a>-->
-        <a href="/img/profileIcon.png">
-            <?= $this->Html->image('profileIcon.png', ['alt' => 'Profile', 'url' => ['controller' => 'Users', 'action' => 'view', $this->Identity->get('id')]]) ?>
-        </a>
         <?php
         if ($this->Identity->isLoggedIn()) {
             echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout','plugin' => false]);
