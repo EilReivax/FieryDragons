@@ -22,13 +22,6 @@
                     echo $this->Form->control('phone', ['type' => 'number']);
                     echo $this->Form->control('email');
                     echo $this->Form->control('password');
-                    echo $this->Form->control('address');
-                    echo $this->Form->control('suburb');
-                    echo $this->Form->control('state', ['options' => ['ACT' => 'ACT', 'NSW' => 'NSW', 'NT' => 'NT','QLD' => 'QLD', 'SA' => 'SA', 'TAS' =>'TAS', 'VIC' => 'VIC', 'WA' => 'WA']]);
-                    echo $this->Form->control('postcode');
-                    echo $this->Form->control('card_number', ['type' => 'number']);
-                    echo $this->Form->control('card_cvv', ['type' => 'number']);
-                    echo $this->Form->control('card_expiry', ['type' => 'month', 'empty' => true]);
                     echo $this->Form->control('admin');
                 ?>
             </fieldset>
