@@ -37,6 +37,14 @@
             </tr>
 
             </table>
+            <!-- Back Button -->
+        <button onclick="goBack()">Back To Menu</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
             <!--<div class="related">
                 <h4><?php /*= __('Related Orders') */?></h4>
                 <?php /*if (!empty($item->orders)) : */?>
