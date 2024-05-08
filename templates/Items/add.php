@@ -14,7 +14,7 @@
     </aside>
     <div class="column column-80">
         <div class="items form content">
-            <?= $this->Form->create($item) ?>
+            <?= $this->Form->create($item, ['type' => 'file']) ?>
             <fieldset>
                 <legend><?= __('Add Item') ?></legend>
                 <?php

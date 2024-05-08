@@ -62,10 +62,30 @@ class ItemsController extends AppController
         $item = $this->Items->newEmptyEntity();
         $this->Authorization->authorize($item, 'add');
         if ($this->request->is('post')) {
-            $item = $this->Items->patchEntity($item, $this->request->getData());
+            $this->Items->patchEntity($item, $this->request->getData());
+            $photo = $this->request->getData('photo');
+            if ($photo && $photo->getError() == UPLOAD_ERR_OK) {
+                $acceptableTypes = ['image/jpeg', 'image/png'];
+                if (in_array($photo->getClientMediaType(), $acceptableTypes)) {
+                    $filename = $photo->getClientFilename();
+                    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+                    $newFilename = uniqid() . '.' . $extension;
+                    $destination = WWW_ROOT . 'img' . DS . $newFilename;
+                    try {
+                        $photo->moveTo($destination);
+                        $item->photo = $newFilename;
+                    } catch (\Exception $e) {
+                        $this->Flash->error(__('The file could not be saved. Please, try again.'));
+                    }
+                } else {
+                    $this->Flash->error(__('Invalid file type. Please upload a JPEG or PNG image.'));
+                }
+            } else {
+                $item->photo = 'default.png';
+            }
+
             if ($this->Items->save($item)) {
                 $this->Flash->success(__('The item has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The item could not be saved. Please, try again.'));
@@ -86,12 +106,35 @@ class ItemsController extends AppController
         $item = $this->Items->get($id, contain: ['Orders']);
         $this->Authorization->authorize($item, 'edit');
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $item = $this->Items->patchEntity($item, $this->request->getData());
+            $data = $this->request->getData();
+            $photo = $data['photo'];
+            if ($photo && $photo->getError() == UPLOAD_ERR_OK) {
+                $acceptableTypes = ['image/jpeg', 'image/png'];
+                if (in_array($photo->getClientMediaType(), $acceptableTypes)) {
+                    $filename = $photo->getClientFilename();
+                    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+                    $newFilename = uniqid() . '.' . $extension;
+                    $destination = WWW_ROOT . 'img' . DS . $newFilename;
+                    try {
+                        $photo->moveTo($destination);
+                        $data['photo'] = $newFilename;
+                    } catch (\Exception $e) {
+                        $this->Flash->error(__('The file could not be saved. Please, try again.'));
+                    }
+                } else {
+                    $this->Flash->error(__('Invalid file type. Please upload a JPEG or PNG image.'));
+                }
+            } else {
+                $data['photo'] = $item->photo;
+            }
+
+            $item = $this->Items->patchEntity($item, $data);
+
             if ($this->Items->save($item)) {
                 $this->Flash->success(__('The item has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
+
             $this->Flash->error(__('The item could not be saved. Please, try again.'));
         }
         $orders = $this->Items->Orders->find('list', limit: 200)->all();
