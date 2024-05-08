@@ -9,7 +9,7 @@
         <?= $this->Html->link(__('New Item'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <?php endif; ?>
     <?= $this->Html->link(__('New Order'), ['controller' => 'Orders', 'action' => 'add'], ['class' => 'button float-right']) ?>
-    <h1><?= __('Weeky Menu') ?></h1>
+    <h1><?= __('Weekly Menu') ?></h1>
     <div class="item-list">
     <div class="row">
         <?php $counter = 0; ?>
