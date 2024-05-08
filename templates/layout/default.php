@@ -54,7 +54,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </a>-->
         <?php
         if ($this->Identity->isLoggedIn()) {
-            echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout']);
+            echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout','plugin' => false]);
         } else {
             echo $this->Html->link(
                 'Log in',

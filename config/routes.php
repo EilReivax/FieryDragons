@@ -12,8 +12,9 @@ return function (RouteBuilder $routes): void {
         $builder->connect('/pages/', 'Pages::display');
         $builder->fallbacks();
     });
-    
-     
+
+    $routes->connect('/content-blocks/auth/logout', ['controller' => 'Auth', 'action' => 'logout']);
+
 //If you need a different set of middleware or none at all,
 //open new scope and define routes there.*
 $routes->scope('/api', function (RouteBuilder $builder): void {
