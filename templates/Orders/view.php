@@ -4,14 +4,17 @@
  * @var \App\Model\Entity\Order $order
  */
 ?>
+
+
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Order'), ['action' => 'edit', $order->id], ['class' => 'side-nav-item']) ?>
+        <h3 class="order-status-heading"><?= __('Order Status') ?></h3>
+
+            <!-- <?= $this->Html->link(__('Edit Order'), ['action' => 'edit', $order->id], ['class' => 'side-nav-item']) ?>
             <?= $this->Form->postLink(__('Delete Order'), ['action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id), 'class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('List Orders'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Order'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('New Order'), ['action' => 'add'], ['class' => 'side-nav-item']) ?> -->
         </div>
     </aside>
     <div class="column column-80">
@@ -52,6 +55,7 @@
                 </blockquote>
             </div>-->
             <table>
+            
                 <!--<tr>
                     <th><?php /*= __('Suburb') */?></th>
                     <td><?php /*= h($order->suburb) */?></td>
@@ -107,6 +111,14 @@
                         </tr>
                         <?php endforeach; ?>
                     </table>
+                                <!-- Back Button -->
+        <button onclick="goBack()">Back To Orders</button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
                 </div>
                 <?php endif; ?>
             </div>
