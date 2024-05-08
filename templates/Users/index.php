@@ -17,10 +17,6 @@
                     <th><?= $this->Paginator->sort('family_name') ?></th>
                     <th><?= $this->Paginator->sort('phone') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
-                    <!--<th><?php /*= $this->Paginator->sort('address') */?></th>
-                    <th><?php /*= $this->Paginator->sort('suburb') */?></th>
-                    <th><?php /*= $this->Paginator->sort('state') */?></th>
-                    <th><?php /*= $this->Paginator->sort('postcode') */?></th>-->
                     <th><?= $this->Paginator->sort('admin') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
@@ -35,10 +31,6 @@
                         <td><?= h($user->family_name) ?></td>
                         <td><?= h($user->phone) ?></td>
                         <td><?= h($user->email) ?></td>
-                        <!--<td><?php /*= h($user->address) */?></td>
-                        <td><?php /*= h($user->suburb) */?></td>
-                        <td><?php /*= h($user->state) */?></td>
-                        <td><?php /*= $user->postcode === null ? '' : $this->Number->format($user->postcode) */?></td>-->
                         <td><?= h($user->admin) ?></td>
                         <td><?= h($user->created->format('d/m/Y, H:i:s')) ?></td>
                         <td><?= h($user->modified->format('d/m/Y, H:i:s')) ?></td>

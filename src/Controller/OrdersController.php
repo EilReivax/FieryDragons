@@ -25,6 +25,7 @@ class OrdersController extends AppController
      */
     public function index()
     {
+        $this->Authorization->skipAuthorization();
         $query = $this->Orders->find()
             ->where(['Orders.user_id' => $this->Authentication->getIdentity()->id])
             ->contain(['Users']);
@@ -50,7 +51,7 @@ class OrdersController extends AppController
      */
     public function view($id = null)
     {
-        $order = $this->Orders->get($id, contain: ['Users', 'Items', 'Payments']);
+        $order = $this->Orders->get($id, contain: ['Users', 'Items']);
         $this->set(compact('order'));
     }
 
