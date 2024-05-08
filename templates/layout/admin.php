@@ -69,4 +69,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?= $this->Flash->render() ?>
 <?= $this->fetch('content') ?>
 
+<!-- Contact Us Now Section -->
+<section class="contact-us-now">
+    <h2>Contact Us Now</h2>
+    <p><?= $this->ContentBlock->text('email'); ?></p>
+    <p><?= $this->ContentBlock->text('phone'); ?></p>
+    <p><?= $this->ContentBlock->text('address'); ?></p>
+</section>
+
+
+<footer>
+    <p>&copy; <?= date('Y') ?> <?= $this->ContentBlock->text('copyright-message'); ?></p>
+</footer>
+
 
