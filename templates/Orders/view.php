@@ -68,11 +68,11 @@
                 </tr>-->
                 <tr>
                     <th><?= __('Delivery Fee') ?></th>
-                    <td>$<?= $this->Number->format($order->delivery_fee) ?></td>
+                    <td>$<?= $this->Number->format($order->delivery_fee, ['places' => 2]) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Subtotal') ?></th>
-                    <td>$<?= $this->Number->format($order->subtotal) ?></td>
+                    <td>$<?= $this->Number->format($order->subtotal, ['places' => 2]) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>
