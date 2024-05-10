@@ -15,6 +15,7 @@
         <?php $counter = 0; ?>
         <?php $totalItems = count($items); ?> <!-- Get total number of items -->
         <?php foreach ($items as $index => $item): ?>
+        <?php if ($item->availability || ($user && $user->admin)): ?>
         <div class="col">
             <div class="item">
             <div class="item-image">
@@ -27,6 +28,10 @@
                     <div>Price: $<?= $this->Number->format($item->price, ['places' => 2]) ?></div>
                     <!-- Display item type -->
                     <div>Type: <?= h($item->type) ?></div>
+                    <!-- Display availability for non-admin users -->
+                    <?php if ($user && $user->admin): ?>
+                        <div>Available: <?= $item->availability ? 'Yes' : 'No' ?></div>
+                    <?php endif; ?>
                 </div>
                 <div class="item-actions">
                     <!-- Display actions -->
@@ -43,6 +48,7 @@
     </div>
     <?php if ($index !== $totalItems - 1): ?> <!-- Check if it's not the last item -->
         <div class="row bottom-row"> <!-- Add a class to the bottom row -->
+            <?php endif; ?>
     <?php endif; ?>
     <?php endif; ?>
     <?php endforeach; ?>

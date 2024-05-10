@@ -12,7 +12,7 @@
         <div class="item-photo">
         <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
         </div>
-        
+
         <div class="text">
             <strong><?= __('Description') ?></strong>
             <blockquote>
@@ -27,10 +27,6 @@
             <tr>
                 <th><?= __('Type') ?></th>
                 <td><?= h($item->type) ?></td>
-            </tr>
-            <tr>
-                <th><?= __('Availability') ?></th>
-                <td><?= $item->availability ? __('Yes') : __('No'); ?></td>
             </tr>
 
             </table>
