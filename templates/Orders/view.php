@@ -68,11 +68,11 @@
                 </tr>-->
                 <tr>
                     <th><?= __('Delivery Fee') ?></th>
-                    <td><?= $this->Number->format($order->delivery_fee) ?></td>
+                    <td>$<?= $this->Number->format($order->delivery_fee) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Subtotal') ?></th>
-                    <td><?= $this->Number->format($order->subtotal) ?></td>
+                    <td>$<?= $this->Number->format($order->subtotal) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>
@@ -97,7 +97,7 @@
                         <?php foreach ($order->items as $item) : ?>
                         <tr>
                             <td><?= h($item->name) ?></td>
-                            <td><?= h($item->price) ?></td>
+                            <td>$<?= h($item->price) ?></td>
                             <td><?= h($item->type) ?></td>
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Items', 'action' => 'view', $item->id]) ?>
