@@ -84,10 +84,12 @@
                     <th><?= __('Modified') ?></th>
                     <td><?= h($user->modified->format('d/m/Y, H:i:s')) ?></td>
                 </tr>
+                <?php if ($user->admin): ?>
                 <tr>
                     <th><?= __('Admin') ?></th>
                     <td><?= $user->admin ? __('Yes') : __('No'); ?></td>
                 </tr>
+                <?php endif; ?>
             </table>
             <div class="related">
                 <h4><?= __('My Orders') ?></h4>
