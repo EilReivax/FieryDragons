@@ -10,14 +10,12 @@
     <aside class="column">
         <div class="side-nav">
         <h3 class="order-status-heading"><?= __('Make An Order') ?></h3>
-            
+
         </div>
     </aside>
     <div class="column column-80">
         <div class="orders form content">
             <?= $this->Form->create($order) ?>
-            <fieldset>
-                <legend><?= __('Add Order') ?></legend>
                 <?php
                 echo $this->Form->hidden('status', ['value' => 'Pending']);
                 echo $this->Form->control('delivery_method', [
@@ -50,13 +48,13 @@
                 <?php
                     echo $this->Form->control('items._ids', ['options' => $items, 'multiple' => 'checkbox', 'label' => false]);
                 ?>
-                
+
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
-            
-           
+
+
             <?= $this->Form->end() ?>
         </div>
-        
+
     </div>
 </div>
