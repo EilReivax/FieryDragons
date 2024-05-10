@@ -10,10 +10,14 @@ $debug = Configure::read('debug');
 $this->layout = 'login';
 $this->assign('title', 'Login');
 ?>
+<?= $this->Html->css('login.css') ?>
 <div class="container login">
     <div class="row">
         <div class="column column-50 column-offset-25">
             <div class="users form content">
+                <div class="logo-container">
+                <?= $this->ContentBlock->image('logo', ["width" => "200"]); ?>
+                </div>
 
                 <?= $this->Form->create() ?>
 
