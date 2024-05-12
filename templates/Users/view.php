@@ -78,6 +78,13 @@
                 <tr>
                 -->
                 <?php if ($user->admin): ?>
+                <th><?= __('Created') ?></th>
+                    <td><?= h($user->created->format('d/m/Y, H:i:s')) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Modified') ?></th>
+                    <td><?= h($user->modified->format('d/m/Y, H:i:s')) ?></td>
+                </tr>
                 <tr>
                     <th><?= __('Admin') ?></th>
                     <td><?= $user->admin ? __('Yes') : __('No'); ?></td>
