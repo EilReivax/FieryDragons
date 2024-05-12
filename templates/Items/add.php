@@ -16,7 +16,6 @@
         <div class="items form content">
             <?= $this->Form->create($item, ['type' => 'file']) ?>
             <fieldset>
-                <legend><?= __('Add Item') ?></legend>
                 <?php
                     echo $this->Form->control('name', ['label' => ['text' => 'Name *', 'escape' => false]]);
                     echo $this->Form->control('description');

@@ -8,14 +8,13 @@
     <aside class="column">
         <div class="side-nav">
         <h3 class="order-status-heading"><?= __('Add User') ?></h3>
-            
+
         </div>
     </aside>
     <div class="column column-80">
         <div class="users form content">
             <?= $this->Form->create($user) ?>
             <fieldset>
-                <legend><?= __('Add User') ?></legend>
                 <?php
                     echo $this->Form->control('given_name');
                     echo $this->Form->control('family_name');
