@@ -125,7 +125,8 @@ class OrdersController extends AppController
             }
         }
         $users = $this->Orders->Users->find('list', limit: 200)->all();
-        $items = $this->Orders->Items->find('list', limit: 200)->all();
+        $items = $this->Orders->Items->find('list', limit: 200)->where('availability');
+
         $this->set(compact('order', 'users', 'items'));
     }
 
