@@ -15,7 +15,6 @@
         <?php $counter = 0; ?>
         <?php $totalItems = count($items); ?> <!-- Get total number of items -->
         <?php foreach ($items as $index => $item): ?>
-        <?php if ($item->availability || ($user && $user->admin)): ?>
         <div class="col">
             <div class="item">
             <div class="item-image">
@@ -48,7 +47,6 @@
     </div>
     <?php if ($index !== $totalItems - 1): ?> <!-- Check if it's not the last item -->
         <div class="row bottom-row"> <!-- Add a class to the bottom row -->
-            <?php endif; ?>
     <?php endif; ?>
     <?php endif; ?>
     <?php endforeach; ?>
