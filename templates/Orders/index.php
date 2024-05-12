@@ -11,7 +11,7 @@
         <table>
             <thead>
                 <tr>
-                    <!-- <th><?= $this->Paginator->sort('id') ?></th> -->
+                    <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('user_id') ?></th>
                     <th><?= $this->Paginator->sort('status') ?></th>
                     <!--<th><?php /*= $this->Paginator->sort('delivery_method') */?></th>
@@ -28,7 +28,7 @@
             <tbody>
                 <?php foreach ($orders as $order): ?>
                 <tr>
-                    <!-- <td><?= h($order->id) ?></td> -->
+                    <td><?= h($order->id) ?></td>
                     <td><?= $order->hasValue('user') ? $this->Html->link($order->user->given_name, ['controller' => 'Users', 'action' => 'view', $order->user->id]) : '' ?></td>
                     <td><?= h($order->status) ?></td>
                     <!--<td><?php /*= h($order->delivery_method) */?></td>

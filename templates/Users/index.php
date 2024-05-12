@@ -12,7 +12,7 @@
         <table>
             <thead>
                 <tr>
-                    <!-- <th><?= $this->Paginator->sort('id') ?></th> -->
+                    <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('given_name') ?></th>
                     <th><?= $this->Paginator->sort('family_name') ?></th>
                     <th><?= $this->Paginator->sort('phone') ?></th>
@@ -26,7 +26,7 @@
             <tbody>
                     <?php foreach ($users as $user): ?>
                     <tr>
-                        <!-- <td><?= h($user->id) ?></td> -->
+                        <td><?= h($user->id) ?></td>
                         <td><?= h($user->given_name) ?></td>
                         <td><?= h($user->family_name) ?></td>
                         <td><?= h($user->phone) ?></td>

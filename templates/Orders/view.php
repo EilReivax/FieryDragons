@@ -20,10 +20,10 @@
         <div class="orders view content">
             <h3><?= h($order->status) . " " . h($order->delivery_method) ?></h3>
             <table>
-                <!-- <tr>
+                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= h($order->id) ?></td>
-                </tr> -->
+                </tr>
                 <tr>
                     <th><?= __('User') ?></th>
                     <td><?= $order->hasValue('user') ? $this->Html->link($order->user->given_name, ['controller' => 'Users', 'action' => 'view', $order->user->id]) : '' ?></td>
