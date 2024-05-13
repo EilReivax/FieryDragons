@@ -8,7 +8,7 @@ use Cake\ORM\Entity;
 /**
  * Order Entity
  *
- * @property string $id
+ * @property int $id
  * @property string $delivery_method
  * @property string $status
  * @property string $address
@@ -20,10 +20,9 @@ use Cake\ORM\Entity;
  * @property string|null $note
  * @property \Cake\I18n\DateTime $created
  * @property \Cake\I18n\DateTime $modified
- * @property string $user_id
+ * @property int $user_id
  *
  * @property \App\Model\Entity\User $user
- * @property \App\Model\Entity\Payment[] $payments
  * @property \App\Model\Entity\Item[] $items
  */
 class Order extends Entity
@@ -51,7 +50,6 @@ class Order extends Entity
         'modified' => true,
         'user_id' => true,
         'user' => true,
-        'payments' => true,
         'items' => true,
     ];
 }

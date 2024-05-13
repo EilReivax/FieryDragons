@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
 /**
  * User Entity
  *
- * @property string $id
+ * @property int $id
  * @property string $given_name
  * @property string $family_name
  * @property string $phone
@@ -17,13 +17,6 @@ use Cake\ORM\Entity;
  * @property string $password
  * @property string|null $nonce
  * @property \Cake\I18n\DateTime|null $nonce_expiry
- * @property string|null $address
- * @property string|null $suburb
- * @property string|null $state
- * @property int|null $postcode
- * @property string|null $card_number
- * @property string|null $card_cvv
- * @property \Cake\I18n\Date|null $card_expiry
  * @property bool $admin
  * @property \Cake\I18n\DateTime $created
  * @property \Cake\I18n\DateTime $modified

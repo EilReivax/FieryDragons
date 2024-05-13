@@ -8,8 +8,8 @@ use Cake\ORM\Entity;
 /**
  * OrdersItem Entity
  *
- * @property string $order_id
- * @property string $item_id
+ * @property int $order_id
+ * @property int $item_id
  * @property string $price
  * @property int $quantity
  *

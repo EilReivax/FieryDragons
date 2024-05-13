@@ -8,7 +8,7 @@ use Cake\ORM\Entity;
 /**
  * Item Entity
  *
- * @property string $id
+ * @property int $id
  * @property string $name
  * @property string|null $description
  * @property string $price

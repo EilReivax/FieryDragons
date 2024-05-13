@@ -117,7 +117,7 @@ class OrdersTable extends Table
             ->allowEmptyString('note');
 
         $validator
-            ->uuid('user_id')
+            ->integer('user_id')
             ->notEmptyString('user_id');
 
         return $validator;
