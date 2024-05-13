@@ -7,8 +7,7 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-        <h3 class="order-status-heading"><?= __('Add User') ?></h3>
-
+            <h3 class="order-status-heading"><?= __('Add User') ?></h3>
         </div>
     </aside>
     <div class="column column-80">
