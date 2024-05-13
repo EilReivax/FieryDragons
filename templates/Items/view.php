@@ -20,13 +20,15 @@
             <div class="text">
 
             <div class="txt1">
+                <p><strong><?= __('Price') ?></strong>: $<?= $this->Number->format($item->price, ['places' => 2]) ?></p>
                     <strong><?= __('Description') ?></strong>
                     <blockquote>
                         <?= $this->Text->autoParagraph(h($item->description)); ?>
                     </blockquote>
                 </div>
-                <p><strong><?= __('Price') ?></strong>: $<?= $this->Number->format($item->price, ['places' => 2]) ?></p>
+
                 <p><strong><?= __('Type') ?></strong>: <?= h($item->type) ?></p>
+
             </div>
         </div>
 
