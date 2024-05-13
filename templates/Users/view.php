@@ -16,10 +16,10 @@
     </aside>
     <div class="column column-80">
         <div class="users view content">
-            <h3><?= h($user->given_name) ?></h3>
+            <h3><?= "User Details" ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Id') ?></th>
+                    <th><?= __('User ID') ?></th>
                     <td><?= h($user->id) ?></td>
                 </tr>
                 <tr>
@@ -63,22 +63,10 @@
                     <th><?= __('Nonce Expiry') ?></th>
                     <td><?= h($user->nonce_expiry) ?></td>
                 </tr>
-                <tr>
-                    <th><?= __('Card Number') ?></th>
-                    <td><?= h($user->card_number) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Card Cvv') ?></th>
-                    <td><?= h($user->card_cvv) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Card Expiry') ?></th>
-                    <td><?= h($user->card_expiry) ?></td>
-                </tr>
-                <tr>
                 -->
                 <?php if ($user->admin): ?>
-                <th><?= __('Created') ?></th>
+                <tr>
+                    <th><?= __('Created') ?></th>
                     <td><?= h($user->created->format('d/m/Y, H:i:s')) ?></td>
                 </tr>
                 <tr>
@@ -98,33 +86,33 @@
                     <table>
                         <tr>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('Delivery Method') ?></th>
                             <th><?= __('Status') ?></th>
+                            <th><?= __('Delivery Method') ?></th>
                             <!--<th><?php /*= __('Address') */?></th>
                             <th><?php /*= __('Suburb') */?></th>
                             <th><?php /*= __('State') */?></th>
-                            <th><?php /*= __('Postcode') */?></th>-->
-                            <th><?= __('Delivery Fee') ?></th>
+                            <th><?php /*= __('Postcode') */?></th>
+                            <th><?php /*= __('Delivery Fee') */?></th>-->
                             <th><?= __('Subtotal') ?></th>
-<!--                            <th>--><?php //= __('Note') ?><!--</th>-->
-                            <th><?= __('Created') ?></th>
-                            <th><?= __('Modified') ?></th>
+                            <!--<th><?php /*= __('Note') */?></th>
+                            <th><?php /*= __('Created') */?></th>
+                            <th><?php /*= __('Modified') */?></th>-->
                             <th class="actions"><?= __('Actions') ?></th>
                         </tr>
                         <?php foreach ($user->orders as $order) : ?>
                         <tr>
                             <td><?= h($order->id) ?></td>
-                            <td><?= h($order->delivery_method) ?></td>
                             <td><?= h($order->status) ?></td>
+                            <td><?= h($order->delivery_method) ?></td>
                             <!--<td><?php /*= h($order->address) */?></td>
                             <td><?php /*= h($order->suburb) */?></td>
                             <td><?php /*= h($order->state) */?></td>
-                            <td><?php /*= h($order->postcode) */?></td>-->
-                            <td><?= h($order->delivery_fee) ?></td>
-                            <td><?= h($order->subtotal) ?></td>
-<!--                            <td>--><?php //= h($order->note) ?><!--</td>-->
-                            <td><?= h($order->created) ?></td>
-                            <td><?= h($order->modified) ?></td>
+                            <td><?php /*= h($order->postcode) */?></td>
+                            <td><?php /*= h($order->delivery_fee) */?></td>-->
+                            <td>$<?= h($order->subtotal) ?></td>
+                            <!--<td><?php /*= h($order->note) */?></td>
+                            <td><?php /*= h($order->created) */?></td>
+                            <td><?php /*= h($order->modified) */?></td>-->
                             <td class="actions">
                                 <?= $this->Html->link(__('View'), ['controller' => 'Orders', 'action' => 'view', $order->id]) ?>
 <!--                                --><?php //= $this->Form->postLink(__('Delete'), ['controller' => 'Orders', 'action' => 'delete', $order->id], ['confirm' => __('Are you sure you want to delete # {0}?', $order->id)]) ?>

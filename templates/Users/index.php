@@ -18,8 +18,8 @@
                     <th><?= $this->Paginator->sort('phone') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('admin') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
+                    <!--<th><?php /*= $this->Paginator->sort('created') */?></th>
+                    <th><?php /*= $this->Paginator->sort('modified') */?></th>-->
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -32,8 +32,8 @@
                         <td><?= h($user->phone) ?></td>
                         <td><?= h($user->email) ?></td>
                         <td><?= h($user->admin) ?></td>
-                        <td><?= h($user->created->format('d/m/Y, H:i:s')) ?></td>
-                        <td><?= h($user->modified->format('d/m/Y, H:i:s')) ?></td>
+                        <!--<td><?php /*= h($user->created->format('d/m/Y, H:i:s')) */?></td>
+                        <td><?php /*= h($user->modified->format('d/m/Y, H:i:s')) */?></td>-->
                         <td class="actions">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>

@@ -18,11 +18,11 @@
     </aside>-->
     <div class="column column-80">
         <div class="orders view content">
-            <h3><?= h($order->status) . " " . h($order->delivery_method) ?></h3>
+            <h3>Order Details</h3>
             <table>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= h($order->id) ?></td>
+                    <th><?= __('Order ID')?></th>
+                    <td><?= h($order->id)?></td>
                 </tr>
                 <tr>
                     <th><?= __('User') ?></th>
@@ -35,6 +35,14 @@
                 <tr>
                     <th><?= __('Delivery Method') ?></th>
                     <td><?= h($order->delivery_method) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Created') ?></th>
+                    <td><?= h($order->created->format('d/m/Y, H:i:s')) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Modified') ?></th>
+                    <td><?= h($order->modified->format('d/m/Y, H:i:s')) ?></td>
                 </tr>
             </table>
             <div class="text">
@@ -66,25 +74,9 @@
                     <th><?php /*= __('Postcode') */?></th>
                     <td><?php /*= h($order->postcode) */?></td>
                 </tr>-->
-                <tr>
-                    <th><?= __('Delivery Fee') ?></th>
-                    <td>$<?= $this->Number->format($order->delivery_fee, ['places' => 2]) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Subtotal') ?></th>
-                    <td>$<?= $this->Number->format($order->subtotal, ['places' => 2]) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($order->created->format('d/m/Y, H:i:s')) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Modified') ?></th>
-                    <td><?= h($order->modified->format('d/m/Y, H:i:s')) ?></td>
-                </tr>
             </table>
             <div class="related">
-                <h4><?= __('Items') ?></h4>
+                <h3>Items</h3>
                 <?php if (!empty($order->items)) : ?>
                 <div class="table-responsive">
                     <table>
@@ -112,26 +104,31 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="related">
-                <h4><?= __('PayID - Please pay the full amount to the following PayID') ?></h4>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <th><?= __('Name') ?></th>
-                            <td><?=__('Apurba') ?></td>
-                        </tr>
-                        <tr>
-                            <th><?= __('Phone Number') ?></th>
-                            <td><?= __('0412345678') ?></td>
-                        </tr>
-                        <tr>
-                            <th><a href="https://payid.com.au/how-it-works/" target="_blank" style="color: dodgerblue;"><?= __('What is PayID?') ?></a></th>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            <h3>Totals</h3>
+            <table>
+                <tr>
+                    <th><?= __('Delivery Fee') ?></th>
+                    <td>$<?= $this->Number->format($order->delivery_fee, ['places' => 2]) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Subtotal') ?></th>
+                    <td>$<?= $this->Number->format($order->subtotal, ['places' => 2]) ?></td>
+                </tr>
+            </table>
+            <h3>PayID</h3>
+            <a href="https://payid.com.au/how-it-works/" target="_blank" style="color: dodgerblue;"><?= __('What is PayID?') ?></a>
+            <table>
+                <tr>
+                    <th><?= __('Name') ?></th>
+                    <td><?=__('Apurba') ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Phone Number') ?></th>
+                    <td><?= __('0412345678') ?></td>
+                </tr>
+            </table>
             <!-- Back Button -->
-            <button onclick="goBack()">Back To Orders</button>
+            <button onclick="goBack()">Back</button>
             <script>
                 function goBack() {
                     window.history.back();

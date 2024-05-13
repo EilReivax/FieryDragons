@@ -18,7 +18,7 @@
 
             <!-- Description, Price, Type, Availability -->
             <div class="text">
-                
+
             <div class="txt1">
                     <strong><?= __('Description') ?></strong>
                     <blockquote>
@@ -27,14 +27,13 @@
                 </div>
                 <p><strong><?= __('Price') ?></strong>: $<?= $this->Number->format($item->price, ['places' => 2]) ?></p>
                 <p><strong><?= __('Type') ?></strong>: <?= h($item->type) ?></p>
-                <p><strong><?= __('Availability') ?></strong>: <?= $item->availability ? __('Yes') : __('No'); ?></p>
             </div>
         </div>
 
         <!-- Buttons -->
         <div class="buttons">
             <!-- Back Button -->
-            <button onclick="goBack()">Back To Menu</button>
+            <button onclick="goBack()">Back</button>
             <script>
                 function goBack() {
                     window.history.back();
