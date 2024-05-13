@@ -215,10 +215,7 @@ h1 {
     margin-bottom: 40px; /* Adjust width to fit the content */
 }
 
-.menu-title {
-    margin-bottom: 20px;
-    text-align: center;
-  }
+
 
 .item {
     display: flex;
@@ -257,19 +254,69 @@ h1 {
 }
 
 /* Image center/spacing control in items view  */
+/* Image center/spacing control in items view */
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.items.view.content {
+    width: 80%; /* Adjust width as needed */
+}
+
+.food-details {
+    display: flex;
+    justify-content: space-between; /* Align items in the flex container */
+    margin-top: 20px; /* Adjust spacing */
+}
+
+.item-photo {
+    flex: 1; /* Take up available space */
+    margin-right: 20px; /* Adjust spacing between image and text */
+    margin-top: 40px; /* Add margin to the top */
+}
 
 .item-photo img {
-    width: 500px; /* Set a fixed width for the image */
+    max-width: 100%; /* Ensure image doesn't exceed container width */
     height: auto; /* Maintain aspect ratio */
-    display: block;
-    margin: 0 auto; /* Center the image horizontally */
-    margin-bottom: 50px; /* Add bottom margin */
 }
-.order-status-heading {
-    text-align: center;
-    font-size: 50px; /* Adjust size as needed */
-    font-family: 'Arial', sans-serif; /* Replace 'Arial' with an Italian font */
-    /* Add any additional styling here */
+
+.text {
+    flex: 2; /* Take up available space */
+    margin-top: 10px; /* Adjust spacing */
+}
+
+.buttons {
+    margin-top: 20px; /* Adjust spacing */
+}
+.buttons button {
+    padding: 10px 20px; /* Adjust padding */
+    background-color: #00060b; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 0.8;
+}
+
+.buttons button:hover {
+    background-color: #01070e; /* Hover background color */
+}
+
+.text {
+    margin-top: 10px; /* Adjust spacing */
+}
+
+.text p {
+    margin-bottom: 10px; /* Add space between each paragraph */
+}
+
+.txt1 {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .order-status-index {
@@ -277,6 +324,11 @@ h1 {
     font-size: 50px; /* Adjust size as needed */
     font-family: 'Arial', sans-serif; /* Replace 'Arial' with an Italian font */
     /* Add any additional styling here */
+}
+
+.order-status-heading {
+    text-align: center; /* Center the text horizontally */
+    margin-top: 20px; /* Adjust spacing */
 }
 
 

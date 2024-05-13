@@ -6,30 +6,33 @@
 ?>
 <div class="column column-80">
     <div class="items view content">
-    <h3 class = "order-status-heading"><?= _($item->name) ?></h3>
+        <!-- Food Name on Top -->
+        <h3 class="order-status-heading"><?= _($item->name) ?></h3>
 
-        <!-- Display item photo -->
-        <div class="item-photo">
-        <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
+        <!-- Food details -->
+        <div class="food-details">
+            <!-- Display item photo -->
+            <div class="item-photo">
+                <?= $this->Html->image($item->photo, ['alt' => $item->name]) ?>
+            </div>
+
+            <!-- Description, Price, Type, Availability -->
+            <div class="text">
+                
+            <div class="txt1">
+                    <strong><?= __('Description') ?></strong>
+                    <blockquote>
+                        <?= $this->Text->autoParagraph(h($item->description)); ?>
+                    </blockquote>
+                </div>
+                <p><strong><?= __('Price') ?></strong>: $<?= $this->Number->format($item->price, ['places' => 2]) ?></p>
+                <p><strong><?= __('Type') ?></strong>: <?= h($item->type) ?></p>
+                <p><strong><?= __('Availability') ?></strong>: <?= $item->availability ? __('Yes') : __('No'); ?></p>
+            </div>
         </div>
 
-        <div class="text">
-            <strong><?= __('Description') ?></strong>
-            <blockquote>
-                <?= $this->Text->autoParagraph(h($item->description)); ?>
-            </blockquote>
-        </div>
-        <table>
-            <tr>
-                <th><?= __('Price') ?></th>
-                <td>$<?= $this->Number->format($item->price, ['places' => 2]) ?></td>
-            </tr>
-            <tr>
-                <th><?= __('Type') ?></th>
-                <td><?= h($item->type) ?></td>
-            </tr>
-
-            </table>
+        <!-- Buttons -->
+        <div class="buttons">
             <!-- Back Button -->
             <button onclick="goBack()">Back To Menu</button>
             <script>

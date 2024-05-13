@@ -49,6 +49,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </nav>
     <div class="icons">
         <?= $this->Html->link('Edit Home Page', ['plugin' => 'ContentBlocks', 'controller' => 'ContentBlocks', 'action' => 'index']) ?>
+  
         <?php
         if ($this->Identity->isLoggedIn()) {
             echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout']);
