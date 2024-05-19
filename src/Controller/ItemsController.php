@@ -104,7 +104,6 @@ class ItemsController extends AppController
      */
     public function edit($id = null)
     {
-        $this->request->allowMethod(['post', 'get']);
         $item = $this->Items->get($id, contain: ['Orders']);
         $this->Authorization->authorize($item, 'edit');
         if ($this->request->is(['patch', 'post', 'put'])) {
