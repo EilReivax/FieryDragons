@@ -59,6 +59,7 @@ class ItemsController extends AppController
      */
     public function add()
     {
+        $this->request->allowMethod(['post']);
         $item = $this->Items->newEmptyEntity();
         $this->Authorization->authorize($item, 'add');
         if ($this->request->is('post')) {
@@ -103,6 +104,7 @@ class ItemsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->request->allowMethod(['post']);
         $item = $this->Items->get($id, contain: ['Orders']);
         $this->Authorization->authorize($item, 'edit');
         if ($this->request->is(['patch', 'post', 'put'])) {

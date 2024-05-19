@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\Item $item
  */
 ?>
+<?= $this->Html->script('ajax.js') ?>
 <div class="column column-80">
     <div class="items view content">
         <!-- Food Name on Top -->
