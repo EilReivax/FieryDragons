@@ -59,6 +59,7 @@ class ItemsController extends AppController
      */
     public function add()
     {
+        $this->request->allowMethod(['post']);
         $item = $this->Items->newEmptyEntity();
         $this->Authorization->authorize($item, 'add');
         if ($this->request->is('post')) {

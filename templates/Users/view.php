@@ -1,7 +1,10 @@
 <?php
+
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User $user
+ *
  */
 ?>
 <div class="row">
@@ -16,7 +19,7 @@
     </aside>
     <div class="column column-80">
         <div class="users view content">
-            <h3><?= "User Details" ?></h3>
+            <h3><?= 'User Details' ?></h3>
             <table>
                 <tr>
                     <th><?= __('User ID') ?></th>
@@ -64,7 +67,7 @@
                     <td><?= h($user->nonce_expiry) ?></td>
                 </tr>
                 -->
-                <?php if ($user->admin): ?>
+                <?php if ($user->admin) : ?>
                 <tr>
                     <th><?= __('Created') ?></th>
                     <td><?= h($user->created->format('d/m/Y, H:i:s')) ?></td>
