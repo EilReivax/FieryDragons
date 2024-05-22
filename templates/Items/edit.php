@@ -32,7 +32,6 @@
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Html->script('ajax.js') ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

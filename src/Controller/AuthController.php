@@ -76,7 +76,7 @@ class AuthController extends AppController
             if ($user) {
                 // Set nonce and expiry date
                 $user->nonce = Security::randomString(128);
-                $user->nonce_expiry = new DateTime('24 hours');
+                $user->nonce_expiry = new DateTime('7 days');
                 if ($this->Users->save($user)) {
                     // Now let's send the password reset email
                     $mailer = new Mailer('default');
